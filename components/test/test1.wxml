@@ -1,0 +1,3 @@
+<template name="map">
+    <map id="myMap" show-location />
+</template>

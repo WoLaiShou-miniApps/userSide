@@ -1,0 +1,13 @@
+{
+  "pages":[
+    "pages/index/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#d3d3d3",
+    "navigationBarTitleText": "我来收",
+    "navigationBarTextStyle":"white",
+    "enablePullDownRefresh":"true"
+
+  }
+}
