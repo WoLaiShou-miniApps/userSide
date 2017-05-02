@@ -1,3 +1,36 @@
 <template name="map">
     <map id="myMap" show-location />
 </template>
+
+<template name="uplist">
+    <view class="uplist-panel">
+        <view class="uplist-item">
+            下单
+        </view>
+        <view class="uplist-item">
+            二手
+        </view>
+        <view class="uplist-item">
+            叫车
+        </view>
+    </view>
+</template>
+
+
+<template name="goods-list">
+<view class="goods_left">
+    <block wx:for="{{goods_type}}">
+      <view bindtap="switchRightTab" data-index="{{index}}" class="goods_left_items {{selectLeftid == index ? 'active' : ''}}" >{{item}}</view>
+    </block>
+</view>
+
+<view class="goods_right" >
+        <view class="goods_right_items">
+            <image src="" class="goods_image"></image>
+            <view class="righttext">
+            <text class="name">易拉罐</text>
+            <text class="price">2/斤0</text>
+            </view>
+        </view>
+</view>
+</template>

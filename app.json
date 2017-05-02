@@ -1,13 +1,32 @@
 {
   "pages":[
-    "pages/index/index"
+    "pages/service/service",
+    "pages/index/index",
+    "pages/basket/basket",
+    "pages/user/user"
   ],
   "window":{
     "backgroundTextStyle":"dark",
-    "navigationBarBackgroundColor": "#d3d3d3",
+    "navigationBarBackgroundColor": "#EEEE00",
     "navigationBarTitleText": "我来收",
     "navigationBarTextStyle":"white",
     "enablePullDownRefresh":"true"
-
+  },
+  "tabBar":{
+    "list": [{
+      "pagePath": "pages/service/service",
+      "text": "下单"
+    }, {
+      "pagePath": "pages/basket/basket",
+      "text": "回收车"
+    },{
+      "pagePath": "pages/user/user",
+      "text": "个人中心"
+    }]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
   }
+
 }

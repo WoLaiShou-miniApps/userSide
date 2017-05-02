@@ -1,17 +1,11 @@
-// pages/index/index.js
-var test = require('test1.js')
-
+// pages/user/user.js
 Page({
   data:{},
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
   },
-  showmap:function(){
-      test.showmap()
-  },
   onReady:function(){
     // 页面渲染完成
-    test.showmap()
   },
   onShow:function(){
     // 页面显示
