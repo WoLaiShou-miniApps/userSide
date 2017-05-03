@@ -13,15 +13,25 @@
     "enablePullDownRefresh":"true"
   },
   "tabBar":{
+    "color":"#b3b3b3",
+    "selectedColor": "#515151",
+    "borderStyle":"white",
+    "backgroundColor":"#fff",
     "list": [{
       "pagePath": "pages/service/service",
-      "text": "下单"
+      "text": "下单",
+      "iconPath":"static/image/order.png",
+      "selectedIconPath":"static/image/order_click.png"
     }, {
       "pagePath": "pages/basket/basket",
-      "text": "回收车"
+      "text": "回收车",
+      "iconPath":"static/image/buycar.png",
+      "selectedIconPath":"static/image/buycar_click.png"
     },{
       "pagePath": "pages/user/user",
-      "text": "个人中心"
+      "text": "个人中心",
+      "iconPath":"static/image/user.png",
+      "selectedIconPath":"static/image/user_click.png"
     }]
   },
   "networkTimeout": {
