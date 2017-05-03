@@ -20,17 +20,42 @@
 <template name="goods-list">
 <view class="goods_left">
     <block wx:for="{{goods_type}}">
-      <view bindtap="switchRightTab" data-index="{{index}}" class="goods_left_items {{selectLeftid == index ? 'active' : ''}}" >{{item}}</view>
+      <view bindtap="switchtab" data-index="{{index}}" class="goods_left_items {{selected_type == index ? 'active' : ''}}" >
+       <view class="left_items_{{selected_type == index ? 'polish' : ''}}" ></view>
+      {{item}}
+      </view>
     </block>
 </view>
 
+
 <view class="goods_right" >
-        <view class="goods_right_items">
-            <image src="" class="goods_image"></image>
+    <block wx:for="{{goods}}">
+    <view class="goods_right_items {{selected_goods == index ? 'active' : ''}}">
+        <view class="top_panel">
+            <image src="{{image}}" class="goods_image"></image>
             <view class="righttext">
-            <text class="name">易拉罐</text>
-            <text class="price">2/斤0</text>
+                <text class="name">{{item.name}}</text>
+                <text class="price">{{item.price}}</text>
+            </view>
+            <view bindtap="selectgoods" data-index="{{index}}">
+            <block wx:if="{{item.select<0}}">
+                <image  src="../../image/add.png" class="addbutton"></image>
+            </block>
+            <block wx:else>
+                <image  src="../../image/modify.png" class="addbutton"></image>
+            </block>
             </view>
         </view>
+        <block wx:if="{{index==selected_goods}}">
+        <view class="bottom-panel">
+            <block wx:for="{{price_range}}" wx:for-item="weight_item" wx:for-index="weight_index">
+            <view bindtap="selectweight" data-weight_index="{{weight_index}}" data-index="{{index}}" class="item {{item.select==weight_index ? 'active' : ''}}">
+                {{weight_item}}
+            </view>
+            </block>   
+        </view>
+        </block>
+    </view>
+    </block>
 </view>
 </template>

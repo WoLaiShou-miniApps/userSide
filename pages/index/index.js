@@ -1,5 +1,5 @@
 // pages/index/index.js
-var test = require('test1.js')
+var test = require('../../components/test/test1.js')
 
 Page({
   data:{},

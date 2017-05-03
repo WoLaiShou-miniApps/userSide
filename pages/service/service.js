@@ -1,4 +1,6 @@
 // pages/service/service.js
+var get_function = require('../../components/test/test1.js')
+
 Page({
   data:{
     goods_type:["易拉罐","废报纸","旧书","油桶","酒瓶"],
@@ -19,17 +21,10 @@ Page({
     })
   },
   selectweight:function(e){
-        var copy=this.data.goods
-    if (e.target.dataset.weight_index==copy[e.target.dataset.index].select)
-      copy[e.target.dataset.index].select=-1
-    else
-      copy[e.target.dataset.index].select=e.target.dataset.weight_index
+    var copy = get_function.selectweight(e,this.data.goods)
     this.setData({
         goods: copy 
     })
-  },
-  onLoad:function(options){
-    // 页面初始化 options为页面跳转所带来的参数
   },
   onReady:function(){
     // 页面渲染完成
