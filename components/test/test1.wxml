@@ -39,10 +39,10 @@
             </view>
             <view bindtap="selectgoods" data-index="{{index}}">
             <block wx:if="{{item.select<0}}">
-                <image  src="../../image/add.png" class="addbutton"></image>
+                <image  src="../../static/image/add.png" class="addbutton"></image>
             </block>
             <block wx:else>
-                <image  src="../../image/modify.png" class="addbutton"></image>
+                <image  src="../../static/image/modify.png" class="addbutton"></image>
             </block>
             </view>
         </view>
