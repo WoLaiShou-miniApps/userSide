@@ -1,2 +1,2 @@
 <!--pages/basket/basket.wxml-->
-<text>pages/basket/basket.wxml</text>
+<template is="basket"></template>

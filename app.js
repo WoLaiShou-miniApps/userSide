@@ -6,6 +6,7 @@ App({
     encryptedData:null,
     iv:null,
   },
+  goods_list:[],
   onLaunch: function() { 
     // Do something initial when launch.
     

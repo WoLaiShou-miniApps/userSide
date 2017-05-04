@@ -9,7 +9,9 @@ Page({
     price_range: ["0~10斤", "10~50斤", "50~100斤"],
     selected_type: 0,
     selected_goods: -1,
-    image: ""
+    image: "",
+    Y_Dvalue:0
+
   },
   URL:'http://easy-mock.com/mock/59070ef87a878d73716e3aa7/wx-irecycle/',
   switchtab: function (e) {
@@ -46,7 +48,9 @@ Page({
   },
 
   selectweight: function (e) {
-    console.log(e)
+
+     var D_Value=87*e.target.dataset.index+130.5-e.changedTouches[0].clientY
+     console.log(D_Value)
     var animation = wx.createAnimation({
       duration: 500,
       timingFunction: 'linear',
@@ -56,7 +60,7 @@ Page({
     })
     this.animation = animation
     if (this.data.goods[this.data.selected_type][this.data.selected_goods].select == -1) {
-      animation.translate(-168,30+45+e.target.dataset.index*87-380).step({duration:20})
+      animation.translate(-180,30+45+e.target.dataset.index*87-380-D_Value).step({duration:20})
         animation.opacity(1).scale(3,3).step({duration:20})
         animation.scale(1,1).translate(0,0).step({duration:440})
         animation.opacity(0).step()
