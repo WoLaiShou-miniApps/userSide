@@ -35,13 +35,13 @@ Page({
       image: this.data.goods[this.data.selected_type][this.data.selected_goods].imgUrl
     })
     this.animation = animation
-    if (this.data.goods[e.target.dataset.index].select == -1) {
+    if (this.data.goods[this.data.selected_type][this.data.selected_goods].select == -1) {
       animation.translate(-168,30+45+e.target.dataset.index*87-380).step({duration:20})
         animation.opacity(1).scale(3,3).step({duration:20})
         animation.scale(1,1).translate(0,0).step({duration:440})
         animation.opacity(0).step()
     }
-    else if (this.data.goods[e.target.dataset.index].select == e.target.dataset.weight_index) {
+    else if (this.data.goods[this.data.selected_type][this.data.selected_goods].select == e.target.dataset.weight_index) {
       animation.opacity(1).scale(2, 2).translateY(-40).step({ duration: 200 })
       animation.translateY(-45).translateX(50).rotate(90).step({ duration: 200 })
       animation.opacity(0).scale(1, 1).translateY(0).rotate(0).translateX(0).step({ duration: 0 })
@@ -55,7 +55,7 @@ Page({
     })
 
 
-    var copy = get_function.selectweight(e, this.data.goods)
+    var copy = get_function.selectweight(this.data.selected_type,e, this.data.goods)
     this.setData({
       goods: copy
     })

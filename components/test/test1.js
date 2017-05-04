@@ -13,12 +13,12 @@ function showmap(){
     console.log(this.mapCtx)
 }
 
-function selectweight(e,goods){
+function selectweight(selected_type,e, goods){
     var copy=goods
-    if (e.target.dataset.weight_index==copy[e.target.dataset.index].select)
-      copy[e.target.dataset.index].select=-1
+    if (e.target.dataset.weight_index==copy[selected_type][e.target.dataset.index].select)
+      copy[selected_type][e.target.dataset.index].select=-1
     else
-      copy[e.target.dataset.index].select=e.target.dataset.weight_index
+      copy[selected_type][e.target.dataset.index].select=e.target.dataset.weight_index
     return copy
 }
 
