@@ -7,11 +7,11 @@
         <view bindtap="change_service" data-index="0" class="uplist-item {{service==0 ? 'active':''}}">
             卖废品
         </view>
-        <view class="listbar"></view>
+        
         <view bindtap="change_service" data-index="1" class="uplist-item {{service==1 ? 'active':''}}">
             卖二手
         </view>
-        <view class="listbar"></view>
+        
         <view bindtap="change_service" data-index="2" class="uplist-item {{service==2 ? 'active':''}}">
             叫车
         </view>
