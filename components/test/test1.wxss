@@ -40,6 +40,28 @@ map {
   background: #f0f0f0;
 }
 
+
+.Hover_button-panel{          /*悬浮按钮*/
+  position:fixed;
+  right:5%;
+  bottom:15%;
+
+  width:80rpx;
+  height:80rpx;
+  border-radius: 50%;
+  background:#ce4c32;
+
+  display: flex;
+  align-items:center;
+}
+.Hover_button-panel image{
+  margin-left:16.5rpx;
+  width:50rpx;
+  height:50rpx;
+}
+
+
+
 /*service页左侧列表栏*/
 
 .goods_left {
@@ -110,7 +132,7 @@ map {
 
 .goods_image {
   margin-top: 30rpx;
-  width: 170rpx;
+  width: 180rpx;
   height: 150rpx;
 }
 

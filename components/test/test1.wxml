@@ -61,3 +61,17 @@
     </block>
 </view>
 </template>
+
+<template name="Hover_button">
+    <navigator url="../basket/basket" open-type="switchTab">
+    <view bindtap="tap"  class="Hover_button-panel">
+    <image src="../../static/image/buycar.png"></image>
+    </view>
+    </navigator>
+</template>
+
+<template name="goods_cartoon">
+    <view animation="{{animationData_goods}}" style="    position:absolute;right:7%;bottom:16.3%;height:50rpx;width:50rpx;">
+        <image src="{{image}}" style="height:50rpx;width:60rpx"></image>
+    </view>
+</template>

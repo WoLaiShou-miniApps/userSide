@@ -24,11 +24,47 @@ Page({
         selected_goods: sub 
     })
   },
+  tap:function(e){
+    console.log(e.touches[0].pageX+" 和 "+e.touches[0].pageY)
+  },
   selectweight:function(e){
+
+    console.log(e.touches[0].pageX+" 和 "+e.touches[0].pageY)
+
+        var animation = wx.createAnimation({
+          duration: 500,
+          timingFunction: 'linear',
+        })
+
+        this.animation = animation
+      if (this.data.goods[e.target.dataset.index].select==-1)
+      {
+        animation.translate(-168,30+45+e.target.dataset.index*87-380).step({duration:20})
+        animation.scale(3,3).step({duration:20})
+        animation.scale(1,1).translate(0,0).step({duration:460})
+      }
+      else if(this.data.goods[e.target.dataset.index].select==e.target.dataset.weight_index)
+      {
+        animation.scale(2,2).translateY(-40).step({duration:200})
+        animation.translateY(-45).translateX(50).rotate(90).step({duration:200})
+        animation.scale(1,1).translateY(0).rotate(0).translateX(0).step({duration:0})
+      }
+      else
+      {
+        animation.scale(2,2).translateY(-40).step({duration:200})
+        animation.scale(1,1).translateY(0).step({duration:300})
+      }
+        this.setData({
+          animationData_goods:animation.export(),
+        })
+ 
+
     var copy = get_function.selectweight(e,this.data.goods)
     this.setData({
         goods: copy 
     })
+
+
   },
   change_service:function(e){
     this.setData({
