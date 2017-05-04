@@ -46,19 +46,18 @@ map {
   position:fixed;
   right:5%;
   bottom:15%;
-
-  width:80rpx;
-  height:80rpx;
+  text-align: center;
+  width:100rpx;
+  height:100rpx;
   border-radius: 50%;
   background:#ce4c32;
-
   display: flex;
   align-items:center;
 }
 .Hover_button-panel image{
-  margin-left:16.5rpx;
-  width:50rpx;
-  height:50rpx;
+  margin:15rpx;
+  width:70rpx;
+  height:70rpx;
 }
 
 

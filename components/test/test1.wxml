@@ -65,7 +65,7 @@
 <template name="Hover_button">
     <navigator url="../basket/basket" open-type="switchTab">
     <view bindtap="tap"  class="Hover_button-panel">
-    <image src="../../static/image/buycar.png"></image>
+    <image src="../../static/image/buycar_white.png"></image>
     </view>
     </navigator>
 </template>
