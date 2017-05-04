@@ -1,3 +1,11 @@
 <template name="secondHand">
-  <view class="second-hand">二手交易</view>
+  <view class="second-hand">
+    <view class="second-hand-photo" bindtap="secondHand_addPhoto">
+      <image src="{{secondHand_imgUrl?secondHand_imgUrl:'../../static/image/photo.png'}}"></image>
+      <view class="second-hand-photo-text">点击添加物品照片</view>
+    </view>
+    <textarea name="secondHandInfo"  cols="30" rows="10" placeholder="请输入宝贝描述"  placeholder-style="color:rgba(250,125,105,0.5);" ></textarea>
+    <button type="primary" plain>提交</button>
+
+  </view>
 </template>

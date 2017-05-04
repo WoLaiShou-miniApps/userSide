@@ -1,6 +1,6 @@
 // pages/service/service.js
 var get_function = require('../../components/test/test1.js')
-
+var secondHand = require('../../components/secondHand/index.js')
 Page({
   data: {
     service: 0,
@@ -14,6 +14,7 @@ Page({
 
   },
   URL:'http://easy-mock.com/mock/59070ef87a878d73716e3aa7/wx-irecycle/',
+  secondHand_addPhoto:secondHand.addPhoto,
   switchtab: function (e) {
     var that = this;
     this.setData({
