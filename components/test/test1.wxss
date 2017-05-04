@@ -57,6 +57,8 @@ map {
   background:#ce4c32;
   display: flex;
   align-items:center;
+
+  opacity:0.7;
 }
 .Hover_button-panel image{
   margin:15rpx;

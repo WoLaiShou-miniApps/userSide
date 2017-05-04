@@ -15,7 +15,8 @@ Page({
   switchtab: function (e) {
     var that = this;
     this.setData({
-      selected_type: e.target.dataset.index
+      selected_type: e.target.dataset.index,
+      selected_goods: -1
     })
     //animationData_left_polish animation.height(60+'rpx').step()
     
@@ -41,9 +42,11 @@ Page({
     this.setData({
       selected_goods: sub
     })
+
   },
 
   selectweight: function (e) {
+    console.log(e)
     var animation = wx.createAnimation({
       duration: 500,
       timingFunction: 'linear',
