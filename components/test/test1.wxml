@@ -24,10 +24,10 @@
 <view class="goods_left">
     <block wx:for="{{goods_type}}">
       <view bindtap="switchtab" data-index="{{index}}" class="goods_left_items {{selected_type == index ? 'active' : ''}}" >
-       <view class="left_items_{{selected_type == index ? 'polish' : ''}}" ></view>
       {{item}}
       </view>
     </block>
+    <view class="left_items_polish" animation="{{animationData_left_polish}}"></view>
 </view>
 
 <view class="goods_right" >

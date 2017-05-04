@@ -13,9 +13,26 @@ Page({
   },
   URL:'http://easy-mock.com/mock/59070ef87a878d73716e3aa7/wx-irecycle/',
   switchtab: function (e) {
+    var that = this;
     this.setData({
       selected_type: e.target.dataset.index
     })
+    //animationData_left_polish animation.height(60+'rpx').step()
+    
+    var animation = wx.createAnimation({
+      duration: 200,
+      timingFunction: 'ease-out',
+    })
+    animation.height(10+'rpx').top(35+ e.target.dataset.index*80+'rpx').step({ duration: 200 })
+    that.setData({
+      animationData_left_polish: animation.export()
+    })
+    setTimeout(function(){
+      animation.height(60+'rpx').step()
+    that.setData({
+      animationData_left_polish: animation.export()
+    })
+    },200)
   },
   selectgoods: function (e) {
     var sub = e.currentTarget.dataset.index
