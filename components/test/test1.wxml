@@ -31,10 +31,10 @@
 </view>
 
 <view class="goods_right" >
-    <block wx:for="{{goods}}">
+    <block wx:for="{{goods[selected_type]}}">
     <view class="goods_right_items {{selected_goods == index ? 'active' : ''}}">
         <view class="top_panel">
-            <image src="{{image}}" class="goods_image"></image>
+            <image src="{{item.imgUrl}}" class="goods_image"></image>
             <view class="righttext">
                 <text class="name">{{item.name}}</text>
                 <text class="price">{{item.price}}</text>

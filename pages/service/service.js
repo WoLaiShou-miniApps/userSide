@@ -4,12 +4,12 @@ var get_function = require('../../components/test/test1.js')
 Page({
   data: {
     service: 0,
-    goods_type: ["易拉罐", "废报纸", "旧书", "油桶", "酒瓶"],
-    goods: [{ "name": "易拉罐(铝材)", "price": "20元/斤", "select": -1 }, { "name": "易拉罐(马口铁)", "price": "10元/斤", "select": -1 }],
+    goods_type: [],
+    goods: [],
     price_range: ["0~10斤", "10~50斤", "50~100斤"],
     selected_type: 0,
     selected_goods: -1,
-    image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493741975494&di=e38c400d3995f57f4c2e3a3c76aea308&imgtype=0&src=http%3A%2F%2Fpic.qiantucdn.com%2F58pic%2F17%2F83%2F68%2F559afa7d99b41_1024.jpg"
+    image: ""
   },
   URL:'http://easy-mock.com/mock/59070ef87a878d73716e3aa7/wx-irecycle/',
   switchtab: function (e) {
@@ -25,32 +25,30 @@ Page({
       selected_goods: sub
     })
   },
-  tap: function (e) {
-    console.log(e.touches[0].pageX + " 和 " + e.touches[0].pageY)
-  },
+
   selectweight: function (e) {
-
-    console.log(e.touches[0].pageX + " 和 " + e.touches[0].pageY)
-
     var animation = wx.createAnimation({
       duration: 500,
       timingFunction: 'linear',
     })
-
+    this.setData({
+      image: this.data.goods[this.data.selected_type][this.data.selected_goods].imgUrl
+    })
     this.animation = animation
     if (this.data.goods[e.target.dataset.index].select == -1) {
-      animation.translate(-168, 30 + 45 + e.target.dataset.index * 87 - 380).step({ duration: 20 })
-      animation.scale(3, 3).step({ duration: 20 })
-      animation.scale(1, 1).translate(0, 0).step({ duration: 460 })
+      animation.translate(-168,30+45+e.target.dataset.index*87-380).step({duration:20})
+        animation.opacity(1).scale(3,3).step({duration:20})
+        animation.scale(1,1).translate(0,0).step({duration:440})
+        animation.opacity(0).step()
     }
     else if (this.data.goods[e.target.dataset.index].select == e.target.dataset.weight_index) {
-      animation.scale(2, 2).translateY(-40).step({ duration: 200 })
+      animation.opacity(1).scale(2, 2).translateY(-40).step({ duration: 200 })
       animation.translateY(-45).translateX(50).rotate(90).step({ duration: 200 })
-      animation.scale(1, 1).translateY(0).rotate(0).translateX(0).step({ duration: 0 })
+      animation.opacity(0).scale(1, 1).translateY(0).rotate(0).translateX(0).step({ duration: 0 })
     }
     else {
-      animation.scale(2, 2).translateY(-40).step({ duration: 200 })
-      animation.scale(1, 1).translateY(0).step({ duration: 300 })
+      animation.opacity(1).scale(2,2).translateY(-30).step({duration:200})
+        animation.opacity(0).scale(1,1).translateY(0).step({duration:280})
     }
     this.setData({
       animationData_goods: animation.export(),
