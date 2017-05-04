@@ -33,6 +33,16 @@ Page({
   change_service:function(e){
     this.setData({
         service: e.target.dataset.index 
+    }) //animationData_progress  translateX(107*e.target.dataset.index)
+    var animation = wx.createAnimation({
+      duration: 1000,
+        timingFunction: 'ease-out',
+    })
+    this.animation = animation
+    animation.width(50+'rpx').left(e.target.dataset.index*250+'rpx').step({duration:500})
+    animation.width(250+'rpx').step({duration:200})
+    this.setData({
+      animationData_progress:animation.export()
     })
   },
   onReady:function(){

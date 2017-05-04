@@ -1,7 +1,7 @@
 <!--pages/service/service.wxml-->
 
 <import src="../../components/test/test1.wxml"></import>
-<template is="uplist" data="{{service:service}}"></template>
+<template is="uplist" data="{{service:service,animationData_progress:animationData_progress}}"></template>
 <block wx:if="{{service==0}}">
 <template is="goods-list" data="{{goods_type:goods_type,goods:goods,price_range:price_range,selected_type:selected_type,selected_goods:selected_goods,image:image}}"></template>
 </block>
