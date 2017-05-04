@@ -71,7 +71,7 @@
 </template>
 
 <template name="goods_cartoon">
-    <view animation="{{animationData_goods}}" style="    position:absolute;right:7%;bottom:16.3%;height:50rpx;width:50rpx;">
+    <view animation="{{animationData_goods}}" style="    position:absolute;right:8%;bottom:16.3%;height:50rpx;width:50rpx;">
         <image src="{{image}}" style="height:50rpx;width:60rpx"></image>
     </view>
 </template>

@@ -42,18 +42,20 @@ Page({
         animation.opacity(0).step()
     }
     else if (this.data.goods[this.data.selected_type][this.data.selected_goods].select == e.target.dataset.weight_index) {
-      animation.opacity(1).scale(2, 2).translateY(-40).step({ duration: 200 })
-      animation.translateY(-45).translateX(50).rotate(90).step({ duration: 200 })
-      animation.opacity(0).scale(1, 1).translateY(0).rotate(0).translateX(0).step({ duration: 0 })
+      animation.opacity(1).scale(0.5,0.5).step({duration:1})
+      animation.scale(2, 2).translateY(-40).step({ duration: 100 })
+      animation.translateY(-45).translateX(50).rotate(90).step({ duration: 300 })
+      animation.opacity(0).step()
+      animation.scale(1, 1).translateY(0).rotate(0).translateX(0).step({ duration: 1 })
     }
     else {
-      animation.opacity(1).scale(2,2).translateY(-30).step({duration:200})
-        animation.opacity(0).scale(1,1).translateY(0).step({duration:280})
+      animation.opacity(1).scale(2,2).translateY(-40).step({duration:200})
+      animation.scale(1,1).translateY(0).step({duration:280})
+      animation.opacity(0).step()
     }
     this.setData({
       animationData_goods: animation.export(),
     })
-
 
     var copy = get_function.selectweight(this.data.selected_type,e, this.data.goods)
     this.setData({
