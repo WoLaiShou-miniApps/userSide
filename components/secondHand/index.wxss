@@ -1,0 +1,4 @@
+.second-hand{
+  position: relative;
+  top: 80rpx;
+}

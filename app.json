@@ -7,7 +7,7 @@
   ],
   "window":{
     "backgroundTextStyle":"dark",
-    "navigationBarBackgroundColor": "#EEEE00",
+    "navigationBarBackgroundColor": "#FAC328",
     "navigationBarTitleText": "我来收",
     "navigationBarTextStyle":"white",
     "enablePullDownRefresh":"true"

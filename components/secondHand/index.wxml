@@ -1,0 +1,3 @@
+<template name="secondHand">
+  <view class="second-hand">二手交易</view>
+</template>

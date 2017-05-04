@@ -1,1 +1,2 @@
-@import "../../components/test/test1.wxss"
+@import "../../components/test/test1.wxss";
+@import "../../components/secondHand/index.wxss";
