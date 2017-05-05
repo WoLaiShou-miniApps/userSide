@@ -11,14 +11,14 @@
   border-radius: 50%;
 }
 .banjia image{
-    margin-top: 50rpx;
+    margin-top: 65rpx;
     width: 50%;
     height: 50%;
 }
 .banjia-info{
     color: rgba(240, 180, 50, 0.6);
     position: relative;
-    margin-top: 150rpx;
+    margin-top: 175rpx;
     text-align: center;
     font-size: 14px;
 }
