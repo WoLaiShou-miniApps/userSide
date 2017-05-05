@@ -35,14 +35,12 @@
   color: rgba(250,125,105,0.5);
   font-size: 40rpx;
   text-align: center;
-  min-height: 100rpx;
+  
 }
 .second-hand button{
   width:700rpx;
 }
 .second-hand-info-textarea-placeholder{
   color: rgba(250,125,105,0.5);
-  text-align: center;
-  height:200rpx;
-  line-height: 200rpx;
+  
 }

@@ -14,6 +14,7 @@ Page({
 
   },
   URL:'http://easy-mock.com/mock/59070ef87a878d73716e3aa7/wx-irecycle/',
+  secondHand_textareaFocused:secondHand.textareaFocused,
   secondHand_addPhoto:secondHand.addPhoto,
   switchtab: function (e) {
     var that = this;
@@ -25,9 +26,10 @@ Page({
     
     var animation = wx.createAnimation({
       duration: 200,
-      timingFunction: 'ease-out',
+      timingFunction: 'ease',
     })
     animation.height(10+'rpx').top(35+ e.target.dataset.index*80+'rpx').step({ duration: 200 })
+    console.log(animation)
     that.setData({
       animationData_left_polish: animation.export()
     })

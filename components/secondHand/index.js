@@ -22,5 +22,22 @@ module.exports={
         // complete
       }
     })
+  },//animation_textarea
+  textareaFocused:function(){
+    console.log("ddss")
+    var that = this;
+    var animation = wx.createAnimation({
+      duration: 200,
+      timingFunction: 'ease',
+    })
+    animation.width(10+'px').step()
+    console.log(animation)
+    that.animation = animation
+    setTimeout(function(){
+      that.setData({
+            animation_textarea: animation.export()
+      })
+    },100)
+    
   }
 }
