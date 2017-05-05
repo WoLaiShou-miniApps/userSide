@@ -77,15 +77,65 @@
 </template>
 
 <template name="basket">
+
+    <view class="com-operate">
+        <view class="com-operate-select" bindtap="order_select_all">
+            <block wx:if="{{select_all==0}}">
+                <image src="../../static/image/select.png" ></image>
+            </block>
+            <block wx:else>
+                <image src="../../static/image/selected.png" ></image>
+            </block>
+            <text>全选</text>
+        </view>
+        <view bindtap="edittap">
+          <block wx:if="{{operate.edit==0}}">
+          <text class="com-operate-edit">编辑</text>
+          </block>
+          <block wx:else>
+          <text class="com-operate-edit">退出编辑</text>
+          </block>
+        </view>
+    </view>
+
+
     <view class="basket-panel">
         <block wx:for="{{order_list}}">
         <view class="basket-item">
+            <view bindtap="order_select" data-index="{{index}}">
+            <block wx:if="{{operate.select[index]==0}}">
+                <image src="../../static/image/select.png" class="select-frame"></image>
+            </block>
+            <block wx:else>
+                <image src="../../static/image/selected.png" class="select-frame"></image>
+            </block>
+            </view>
             <image src="{{goods[item.type_id][item.goods_id].imgUrl}}" class="goods_image"></image>
             <view class="basket-righttext">
                 <text class="name">{{goods[item.type_id][item.goods_id].name}}</text>
                 <text class="price">{{goods[item.type_id][item.goods_id].price}}</text>
+                <view class="button-panel">
+                <block wx:if="{{operate.edit==1}}">
+                <view class="switchbutton" style="width:40rpx;margin-left: 100rpx;">-</view>
+                <view class="switchbutton" style="background:#FFF;">{{weight_range[item.weight_id]}}</view>
+                <view class="switchbutton" style="width:40rpx">+</view>
+                </block>
+                <block wx:else>
+                <view class="switchbutton" style="background:#FFF;margin-left: 140rpx;border: 1rpx solid #FFF;">{{weight_range[item.weight_id]}}</view>
+                </block>
+                </view>
             </view>
+
         </view>
         </block>
     </view>
+
+    <view class="com-count-panel"> 
+      <view class="sumcount">
+      <text style="color:#FAC328;font-weight: bold;">共计: {{amount}}件</text>
+
+      </view>
+      <view class="settlement">提交</view>
+  </view>
+
 </template>
