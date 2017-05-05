@@ -21,6 +21,7 @@
   text-align: center;
   position: absolute;
   left:20rpx;
+  font-size: 40rpx;
 }
 .second-hand-photo image{
   width: 200rpx;
@@ -54,6 +55,7 @@
   text-align: center;
   position: absolute;
   left:20rpx;
+  font-size: 40rpx;
 }
 .second-hand button{
   width:700rpx;
