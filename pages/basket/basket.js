@@ -3,25 +3,19 @@ var app = getApp()
 Page({
   data:{
     order_list:[],
-    goods_type: [],
     goods: [],
-    price_range: ["0~10斤", "10~50斤", "50~100斤"],
+    weight_range: ["0~10斤", "10~50斤", "50~100斤"],
   },
+  URL:'http://easy-mock.com/mock/59070ef87a878d73716e3aa7/wx-irecycle/',
   onLoad:function(options){
     var that = this;
     wx.request({
       url: that.URL+'getgoods',
       data: {},
-      method: 'GET', 
-       header: {
-
-       },
-      
+      method: 'GET',    
       success: function(res){
         // success
-        console.log(res.data);
         that.setData({
-          goods_type:res.data.data.goodsType,
           goods:res.data.data.goods
         })
       },
@@ -32,9 +26,9 @@ Page({
   },
   onShow:function(){
     this.setData({
-      order_list:app.goods_list
+      order_list:[{"type_id":0,"goods_id":0,"weight_id":0},{"type_id":0,"goods_id":2,"weight_id":1},{"type_id":2,"goods_id":2,"weight_id":0}]
     })
-    app.goods_list
+    console.log(this.data.order_list);
   },
   onHide:function(){
     // 页面隐藏

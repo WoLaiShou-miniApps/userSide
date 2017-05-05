@@ -75,3 +75,17 @@
         <image src="{{image}}" style="height:50rpx;width:60rpx"></image>
     </view>
 </template>
+
+<template name="basket">
+    <view class="basket-panel">
+        <block wx:for="{{order_list}}">
+        <view class="basket-item">
+            <image src="{{goods[item.type_id][item.goods_id].imgUrl}}" class="goods_image"></image>
+            <view class="basket-righttext">
+                <text class="name">{{goods[item.type_id][item.goods_id].name}}</text>
+                <text class="price">{{goods[item.type_id][item.goods_id].price}}</text>
+            </view>
+        </view>
+        </block>
+    </view>
+</template>

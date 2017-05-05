@@ -1,6 +1,7 @@
 // pages/service/service.js
 var get_function = require('../../components/test/test1.js')
 var secondHand = require('../../components/secondHand/index.js')
+var app = getApp()
 Page({
   data: {
     service: 0,
@@ -63,12 +64,29 @@ Page({
     })
     this.animation = animation
     if (this.data.goods[this.data.selected_type][this.data.selected_goods].select == -1) {
+      //添加到回收车
+      var sub = {"type_id":-1,"goods_id":-1,"weight_id":-1}
+      sub.type_id = this.data.selected_type
+      sub.goods_id = this.data.selected_goods
+      sub.weight_id = e.target.dataset.weight_index
+      app.goods_list.push(sub)
+      //动画效果
       animation.translate(-180,30+45+e.target.dataset.index*87-380-D_Value).step({duration:20})
         animation.opacity(1).scale(3,3).step({duration:20})
         animation.scale(1,1).translate(0,0).step({duration:440})
         animation.opacity(0).step()
     }
     else if (this.data.goods[this.data.selected_type][this.data.selected_goods].select == e.target.dataset.weight_index) {
+      //回收车删除
+      for(var i=0;i<app.goods_list.length;i++)
+      {
+       if (app.goods_list[i].type_id==this.data.selected_type && app.goods_list[i].goods_id==this.data.selected_goods)
+        {
+          app.goods_list.splice(i,1)
+          break
+        }
+      }
+      //动画效果
       animation.opacity(1).scale(0.5,0.5).step({duration:1})
       animation.scale(2, 2).translateY(-40).step({ duration: 100 })
       animation.translateY(-45).translateX(50).rotate(90).step({ duration: 300 })
@@ -76,6 +94,17 @@ Page({
       animation.scale(1, 1).translateY(0).rotate(0).translateX(0).step({ duration: 1 })
     }
     else {
+      //回收车项更改
+      for(var i=0;i<app.goods_list.length;i++)
+      {
+        if (app.goods_list[i].type_id==this.data.selected_type && app.goods_list[i].goods_id==this.data.selected_goods)
+        {
+          app.goods_list[i].weight_id = e.target.dataset.weight_index
+          break
+        }
+      }
+
+      //动画效果
       animation.opacity(1).scale(2,2).translateY(-40).step({duration:200})
       animation.scale(1,1).translateY(0).step({duration:280})
       animation.opacity(0).step()

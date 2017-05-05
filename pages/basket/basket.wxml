@@ -1,2 +1,3 @@
 <!--pages/basket/basket.wxml-->
-<template is="basket"></template>
+<import src="../../components/test/test1.wxml"></import>
+<template is="basket" data="{{order_list:order_list,goods:goods,weight_range:weight_range}}"></template>

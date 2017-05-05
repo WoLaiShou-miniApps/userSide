@@ -204,3 +204,47 @@ map {
 
 
 /*basket*/
+.basket-panel{
+  display: flex;
+  flex-direction: column;
+  padding: 0rpx 20rpx 0rpx 20rpx;
+  background: #fff;
+  box-sizing: border-box;
+}
+.basket-item{
+  display: flex;
+  flex-direction: row;
+  width:80%;
+  height:200rpx;
+  margin-left:10%;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #dadada;
+  overflow: hidden;
+}
+.basket-righttext {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-left: 50rpx;
+  margin-top: 35rpx;
+  height: 150rpx;
+}
+
+.basket-righttext .name {
+  width: 300rpx;
+  font-size: 13px;
+  word-wrap: break-word;
+  word-break: break-all;
+  text-overflow: ellipsis;
+}
+
+.basket-righttext .price {
+  position: absolute;
+  bottom: 55rpx;
+  width: 300rpx;
+  font-size: 12px;
+  color: red;
+}
+.basket-righttext .price {
+  
+}
