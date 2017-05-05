@@ -9,5 +9,5 @@
 <template is="Hover_button"></template>
 </block>
 <block wx:if="{{service==1}}">
-  <template is="secondHand"></template>
+  <template is="secondHand" data="{{animation_textarea:animation_textarea}}"></template>
 </block>

@@ -30,7 +30,7 @@ module.exports={
       duration: 200,
       timingFunction: 'ease',
     })
-    animation.width(10+'px').step()
+    animation.top(-300+'rpx').step({duration:1000})
     console.log(animation)
     that.animation = animation
     setTimeout(function(){
@@ -39,5 +39,21 @@ module.exports={
       })
     },100)
     
+  },
+  textareaBlured:function(){
+    console.log("ddss")
+    var that = this;
+    var animation = wx.createAnimation({
+      duration: 200,
+      timingFunction: 'ease',
+    })
+    animation.top(85+'rpx').step({duration:1000})
+    console.log(animation)
+    that.animation = animation
+    setTimeout(function(){
+      that.setData({
+            animation_textarea: animation.export()
+      })
+    },100)
   }
 }

@@ -15,6 +15,7 @@ Page({
 
   },
   URL:'http://easy-mock.com/mock/59070ef87a878d73716e3aa7/wx-irecycle/',
+  secondHand_textareaBlured:secondHand.textareaBlured,
   secondHand_textareaFocused:secondHand.textareaFocused,
   secondHand_addPhoto:secondHand.addPhoto,
   switchtab: function (e) {
