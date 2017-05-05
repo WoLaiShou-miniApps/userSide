@@ -1,2 +1,2 @@
-<!--pages/user/user.wxml-->
-<text>pages/user/user.wxml</text>
+<import src="../../components/user/index.wxml"></import>
+<template is="user"></template>
