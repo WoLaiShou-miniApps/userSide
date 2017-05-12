@@ -1,13 +1,25 @@
 <template name="secondHand">
-  <view class="second-hand"animation="{{animation_textarea}}" >
-    <view class="second-hand-photo" bindtap="secondHand_addPhoto">
-      <image src="{{secondHand_imgUrl?secondHand_imgUrl:'../../static/image/photo.png'}}"></image>
-      <view class="second-hand-photo-text">点击添加物品照片</view>
+  <view class="second-hand{{service}}"animation="{{animation_textarea}}" >
+    <view class="second-hand-photo{{service}}" bindtap="secondHand_addPhoto">
+      <image mode="aspectFill" id="myphoto" class="{{secondHand_imgUrl?'has-photo{{service}}':''}}" src="{{secondHand_imgUrl?secondHand_imgUrl:(service==0?'../../static/image/image1.png':'../../static/image/image2.png')}}"></image>
+      <view class="second-hand-photo-text{{service}} {{secondHand_imgUrl?'has-photo-text{{service}}':''}}">点击添加物品照片</view>
     </view>
     <textarea name="secondHandInfo"  cols="30" rows="10" bindfocus="secondHand_textareaFocused"
     bindblur="secondHand_textareaBlured"
     ></textarea>
+    <view class="picker-area{{service}}">
+      <picker mode="date" value="{{date}}" start="2017-05-01" end="2027-05-01" bindchange="bindDateChange">
+        <view class="picker">
+          {{date}}
+        </view>
+      </picker>
+      <picker mode="time" value="{{time}}" start="08:00" end="20:00" bindchange="bindTimepicker">
+        <view class="picker">
+          {{time}}
+        </view>
+      </picker>
+    </view>
     <button type="primary"  plain >提交</button>
-
+  
   </view>
 </template>

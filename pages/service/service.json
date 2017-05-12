@@ -1,8 +1,8 @@
 {
-  "navigationBarBackgroundColor": "#FAC328",
+
   "navigationBarTextStyle": "white",
   "navigationBarTitleText": "我来收",
-  "backgroundColor": "#FAC328",
+  "backgroundColor": "#FFF",
   "backgroundTextStyle": "light",
   "enablePullDownRefresh":"false"
   

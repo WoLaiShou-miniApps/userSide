@@ -1,5 +1,5 @@
 .banjia {
-  color: rgba(240, 180, 50, 0.6);
+  color: #373E40;
   top: 285rpx;
   position: relative;
   width: 400rpx;
@@ -7,7 +7,7 @@
   text-align: center;
   height: 400rpx;
   line-height: 400rpx;
-  border: 1rpx solid rgba(240, 180, 50, 0.6);
+  border: 1rpx solid #373E40;
   border-radius: 50%;
 }
 .banjia image{
@@ -16,9 +16,27 @@
     height: 50%;
 }
 .banjia-info{
-    color: rgba(240, 180, 50, 0.6);
+    color: #373E40;
     position: relative;
     margin-top: 175rpx;
     text-align: center;
     font-size: 14px;
+}
+.banjia-text{
+    color: #373E40;
+    position: relative;
+    margin-top: 175rpx;
+    text-align: center;
+    font-size: 14px;
+    padding: 0 100rpx;
+    opacity: 0.7;
+}
+.banjia-text2{
+    color: #373E40;
+    position: relative;
+    margin-top: 20rpx;
+    text-align: center;
+    font-size: 14px;
+    padding: 0 100rpx;
+    opacity: 0.7;
 }

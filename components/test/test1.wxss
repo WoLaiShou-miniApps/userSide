@@ -25,7 +25,8 @@ map {
 }
 
 .uplist-panel .uplist-item.active {
-  background:#f5f5f5;
+  background:#A2B4BA;
+  color:#FFF;
 }
 
 .uplist-progress {
@@ -33,7 +34,7 @@ map {
   top:80rpx;
   width: 250rpx;
   height: 5rpx;
-  background: #ff7c63;
+  background: #A2B4BA;
   z-index: 9;
   left:0;
 }

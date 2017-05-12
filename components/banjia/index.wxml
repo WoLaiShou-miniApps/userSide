@@ -3,4 +3,6 @@
         <image src="../../static/image/call.png"></image>
     </view>
     <view class="banjia-info">呼叫搬家公司</view>
+    <view class="banjia-text">欢迎致电本公司热线0451-82638864</view>
+    <view class="banjia-text2">哈尔滨供销新农人竭诚为您服务！</view>
 </template>

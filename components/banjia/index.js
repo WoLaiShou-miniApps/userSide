@@ -1,7 +1,7 @@
 module.exports={
     makePhoneCall:function(){
         wx.makePhoneCall({
-          phoneNumber: '13159877131',
+          phoneNumber: '0451-82638864',
           success: function(res) {
             // success
           }

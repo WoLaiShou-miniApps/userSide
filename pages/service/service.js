@@ -2,6 +2,7 @@
 var get_function = require('../../components/test/test1.js')
 var secondHand = require('../../components/secondHand/index.js')
 var banjia = require('../../components/banjia/index.js')
+const qiniuUploader = require("../../utils/qiniu_sdk/qiniuUploader.js");
 var app = getApp()
 Page({
   data: {
@@ -12,10 +13,15 @@ Page({
     selected_type: 0,
     selected_goods: -1,
     image: "",
-    Y_Dvalue:0
-
+    Y_Dvalue:0,
+    time_waste:'08:00',
+    time_secondHand:'08:00',
+    date_waste:'2017-05-01',
+    date_secondHand:'2017-05-01'
   },
   URL:'http://easy-mock.com/mock/59070ef87a878d73716e3aa7/wx-irecycle/',
+  bindDateChange:secondHand.bindDateChange,
+  bindTimepicker:secondHand.bindTimepicker,
   banjia_makePhoneCall:banjia.makePhoneCall,
   secondHand_textareaBlured:secondHand.textareaBlured,
   secondHand_textareaFocused:secondHand.textareaFocused,
@@ -174,3 +180,5 @@ Page({
     // 页面关闭
   }
 })
+
+

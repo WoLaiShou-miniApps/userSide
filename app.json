@@ -1,13 +1,15 @@
 {
   "pages":[
+    
     "pages/service/service",
     "pages/index/index",
     "pages/basket/basket",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/test"
   ],
   "window":{
     "backgroundTextStyle":"dark",
-    "navigationBarBackgroundColor": "#FAC328",
+    "navigationBarBackgroundColor": "#00B38C",
     "navigationBarTitleText": "我来收",
     "navigationBarTextStyle":"white",
     "enablePullDownRefresh":"true"
@@ -23,11 +25,6 @@
       "iconPath":"static/image/order.png",
       "selectedIconPath":"static/image/order_click.png"
     }, {
-      "pagePath": "pages/basket/basket",
-      "text": "回收车",
-      "iconPath":"static/image/buycar.png",
-      "selectedIconPath":"static/image/buycar_click.png"
-    },{
       "pagePath": "pages/user/user",
       "text": "个人中心",
       "iconPath":"static/image/user.png",
