@@ -1,0 +1,3 @@
+/* pages/myorders/myorders.wxss */
+
+@import "../../components/order/index.wxss"

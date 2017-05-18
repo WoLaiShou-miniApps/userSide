@@ -1,9 +1,11 @@
 {
   "pages":[
-    
     "pages/service/service",
+    "pages/myorders/myorders",
+    
     "pages/index/index",
-    "pages/basket/basket",
+    "pages/order_detail/order_detail",
+    "pages/evaluate/evaluate",
     "pages/user/user",
     "pages/test"
   ],
@@ -34,6 +36,6 @@
   "networkTimeout": {
     "request": 10000,
     "downloadFile": 10000
-  }
-
+  },
+  "debug": false
 }

@@ -1,0 +1,3 @@
+/* pages/evaluate/evaluate.wxss */
+
+@import "../../components/evaluate/index.wxss"
