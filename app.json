@@ -1,8 +1,10 @@
 {
   "pages":[
+
     "pages/service/service",
     "pages/myorders/myorders",
-    
+    "pages/mygoods/mygoods",
+    "pages/customService/customService",
     "pages/index/index",
     "pages/order_detail/order_detail",
     "pages/evaluate/evaluate",

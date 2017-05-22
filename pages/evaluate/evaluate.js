@@ -1,6 +1,5 @@
 // pages/evaluate/evaluate.js
 Page({
-
   data: {
     time:"14:00",
     service_grade:0,
@@ -38,6 +37,9 @@ Page({
   },
   formSubmit:function(e){
     console.log(e.detail.value.evaluate)
+    wx.navigateBack({
+      delta: 1
+    })
   },
   onLoad: function (options) {
   

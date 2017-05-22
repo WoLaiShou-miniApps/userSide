@@ -1,0 +1,2 @@
+/* pages/mygoods/mygoods.wxss */
+@import "../../components/mygoods/index.wxss"

@@ -1,0 +1,8 @@
+<!--pages/mygoods/mygoods.wxml-->
+<import src="../../components/mygoods/index.wxml"></import>
+
+<block wx:if="{{tip.show==1}}">
+<template is="tip" data="{{tip:tip}}"></template>
+</block>
+<template is="mygoodSelling" data="{{mygoods:mygoods}}"></template>
+<template is="mygoodSold" data="{{mygoods:mygoods}}"></template>

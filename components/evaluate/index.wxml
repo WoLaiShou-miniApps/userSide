@@ -5,7 +5,7 @@
     <view class="righttext">
       <text style="font-size:35rpx;">回收车收货</text>
       <view class="delivertime">
-        <text style="font-size:30rpx;">送达时间 {{time}}</text>
+        <text style="font-size:30rpx;">到达时间 {{time}}</text>
         <picker class="picker" mode="time" value="{{time}}" bindchange="timechange">
         <view style="  display: flex;flex-direction: row;">
           <view class="tip">? </view>

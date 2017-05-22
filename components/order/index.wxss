@@ -16,8 +16,8 @@
   text-align:center;
 }
 .uplist-panel .item.active{
-  color:#FAC328;
-  border-bottom:5rpx solid #FAC328;
+  color:#43CD80;
+  border-bottom:5rpx solid #43CD80;
 }
 
 .empty-list{
@@ -58,6 +58,7 @@
   border-radius: 10rpx;
   background:#66CDAA;
 }
+
 .orders-item{
   margin-left:5%;
 
@@ -92,12 +93,16 @@
 }
 
 
+
+
+
 .del-node{
   margin-top:10rpx;
   position:absolute;
-  right:6%;
-  width:80rpx;
-  height:80rpx
+  right:20%;
+  width:100rpx;
+  height:100rpx;
+  z-index:initial;
 }
 
 /*orderdetail页*/

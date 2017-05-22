@@ -1,0 +1,3 @@
+<!--pages/custom_service/custom_service.wxml-->
+<text>pages/custom_service/custom_service.wxml</text>
+<contact-button session-from="weapp" size="20"/>

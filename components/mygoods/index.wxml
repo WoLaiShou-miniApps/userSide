@@ -1,0 +1,70 @@
+<template name="tip">
+<view bindtap="tiptap" class="tip">
+<image src="../../static/image/tip.png"></image>
+<text>{{tip.content}}</text>
+</view>
+</template>
+
+<template name="mygoodSelling">
+<view class="mygoods-panel">
+  <view class="title-panel">
+    <text class="title">待售商品</text>
+    <view class="num">{{mygoods.selling.num}}</view>
+  </view>
+
+  <block wx:if="{{mygoods.selling.num!=0}}">
+  <scroll-view scroll-x="true"  style="width:100%;">
+  <view class="shelve-panel">
+    <block wx:for="{{mygoods.selling.content}}">
+    <view class="item">
+      <image src="{{item.imgUrl}}"></image>
+      <view class="textList">
+        <view style="">
+        挂售价格：￥{{item.lowPrice}}-{{item.topPrice}}
+        </view>
+        <view>
+        上架时间：{{item.timeStamp}}
+        </view>
+        <view style="color:red">
+        {{item.state==1?"挂售中···":"未上架···"}}
+        </view>
+      </view>
+    </view>
+    </block>
+    </view>
+  </scroll-view>
+  </block>
+  <block wx:else>
+  <view class="empty-panel">暂时没有物品···</view>
+  </block>
+</view>
+</template>
+
+<template name="mygoodSold">
+<view class="mygoods-panel">
+  <view class="title-panel">
+    <text class="title">已售商品</text>
+    <view class="num" style="background:#ADFF2F">{{mygoods.sold.num}}</view>
+  </view>
+
+  <block wx:if="{{mygoods.sold.num!=0}}">
+  <scroll-view scroll-x="true"  style="width:100%;">
+  <view class="shelve-panel">
+    <block wx:for="{{mygoods.sold.content}}">
+    <view class="item">
+      <image src="{{item.imgUrl}}"></image>
+      <view class="textList">
+        <view style="">
+        成交价格：￥{{item.price}}
+        </view>
+      </view>
+    </view>
+    </block>
+    </view>
+  </scroll-view>
+  </block>
+  <block wx:else>
+  <view class="empty-panel">暂时没有物品···</view>
+  </block>
+</view>
+</template>
