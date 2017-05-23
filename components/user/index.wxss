@@ -61,10 +61,11 @@ page{
 
 /*info页面*/
 .info-panel{
-    margin:100rpx 20rpx 0rpx 20rpx;
+    margin:100rpx 20rpx 0rpx 120rpx;
     
     display:flex;
     flex-direction:column;
+    position:relative;
 }
 .info-panel .info-item{
 
@@ -76,7 +77,7 @@ page{
     line-height:100rpx;
 }
 .info-panel .info-item text{
-    margin-left:30rpx;
+    
     font-size:35rpx; 
 }
 .info-panel .info-item input{
@@ -88,8 +89,8 @@ page{
     border-bottom:1rpx solid #cccccc;
 }
 .submit-buttun{
-    margin-top:30rpx;
-    width:70%;
+    margin-top:40rpx;
+    width:60%;
     height:80rpx;
     align-items:center;
     border-radius: 25rpx;

@@ -2,24 +2,39 @@
 Page({
 
   data: {
-    info:{}
+    info:{},
+    passwd:{confirm:0,passwd:"",passwdR:""},
+    tip:{content:"两次密码不一致"}
   },
 
   onLoad: function (options) {
+    var sub={}
     var that = this
-    wx.checkSession({
-      success: function () {
-        wx.getUserInfo({
-          success: function (res) {
-            that.setData({
-              info: res.userInfo
-            })
-          }
-        })
-      }
+    sub.nickName = options.name
+    that.setData({
+        info: sub
     })
   },
-
+  passwd: function(res){
+    var sub = this.data.passwd
+    if (res.target.dataset.index==1)
+      sub.passwd = res.detail.value
+    else
+      sub.passwdR = res.detail.value
+    if (sub.passwdR=="")
+      sub.confirm=0
+    else if (sub.passwdR == sub.passwd)
+      sub.confirm = 1
+    else
+      sub.confirm = -1
+    
+    this.setData({
+      passwd:sub
+    })
+  },
+  formSubmit:function(res){
+    console.log(res)
+  },
   onReady: function () {
   
   },

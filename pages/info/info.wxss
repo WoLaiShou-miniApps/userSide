@@ -3,3 +3,4 @@ page{
   background:#FFF;
 }
 @import "../../components/user/index.wxss";
+@import "../../components/mygoods/index.wxss";
