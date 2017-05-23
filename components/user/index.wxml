@@ -1,10 +1,12 @@
 <template name="user">
     <view class="user">
         <view class="user-info">
-            <image src="../../static/tempImage/user.png"></image>
+            <image src="{{info.avatarUrl}}"></image>
             <view class="user-info-detail">
-                <view class="user-name">铁柱</view>
+                <view class="user-name">{{info.nickName}}</view>
+                <navigator url="../info/info" hover-class="none">
                 <view class="user-more">查看或修改个人信息</view>
+                </navigator>
             </view>
         </view>
         <view class="user-item">
@@ -28,4 +30,28 @@
             </navigator>
         </view>
     </view>
+</template>
+
+<template name="info">
+<form bindsubmit="formSubmit">
+<view class="info-panel">
+  <view class="info-item">
+    <text>昵称</text>
+    <input placeholder="请输入昵称" value="{{info.nickName}}"></input>
+  </view>
+  <view class="info-item">
+    <text>联系电话</text>
+    <input placeholder="请输入联系电话" value=""></input>
+  </view>
+  <view class="info-item">
+    <text>密码</text>
+    <input placeholder="请输入修改后的密码" value=""></input>
+  </view>
+  <view class="info-item">
+    <text>确认密码</text>
+    <input placeholder="再次输入修改后的密码" value=""></input>
+  </view>
+</view>
+<button class="submit-buttun" formType="submit">提交</button>
+</form>
 </template>

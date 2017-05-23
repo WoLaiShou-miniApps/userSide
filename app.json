@@ -1,6 +1,6 @@
 {
   "pages":[
-
+    
     "pages/service/service",
     "pages/myorders/myorders",
     "pages/mygoods/mygoods",
@@ -9,6 +9,7 @@
     "pages/order_detail/order_detail",
     "pages/evaluate/evaluate",
     "pages/user/user",
+    "pages/info/info",
     "pages/test"
   ],
   "window":{

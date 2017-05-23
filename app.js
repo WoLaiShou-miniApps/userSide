@@ -8,12 +8,20 @@ App({
   },
   goods_list:[],
   onLaunch: function() { 
-    // Do something initial when launch.
-    
+    wx.login({
+      success: function (res) {
+        console.log("已获取到登陆态")
+       /* wx.request({
+            url: '',
+            data: {
+              code: res.code
+            }
+          })*/
+      }
+    }); 
   },
   onShow: function() {
       // Do something when show.
-      
       
   },
   onHide: function() {

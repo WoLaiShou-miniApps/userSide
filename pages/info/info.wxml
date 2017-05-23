@@ -1,0 +1,3 @@
+<!--pages/info/info.wxml-->
+<import src="../../components/user/index.wxml"></import>
+<template is="info" data="{{info:info}}"></template>

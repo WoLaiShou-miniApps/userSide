@@ -1,8 +1,21 @@
 // pages/user/user.js
 Page({
-  data:{},
+  data:{
+    info:{}
+  },
   onLoad:function(options){
-    // 页面初始化 options为页面跳转所带来的参数
+    var that = this
+    wx.checkSession({
+      success: function () {
+        wx.getUserInfo({
+          success: function (res) {
+            that.setData({
+              info:res.userInfo
+            })
+          }
+        })
+      }
+    })
   },
   onReady:function(){
     // 页面渲染完成
