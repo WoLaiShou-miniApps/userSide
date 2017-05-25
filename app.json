@@ -10,7 +10,7 @@
     "pages/evaluate/evaluate",
     "pages/user/user",
     "pages/info/info",
-    
+    "pages/myaddress/index",
     "pages/test"
   ],
   "window":{
