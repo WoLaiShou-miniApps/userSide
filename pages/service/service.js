@@ -151,7 +151,7 @@ Page({
     var that = this
     wx.uploadFile({
           url: "https://irecycle.gxxnr.cn/api/user/postorder.do",
-          filePath: that.data.service == 0 ? that.data.secondHand_imgUrl : that.data.secondHand_myphoto,
+          filePath: that.data.service == 0 ? that.data.secondHand_imgUrl:that.data.secondHand_myphoto,
           name:"file",
           formData:{
             userid:2,
@@ -159,7 +159,33 @@ Page({
             date: that.data.service == 0 ? that.data.date_waste : that.data.date_secondHand,
             time: that.data.service == 0 ? that.data.time_waste : that.data.time_secondHand,
             msg: that.data.service == 0 ? that.data.note_waste : that.data.note_secondHand
-          }
+          },
+        success:function(res){
+          if (res.data)
+            setTimeout(function () {
+              wx.hideLoading()
+              wx.showToast({
+                title: '上传成功',
+                duration: 1000,
+                icon:"success"
+              })
+              that.setData({
+                date_waste:"2017-05-01",
+                date_secondHand:"2017-05-01",
+                time_waste:"08:00",
+                time_secondHand:"08:00",
+                note_waste:"",
+                note_secondHand:"",
+                secondHand_myphoto:"",
+                secondHand_imgUrl:""
+              })
+            }, 500)
+        },
+        complete:function(){
+          wx.showLoading({
+            title: '上传中',
+          })
+        }     
         })
     console.log("已发送")
   },
