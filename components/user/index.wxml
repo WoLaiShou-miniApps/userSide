@@ -23,6 +23,11 @@
                 <view class="item-title">二手详情</view>
             </view>
             </navigator>
+            <navigator url="../myaddress/index" hover-class="none">
+            <view class="item"><image src="../../static/image/address_2.png"></image>
+                <view class="item-title">地址管理</view>
+                </view>
+            </navigator>
             <navigator url="../customService/customService" hover-class="none">
             <view class="item"><image src="../../static/image/my_kefu.png"></image>
                 <view class="item-title">客户服务</view>
