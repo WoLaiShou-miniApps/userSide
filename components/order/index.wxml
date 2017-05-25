@@ -23,7 +23,12 @@
         <block wx:if="{{select_order==index}}">
           <view class="operate-panel">
               <view class="item" bindtap="gotoDetail">查看详情</view>
-            <view class="item" bindtap="orderDelete">申请退单</view>
+             <block wx:if="{{item.state==4}}">
+              <view class="item" style="background:#cccccc">退单已申请</view>
+             </block>
+             <block wx:else>
+              <view class="item" bindtap="orderDelete">申请退单</view>
+             </block>
           </view>
         </block>
 

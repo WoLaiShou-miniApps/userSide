@@ -27,6 +27,7 @@ Page({
       },
       method: 'GET',
       success: function (res) {
+        console.log(res)
         wx.request({
           url: "https://irecycle.gxxnr.cn/api/user/getmyorderlist.do",
           data: {
@@ -51,7 +52,6 @@ Page({
             that.setData({
               myorder_list: myorder
             })
-            console.log(that.data.myorder_list)
           },
         })
       },
@@ -120,6 +120,7 @@ Page({
   },
 
   onPullDownRefresh: function () {
+    console.log("PullDown")
     var that = this;
     wx.request({
       url: "https://irecycle.gxxnr.cn/api/user/getmyorderlist.do",
@@ -130,7 +131,7 @@ Page({
       // header: {}, // 设置请求的 header
       success: function (res) {
         //console.log(res.resdata);
-        var myorder = { untaken: { num: 0, content: [] }, finished: { num: 0, content: [] } }
+        var myorder = { untaken: { num: 0, content: [] }, finished: { num: 0, content: []}}
         for (var i = 0; i < res.data.length; i++) {
           switch (res.data[i].state) {
             case 6:
@@ -145,7 +146,6 @@ Page({
         that.setData({
           myorder_list: myorder
         })
-        console.log(that.data.myorder_list)
       },
     })
   },
