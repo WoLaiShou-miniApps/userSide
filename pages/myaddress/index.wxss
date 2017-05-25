@@ -1,1 +1,9 @@
 /* pages/myaddress/index.wxss */
+
+
+.add-address{
+  width: 100%;
+}
+.add-address map{
+  margin: 0 auto;
+}
