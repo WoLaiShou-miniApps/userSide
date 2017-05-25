@@ -57,18 +57,18 @@
       </view>
       </block>
       <block wx:else>
-      <view class="praise-button" style="background:#ff2d4b;" bindtap="praise" data-index="0">
+      <view class="praise-button" bindtap="praise" data-index="0">
         <image src="../../static/image/thumb_up_selected.png"></image>
       </view>
       </block>
       <block wx:if="{{praise!=1}}">
-      <view class="praise-button" bindtap="praise" data-index="1">
-        <image src="../../static/image/thumb_down.png"></image>
+      <view class="praise-button down" bindtap="praise"   data-index="1">
+        <image src="../../static/image/thumb_up.png"></image>
       </view>
       </block>
       <block wx:else>
-      <view class="praise-button" style="background:#ff2d4b;" bindtap="praise" data-index="1">
-        <image src="../../static/image/thumb_down_selected.png"></image>
+      <view class="praise-button down"  bindtap="praise"  data-index="1">
+        <image src="../../static/image/thumb_up_selected.png"></image>
       </view>
       </block>
     </view>

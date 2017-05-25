@@ -92,5 +92,8 @@
   line-height:100rpx;
   text-align:center;
   color:#FFF;
-  background:#ADFF2F;
+  background:#1BB28D;
+}
+.down{
+  transform: rotate(180deg)
 }

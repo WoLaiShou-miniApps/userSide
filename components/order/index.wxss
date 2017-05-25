@@ -229,3 +229,8 @@
   width:100%;
   margin-bottom:20rpx;
 }
+.order-map{
+  width: 750rpx;
+  height: 400rpx;
+  margin-top: 20rpx;
+}
