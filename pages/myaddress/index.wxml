@@ -1,14 +1,18 @@
 <!--pages/myaddress/index.wxml-->
 <view class="address-list">
   <view class="address" wx:for="{{addressList}}">
-    <view class="address-name">{{item.addressName}}</view>
-    <view class="address-detail">{{item.addressDetail}}</view>
+    <view class="address-name">{{item.name}}</view>
+    <view class="address-phone">{{item.phone}}</view>
+    <view class="address-address">{{item.address}}</view>
+    <view class="address-detail">{{item.detailAddress}}</view>
   </view>
-  <view wx:if="{{ifadd==0}}" class="add-btn" bindtap="addAddress">添加新地址</view>
-  <view wx:else class="add-address">
-    <map id="addMap" scale="14"  longitude="{{longitude}}" latitude="{{latitude}}" bindregionchange="getlocation"  controls="{{controls}}" show-location style="width:300px; height:200px;"></map>
-    <input type="text" bindblur="getAddressName" />
-    <input type="text" bindblur="getAddressDetail" />
-    <view class="commit-btn" bindtap="commitAddress">确认添加</view>
-  </view>
+</view>
+<view wx:if="{{ifadd==0}}" class="add-btn" bindtap="addAddress">添加新地址</view>
+<view wx:else class="add-address">
+  <view class="add-address-info">请拖动地图选择具体位置：</view>
+  <map id="addMap" scale="14" longitude="{{longitude}}" latitude="{{latitude}}" bindregionchange="getlocation" controls="{{controls}}"
+    show-location style="width:300px; height:200px;"></map>
+  <input type="text" bindblur="getAddressName" placeholder="请输入位置名称"/>
+  <input type="text" bindblur="getAddressDetail" placeholder="请输入详细位置信息"/>
+  <view class="commit-btn" bindtap="commitAddress">确认添加</view>
 </view>

@@ -8,16 +8,22 @@ Page({
     addressList: [
       {
         "id": 1,
-        "addressName": "哈工大",
-        "addressDetail": "哈尔滨市南岗区西大直街92号",
+        "address": "哈工大",
+        "detailAddress": "哈尔滨市南岗区西大直街92号",
         "latitude": 45.746519,
-        "longitude": 126.631020
+        "longitude": 126.631020,
+        "name":"王阿马",
+        "phone":"15756555432",
+        "district":"南岗",
       }, {
         "id": 2,
-        "addressName": "哈站",
-        "addressDetail": "哈尔滨市南岗区铁路街1号",
+        "address": "哈站",
+        "detailAddress": "哈尔滨市南岗区铁路街1号",
         "latitude": 45.759420,
-        "longitude": 126.632167
+        "longitude": 126.632167,
+        "name":"王阿马",
+        "phone":"15756555432",
+        "district":"南岗",
       }
     ],
     ifadd: 0,
@@ -68,6 +74,9 @@ Page({
       },
       complete: function() {
         // complete
+        that.setData({
+          ifadd:0
+        })
       }
     })
   },
