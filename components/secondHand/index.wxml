@@ -19,7 +19,6 @@
         </view>
       </picker>
     </view>
-    <button type="primary"  plain >提交</button>
-  
+    <button type="primary"  plain  bindtap="orderSubmit">提交</button>
   </view>
 </template>

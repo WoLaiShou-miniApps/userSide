@@ -17,6 +17,45 @@ Page({
       select_order: e.currentTarget.dataset.index == this.data.select_order ? -1 : e.currentTarget.dataset.index
     })
   },
+
+  orderDelete:function(){
+    var that=this
+    wx.request({
+      url: this.URL + 'myorderlist',
+      data: {
+        id:this.data.myorder_list.untaken.content[this.data.select_order].id
+      },
+      method: 'GET',
+      success: function (res) {
+        wx.request({
+          url: that.URL + 'myorderlist',
+          data: {},
+          method: 'GET',
+          // header: {}, // 设置请求的 header
+          success: function (res) {
+            //console.log(res.resdata);
+            var myorder = { untaken: { num: 0, content: [] }, finished: { num: 0, content: [] } }
+            for (var i = 0; i < res.data.resdata.order_list.length; i++) {
+              switch (res.data.resdata.order_list[i].state) {
+                case 2:
+                  myorder.finished.content.push(res.data.resdata.order_list[i])
+                  myorder.finished.num++
+                  break
+                default:
+                  myorder.untaken.content.push(res.data.resdata.order_list[i])
+                  myorder.untaken.num++
+              }
+            }
+            that.setData({
+              myorder_list: myorder
+            })
+            console.log(that.data.myorder_list)
+          },
+        })
+      },
+    })
+  },
+
   onLoad: function (options) {
     
   },
@@ -33,18 +72,18 @@ Page({
       method: 'GET',
       // header: {}, // 设置请求的 header
       success: function (res) {
-        //console.log(res.data);
+        //console.log(res.resdata);
         var myorder = { untaken: { num: 0, content: [] }, finished: { num: 0, content: [] } }
-        for (var i = 0; i < res.data.data.order_list.length;i++)
+        for (var i = 0; i < res.data.resdata.order_list.length;i++)
         {
-          switch (res.data.data.order_list[i].state)
+          switch (res.data.resdata.order_list[i].state)
           {
             case 2:
-              myorder.finished.content.push(res.data.data.order_list[i])
+              myorder.finished.content.push(res.data.resdata.order_list[i])
               myorder.finished.num++
               break
             default:
-              myorder.untaken.content.push(res.data.data.order_list[i])
+              myorder.untaken.content.push(res.data.resdata.order_list[i])
               myorder.untaken.num++
           }
         }

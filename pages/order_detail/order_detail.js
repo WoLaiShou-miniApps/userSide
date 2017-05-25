@@ -49,7 +49,7 @@ Page({
       success: function (res) {
         //console.log(res.data);
         that.setData({
-          order_list: res.data.data.order_list
+          order_list: res.data.resdata.order_list
         })
         console.log(that.data.order_list)
       },

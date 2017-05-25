@@ -9,7 +9,7 @@
   
   <template is="goods_cartoon" data="{{animationData_goods:animationData_goods,image:image}}"></template>
 <template is="Hover_button"></template>-->
-<template is="secondHand" data="{{animation_textarea:animation_textarea,secondHand_imgUrl:secondHand_imgUrl,myphoto:myphoto,time:time_waste,date:date_waste,service:service}}"></template>
+<template is="secondHand" data="{{animation_textarea:animation_textarea,secondHand_imgUrl:secondHand_imgUrl,time:time_waste,date:date_waste,service:service}}"></template>
 </block>
 <block wx:if="{{service==1}}">
   <template is="secondHand" data="{{animation_textarea:animation_textarea,secondHand_imgUrl:secondHand_myphoto,time:time_secondHand,date:date_secondHand,service:service}}"></template>

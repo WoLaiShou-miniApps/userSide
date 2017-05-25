@@ -60,7 +60,7 @@ Page({
 
   },
 
-  selectweight: function (e) {
+  /*selectweight: function (e) {
 
      var D_Value=87*e.target.dataset.index+130.5-e.changedTouches[0].clientY
      console.log(D_Value)
@@ -128,7 +128,7 @@ Page({
     })
 
 
-  },
+  },*/
   change_service: function (e) {
     this.setData({
       service: e.target.dataset.index
@@ -144,6 +144,23 @@ Page({
       animationData_progress: animation.export()
     })
   },
+  orderSubmit:function(){
+    var that = this
+    console.log(that.data.service == 0 ? that.data.secondHand_imgUrl : that.data.secondHand_myphoto)
+    console.log(that.data.service == 0 ? that.data.date_waste : that.data.date_secondHand)
+    console.log(that.data.service == 0 ? that.data.note_waste : that.data.note_secondHand)
+
+    wx.uploadFile({
+          url: "https://irecycle.gxxnr.cn/",
+          filePath: that.data.service == 0 ? that.data.secondHand_imgUrl : that.data.secondHand_myphoto,
+          name:"photo",
+          formData:{
+            date: that.data.service == 0 ? that.data.date_waste : that.data.date_secondHand,
+            time: that.data.service == 0 ? that.data.time_waste : that.data.time_secondHand,
+            text: that.data.service == 0 ? that.data.note_waste : that.data.note_secondHand
+          }
+        })
+  },
   onLoad:function(){
     var that = this;
     wx.request({
@@ -158,12 +175,6 @@ Page({
           goods_type:res.data.data.goodsType,
           goods:res.data.data.goods
         })
-      },
-      fail: function(res) {
-        // fail
-      },
-      complete: function(res) {
-        // complete
       }
     })
   },

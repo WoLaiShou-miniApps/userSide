@@ -87,9 +87,19 @@ module.exports = {
     }, 100)
 
   },
-  textareaBlured: function () {
-    console.log("ddss")
+  textareaBlured: function (res) {
     var that = this;
+    if (that.data.service == 0) {
+      that.setData({
+        note_waste: res.detail.value
+      })
+    }
+    else if (that.data.service == 1) {
+      that.setData({
+        note_secondHand: res.detail.value
+      })
+    }
+    console.log("ddss")
     var animation = wx.createAnimation({duration: 200, timingFunction: 'ease'})
     animation
       .top(85 + 'rpx')

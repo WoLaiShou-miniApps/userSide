@@ -10,7 +10,6 @@
     "pages/evaluate/evaluate",
     "pages/user/user",
     "pages/info/info",
-    
     "pages/test"
   ],
   "window":{
@@ -41,5 +40,5 @@
     "request": 10000,
     "downloadFile": 10000
   },
-  "debug": false
+  "debug": true
 }
