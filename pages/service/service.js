@@ -145,16 +145,14 @@ Page({
     })
   },
 
+
+
   orderSubmit:function(){
     var that = this
-    console.log(that.data.service == 0 ? that.data.secondHand_imgUrl : that.data.secondHand_myphoto)
-    console.log(that.data.service == 0 ? that.data.date_waste : that.data.date_secondHand)
-    console.log(that.data.service == 0 ? that.data.note_waste : that.data.note_secondHand)
-
     wx.uploadFile({
           url: "https://irecycle.gxxnr.cn/api/user/postorder.do",
           filePath: that.data.service == 0 ? that.data.secondHand_imgUrl : that.data.secondHand_myphoto,
-          name:"photo",
+          name:"file",
           formData:{
             userid:2,
             addressid:1,
@@ -165,6 +163,9 @@ Page({
         })
     console.log("已发送")
   },
+
+
+
   onLoad:function(){
     var that = this;
     wx.request({
