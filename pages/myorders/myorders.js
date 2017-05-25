@@ -21,28 +21,30 @@ Page({
   orderDelete:function(){
     var that=this
     wx.request({
-      url: this.URL + 'myorderlist',
+      url: "https://irecycle.gxxnr.cn/api/user/orderCancel.do",
       data: {
         id:this.data.myorder_list.untaken.content[this.data.select_order].id
       },
       method: 'GET',
       success: function (res) {
         wx.request({
-          url: that.URL + 'myorderlist',
-          data: {},
+          url: "https://irecycle.gxxnr.cn/api/user/getmyorderlist.do",
+          data: {
+            userid: 2
+          },
           method: 'GET',
           // header: {}, // 设置请求的 header
           success: function (res) {
             //console.log(res.resdata);
             var myorder = { untaken: { num: 0, content: [] }, finished: { num: 0, content: [] } }
-            for (var i = 0; i < res.data.resdata.order_list.length; i++) {
-              switch (res.data.resdata.order_list[i].state) {
-                case 2:
-                  myorder.finished.content.push(res.data.resdata.order_list[i])
+            for (var i = 0; i < res.data.length; i++) {
+              switch (res.data[i].state) {
+                case 6:
+                  myorder.finished.content.push(res.data[i])
                   myorder.finished.num++
                   break
                 default:
-                  myorder.untaken.content.push(res.data.resdata.order_list[i])
+                  myorder.untaken.content.push(res.data[i])
                   myorder.untaken.num++
               }
             }
@@ -78,23 +80,25 @@ Page({
   onShow: function () {
     var that = this;
     wx.request({
-      url: that.URL + 'myorderlist',
-      data: {},
+      url: "https://irecycle.gxxnr.cn/api/user/getmyorderlist.do",
+      data: {
+        userid:2
+      },
       method: 'GET',
       // header: {}, // 设置请求的 header
       success: function (res) {
         //console.log(res.resdata);
         var myorder = { untaken: { num: 0, content: [] }, finished: { num: 0, content: []}}
-        for (var i = 0; i < res.data.resdata.order_list.length;i++)
+        for (var i = 0; i < res.data.length;i++)
         {
-          switch (res.data.resdata.order_list[i].state)
+          switch (res.data[i].state)
           {
-            case 2:
-              myorder.finished.content.push(res.data.resdata.order_list[i])
+            case 6:
+              myorder.finished.content.push(res.data[i])
               myorder.finished.num++
               break
             default:
-              myorder.untaken.content.push(res.data.resdata.order_list[i])
+              myorder.untaken.content.push(res.data[i])
               myorder.untaken.num++
           }
         }
@@ -116,7 +120,34 @@ Page({
   },
 
   onPullDownRefresh: function () {
-  
+    var that = this;
+    wx.request({
+      url: "https://irecycle.gxxnr.cn/api/user/getmyorderlist.do",
+      data: {
+        userid: 2
+      },
+      method: 'GET',
+      // header: {}, // 设置请求的 header
+      success: function (res) {
+        //console.log(res.resdata);
+        var myorder = { untaken: { num: 0, content: [] }, finished: { num: 0, content: [] } }
+        for (var i = 0; i < res.data.length; i++) {
+          switch (res.data[i].state) {
+            case 6:
+              myorder.finished.content.push(res.data[i])
+              myorder.finished.num++
+              break
+            default:
+              myorder.untaken.content.push(res.data[i])
+              myorder.untaken.num++
+          }
+        }
+        that.setData({
+          myorder_list: myorder
+        })
+        console.log(that.data.myorder_list)
+      },
+    })
   },
 
   /**

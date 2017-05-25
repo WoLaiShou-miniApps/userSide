@@ -14,7 +14,7 @@
         <view bindtap="selectorder" data-index="{{index}}" class="orders-item">
           <view class="name">{{item.name}}</view>
           <view class="righttext">
-            <view class="address">{{item.address}}</view>
+            <view class="address">{{item.address}} {{item.state}}</view>
             <view class="time">{{item.time}}</view>
           </view>
           <image src="../../static/image/more_{{select_order==index?'up':'down'}}.png" class="more-down"></image>
@@ -98,7 +98,7 @@
 
   <view class="detail-image">
     <view class="title">照片：</view>
-    <image src="{{order.imgUrl}}">
+    <image src="https://irecycle.gxxnr.cn{{order.imgUrl}}">
     </image>
   </view>
 </template>
