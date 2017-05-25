@@ -55,7 +55,18 @@ Page({
       },
     })
   },
-
+  gotoDetail:function(){
+    wx.setStorage({
+      key: 'orderdetail',
+      data: this.data.order_state == 0 ? this.data.myorder_list.untaken.content[this.data.select_order] : this.data.myorder_list.finished.content[this.data.select_order],
+      success:function(){
+        wx.navigateTo({
+          url: '../order_detail/order_detail',
+        })
+      }
+    })
+    
+  },
   onLoad: function (options) {
     
   },
@@ -73,7 +84,7 @@ Page({
       // header: {}, // 设置请求的 header
       success: function (res) {
         //console.log(res.resdata);
-        var myorder = { untaken: { num: 0, content: [] }, finished: { num: 0, content: [] } }
+        var myorder = { untaken: { num: 0, content: [] }, finished: { num: 0, content: []}}
         for (var i = 0; i < res.data.resdata.order_list.length;i++)
         {
           switch (res.data.resdata.order_list[i].state)
@@ -87,6 +98,7 @@ Page({
               myorder.untaken.num++
           }
         }
+
         that.setData({
           myorder_list: myorder
         })

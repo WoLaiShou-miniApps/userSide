@@ -1,9 +1,7 @@
 // pages/order_detail/order_detail.js
-var app = getApp()
 Page({
   data: {
-    order_list: [],
-    orderid:0,
+    order:{},
     Mapmarkers:[{
       id:0,
       latitude:45.755936,
@@ -29,9 +27,16 @@ Page({
   URL: 'http://easy-mock.com/mock/59070ef87a878d73716e3aa7/wx-irecycle/',
 
   onLoad: function (options) {
-    console.log(options.index)
-    this.setData({
-      orderid: options.index
+    var that=this
+    wx.getStorage({
+      key: 'orderdetail',
+      success: function(res) {
+        that.setData({
+          order:res.data
+        })
+      },
+      fail: function(res) {},
+      complete: function(res) {},
     })
   },
 
@@ -40,20 +45,6 @@ Page({
   },
 
   onShow: function () {
-    var that = this;
-    wx.request({
-      url: that.URL + 'myorderlist',
-      data: {},
-      method: 'GET',
-      // header: {}, // 设置请求的 header
-      success: function (res) {
-        //console.log(res.data);
-        that.setData({
-          order_list: res.data.resdata.order_list
-        })
-        console.log(that.data.order_list)
-      },
-    })
   },
 
   /**
