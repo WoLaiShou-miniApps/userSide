@@ -236,7 +236,7 @@
 
 
 .rotate{
-  animation:waiting infinite;
+  animation:waiting 2s infinite;
   transform:rotate(0deg);
 } 
 @keyframes waiting{

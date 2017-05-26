@@ -172,6 +172,7 @@ Page({
         that.setData({
           myorder_list: myorder
         })
+        wx.stopPullDownRefresh()
       },
     })
   },
