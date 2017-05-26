@@ -11,23 +11,29 @@
   <block wx:if="{{order_state==0 && myorder_list.untaken.num!=0}}">
     <view class="myorder_list">
       <block wx:for="{{myorder_list.untaken.content}}">
-        <view bindtap="selectorder" data-index="{{index}}" class="orders-item">
+        <view bindtap="{{item.state==1?'':'selectorder'}}" data-index="{{index}}" class="orders-item {{item.state==1?'invalid':''}}">
           <view class="name">{{item.name}}</view>
           <view class="righttext">
-            <view class="address">{{item.address}} {{item.state}}</view>
+            <view class="address">{{item.address}} {{item.addressdetail}}</view>
             <view class="time">{{item.time}}</view>
           </view>
-          <image src="../../static/image/more_{{select_order==index?'up':'down'}}.png" class="more-down"></image>
+          <image wx:if="{{item.state!=1}}" src="../../static/image/more_{{select_order==index?'up':'down'}}.png" class="more-down"></image>
+
+<image wx:if="{{item.state==2}}" class="del-node rotate" src="../../static/image/wait_hourglass.png" ></image>
+<image wx:if="{{item.state==3}}" class="del-node" src="../../static/image/truck_wait.png" style="transform:scaleX(-1)"></image>
+<image wx:if="{{item.state==4}}" class="del-node" src="../../static/image/wait.png"></image>
+
         </view>
 
-        <block wx:if="{{select_order==index}}">
+
+        <block wx:if="{{select_order==index && item.state!=1}}">
           <view class="operate-panel">
               <view class="item" bindtap="gotoDetail">查看详情</view>
              <block wx:if="{{item.state==4}}">
               <view class="item" style="background:#cccccc">退单已申请</view>
              </block>
              <block wx:else>
-              <view class="item" bindtap="orderDelete">申请退单</view>
+              <view class="item" bindtap="orderDelete">点击退单</view>
              </block>
           </view>
         </block>

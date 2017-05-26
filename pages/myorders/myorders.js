@@ -119,36 +119,7 @@ Page({
   
   },
 
-  onPullDownRefresh: function () {
-    console.log("PullDown")
-    var that = this;
-    wx.request({
-      url: "https://irecycle.gxxnr.cn/api/user/getmyorderlist.do",
-      data: {
-        userid: 2
-      },
-      method: 'GET',
-      // header: {}, // 设置请求的 header
-      success: function (res) {
-        //console.log(res.resdata);
-        var myorder = { untaken: { num: 0, content: [] }, finished: { num: 0, content: []}}
-        for (var i = 0; i < res.data.length; i++) {
-          switch (res.data[i].state) {
-            case 6:
-              myorder.finished.content.push(res.data[i])
-              myorder.finished.num++
-              break
-            default:
-              myorder.untaken.content.push(res.data[i])
-              myorder.untaken.num++
-          }
-        }
-        that.setData({
-          myorder_list: myorder
-        })
-      },
-    })
-  },
+ 
 
   /**
    * 页面上拉触底事件的处理函数
@@ -175,6 +146,33 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
-  }
+    console.log("PullDown")
+    var that = this;
+    wx.request({
+      url: "https://irecycle.gxxnr.cn/api/user/getmyorderlist.do",
+      data: {
+        userid: 2
+      },
+      method: 'GET',
+      // header: {}, // 设置请求的 header
+      success: function (res) {
+        //console.log(res.resdata);
+        var myorder = { untaken: { num: 0, content: [] }, finished: { num: 0, content: [] } }
+        for (var i = 0; i < res.data.length; i++) {
+          switch (res.data[i].state) {
+            case 6:
+              myorder.finished.content.push(res.data[i])
+              myorder.finished.num++
+              break
+            default:
+              myorder.untaken.content.push(res.data[i])
+              myorder.untaken.num++
+          }
+        }
+        that.setData({
+          myorder_list: myorder
+        })
+      },
+    })
+  },
 })
