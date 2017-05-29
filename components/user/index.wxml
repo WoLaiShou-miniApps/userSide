@@ -4,7 +4,7 @@
             <image src="{{info.avatarUrl}}"></image>
             <view class="user-info-detail">
                 <view class="user-name">{{info.nickName}}</view>
-                <navigator url="../info/info?name={{info.nickName}}" hover-class="none">
+                <navigator url="../info/info" hover-class="none">
                 <view class="user-more">查看或修改个人信息</view>
                 </navigator>
             </view>
@@ -13,7 +13,7 @@
             <navigator url="../myorders/myorders" hover-class="none">
             <view class="item">
                 <image src="../../static/image/my_order.png"></image>
-                <view class="item-title">我的订单</view>
+                <view class="item-title">废品订单</view>
             </view>
             </navigator>
 
@@ -23,7 +23,7 @@
                 <view class="item-title">二手详情</view>
             </view>
             </navigator>
-            <navigator url="../myaddress/index" hover-class="none">
+            <navigator url="../myaddress/myaddress" hover-class="none">
             <view class="item"><image src="../../static/image/address_2.png"></image>
                 <view class="item-title">地址管理</view>
                 </view>
@@ -41,22 +41,22 @@
 <form bindsubmit="formSubmit">
 <view class="info-panel">
   <view class="info-item">
-    <text>昵称</text>
-    <input name="nickName" placeholder="请输入昵称" value="{{info.nickName}}"></input>
+    <text>真实姓名</text>
+    <input name="nickName" placeholder="请输入昵称" value="{{info.name}}"></input>
   </view>
   <view class="info-item">
     <text>联系电话</text>
-    <input name="phone" placeholder="请输入联系电话" value=""></input>
+    <input name="phone" placeholder="请输入联系电话" value="{{info.tel}}"></input>
   </view>
 
   
   <view class="info-item">
-    <text>密码</text>
-    <input name="passwd" placeholder="请输入修改后的密码" value="" bindinput="passwd" data-index="1"></input>
+    <text>pc端密码</text>
+    <input name="passwd" type="password" placeholder="请输入密码" value="{{info.password}}" bindinput="passwd" data-index="1"></input>
   </view>
   <view class="info-item">
     <text>确认密码</text>
-    <input name="passwdR" placeholder="再次输入修改后的密码" value="" bindinput="passwd" data-index="2"></input>
+    <input name="passwdR" type="password" placeholder="再次输入密码" value="{{info.password}}" bindinput="passwd" data-index="2"></input>
   </view>
 </view>
 

@@ -148,13 +148,15 @@ Page({
 
 
   orderSubmit:function(){
+    if (app.globalData.origin==1)
+    {
     var that = this
     wx.uploadFile({
           url: "https://irecycle.gxxnr.cn/api/user/postorder.do",
           filePath: that.data.service == 0 ? that.data.secondHand_imgUrl:that.data.secondHand_myphoto,
           name:"file",
           formData:{
-            userid:2,
+            userid: app.globalData.userid,
             addressid:1,
             date: that.data.service == 0 ? that.data.date_waste : that.data.date_secondHand,
             time: that.data.service == 0 ? that.data.time_waste : that.data.time_secondHand,
@@ -188,6 +190,15 @@ Page({
         }     
         })
     console.log("已发送")
+
+
+
+    }
+    else{
+      wx.navigateTo({
+        url: '../info/info',
+      })
+    }
   },
 
 
@@ -201,7 +212,7 @@ Page({
       // header: {}, // 设置请求的 header
       success: function(res){
         // success
-        console.log(res.data);
+        
         that.setData({
           goods_type:res.data.data.goodsType,
           goods:res.data.data.goods

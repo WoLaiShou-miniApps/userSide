@@ -1,4 +1,5 @@
 // pages/myaddress/index.js
+var app = getApp()
 Page({
 
   /**
@@ -6,25 +7,7 @@ Page({
    */
   data: {
     addressList: [
-      {
-        "id": 1,
-        "address": "哈工大",
-        "detailAddress": "哈尔滨市南岗区西大直街92号",
-        "latitude": 45.746519,
-        "longitude": 126.631020,
-        "name":"王阿马",
-        "phone":"15756555432",
-        "district":"南岗",
-      }, {
-        "id": 2,
-        "address": "哈站",
-        "detailAddress": "哈尔滨市南岗区铁路街1号",
-        "latitude": 45.759420,
-        "longitude": 126.632167,
-        "name":"王阿马",
-        "phone":"15756555432",
-        "district":"南岗",
-      }
+      
     ],
     ifadd: 0,
     addMarker: [
@@ -62,15 +45,23 @@ Page({
   commitAddress:function(){
     var that = this;
     wx.request({
-      url: 'https://irecycle.gxxnr.cn/api/user/addaddress',
-      data: that.data.newAddress,
-      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-      // header: {}, // 设置请求的 header
-      success: function(res){
-        // success
+      url: 'https://irecycle.gxxnr.cn/api/user/addaddress.do',
+      data:{
+        userid: app.globalData.userid,
+        name:'王阿马',
+        latitude: that.data.newAddress.latitude,
+        longitude: that.data.newAddress.longitude,
+        district:1,
+        address: that.data.newAddress.name,
+        detailAddress: that.data.newAddress.detail,
+        phone:'155555555'
       },
-      fail: function() {
-        // fail
+      header: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+      },
+      method: 'POST',
+      success: function(res){
+        console.log(res)
       },
       complete: function() {
         // complete
@@ -141,11 +132,25 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {},
+  onLoad: function (options) {
+    var that = this;
+    wx.request({
+      url: 'https://irecycle.gxxnr.cn/api/user/getuseraddress.do',
+      data:{
+        userid: app.globalData.userid
+      },
+      method: 'GET',
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          addressList:res.data
+        })
+      },
+    })
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+  },
+
+
   onReady: function () {},
 
   /**

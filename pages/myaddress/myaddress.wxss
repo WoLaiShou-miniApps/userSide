@@ -28,7 +28,9 @@
   height: 50rpx;
 }
 .address view{
-  margin-top: 20rpx;
+  margin-top: 10rpx;
+  color: rgba(78,77,79,0.8);
+  font-family: "微软雅黑"
 }
 .address-name{
   margin-left: 10rpx;
@@ -38,7 +40,7 @@
 }
 .address-phone{
   width: 500rpx;
-  margin-left: 30rpx;
+  margin-left: 10rpx;
   float: left;
   font-size: 40rpx;
 }

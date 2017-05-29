@@ -1,20 +1,13 @@
 // pages/user/user.js
+var app =getApp() 
 Page({
   data:{
     info:{}
   },
   onLoad:function(options){
     var that = this
-    wx.checkSession({
-      success: function () {
-        wx.getUserInfo({
-          success: function (res) {
-            that.setData({
-              info:res.userInfo
-            })
-          }
-        })
-      }
+    that.setData({
+      info:app.info
     })
   },
   onReady:function(){

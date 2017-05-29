@@ -1,10 +1,10 @@
 <!--pages/myaddress/index.wxml-->
 <view class="address-list">
   <view class="address" wx:for="{{addressList}}">
-    <view class="address-name">{{item.name}}</view>
-    <view class="address-phone">{{item.phone}}</view>
-    <view class="address-address">{{item.address}}</view>
-    <view class="address-detail">{{item.detailAddress}}</view>
+    <view class="address-name">{{item.consignee}}</view>
+    <view class="address-phone">{{item.tel}}</view>
+    <view class="address-address">{{item.name}}</view>
+    <view class="address-detail">{{item.addressDetail}}</view>
   </view>
 </view>
 <view wx:if="{{ifadd==0}}" class="add-btn" bindtap="addAddress">添加新地址</view>
