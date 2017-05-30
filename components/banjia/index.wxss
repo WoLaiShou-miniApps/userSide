@@ -1,5 +1,5 @@
 .banjia {
-  color: #373E40;
+  color: #373e40;
   top: 285rpx;
   position: relative;
   width: 400rpx;
@@ -7,36 +7,90 @@
   text-align: center;
   height: 400rpx;
   line-height: 400rpx;
-  border: 1rpx solid #373E40;
+  border: 1rpx solid #373e40;
   border-radius: 50%;
 }
-.banjia image{
-    margin-top: 65rpx;
-    width: 50%;
-    height: 50%;
+
+.banjia image {
+  margin-top: 65rpx;
+  width: 50%;
+  height: 50%;
 }
-.banjia-info{
-    color: #373E40;
-    position: relative;
-    margin-top: 175rpx;
-    text-align: center;
-    font-size: 14px;
+
+.banjia-info {
+  color: #373e40;
+  position: relative;
+  margin-top: 175rpx;
+  text-align: center;
+  font-size: 14px;
 }
-.banjia-text{
-    color: #373E40;
-    position: relative;
-    margin-top: 175rpx;
-    text-align: center;
-    font-size: 14px;
-    padding: 0 100rpx;
-    opacity: 0.7;
+
+.banjia-text {
+  color: #373e40;
+  position: relative;
+  margin-top: 175rpx;
+  text-align: center;
+  font-size: 14px;
+  padding: 0 100rpx;
+  opacity: 0.7;
 }
-.banjia-text2{
-    color: #373E40;
-    position: relative;
-    margin-top: 20rpx;
-    text-align: center;
-    font-size: 14px;
-    padding: 0 100rpx;
-    opacity: 0.7;
+
+.banjia-text2 {
+  color: #373e40;
+  position: relative;
+  margin-top: 20rpx;
+  text-align: center;
+  font-size: 14px;
+  padding: 0 100rpx;
+  opacity: 0.7;
+}
+
+.banjia_order {
+  margin-top: 200rpx;
+}
+
+.input-area {
+  width: 710rpx;
+  margin-left: 20rpx;
+}
+
+.input-area input {
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-radius: 10rpx;
+  box-shadow: 1rpx 1rpx 1rpx 1rpx rgba(35, 34, 33, 0.2) inset;
+}
+
+.btn-area {
+  width: 710rpx;
+  margin-left: 20rpx;
+  margin-top: 30rpx;
+}
+.btn-area button{
+  color: #373e40;
+  background: transparent;
+  border: 1rpx solid #373e40;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.banjia_order_info{
+  margin-top: 100rpx;
+  width: 710rpx;
+  margin-left:20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1rpx 1rpx 1rpx rgba(30,33,39,0.4)
+}
+.banjia_order_info text{
+  width: 100%;
+  display: block;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 25rpx;
+  color: 373e40;
+  opacity: 0.9;
+  text-align: center;
 }

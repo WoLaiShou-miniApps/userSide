@@ -17,11 +17,14 @@ Page({
     time_waste:'08:00',
     time_secondHand:'08:00',
     date_waste:'2017-05-01',
-    date_secondHand:'2017-05-01'
+    date_secondHand:'2017-05-01',
+    banjia_key:0
   },
   URL:'http://easy-mock.com/mock/59070ef87a878d73716e3aa7/wx-irecycle/',
+  
   bindDateChange:secondHand.bindDateChange,
   bindTimepicker:secondHand.bindTimepicker,
+  banjia_formSubmit: banjia.formSubmit,
   banjia_makePhoneCall:banjia.makePhoneCall,
   secondHand_textareaBlured:secondHand.textareaBlured,
   secondHand_textareaFocused:secondHand.textareaFocused,
