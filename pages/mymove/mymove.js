@@ -5,9 +5,33 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    moveOrderList:[
+      {
+        orderIndexr:1233212,
+        data:'2017-06-01',
+        time:'14:30',
+        starting:'南岗区花园街110号',
+        destination:'南岗区黄河路92号',
+        driverPhoneNumber:13115603322,
+      },
+      {
+        orderIndexr: 1233212,
+        data: '2017-06-01',
+        time: '14:30',
+        starting: '南岗区花园街110号',
+        destination: '南岗区黄河路92号',
+        driverPhoneNumber: 13115603322,
+      }
+    ]
   },
-
+/**
+ * 打客服电话
+ */
+  move_callForService:function(){
+    wx.makePhoneCall({
+      phoneNumber: '1340000' 
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

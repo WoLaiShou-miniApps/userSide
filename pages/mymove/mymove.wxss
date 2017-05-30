@@ -1,1 +1,2 @@
 /* pages/mymove/mymove.wxss */
+@import "../../components/banjia/index.wxss";
