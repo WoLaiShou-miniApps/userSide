@@ -80,7 +80,7 @@ page{
 .info-panel .info-item text{
     width: 180rpx;
     font-size:35rpx;
-    text-align:justify；
+    text-align:justify;
 }
 .info-panel .info-item input{
     left:200rpx;
