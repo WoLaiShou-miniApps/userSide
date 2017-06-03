@@ -63,7 +63,7 @@
 <view class="info-panel">
   <view class="info-item">
     <text>真实姓名</text>
-    <input name="nickName" placeholder="请输入昵称" value="{{info.name}}"></input>
+    <input name="nickName" placeholder="请输入你的昵称" value="{{info.name}}"></input>
   </view>
   <view class="info-item">
     <text>联系电话</text>
@@ -73,11 +73,11 @@
   
   <view class="info-item">
     <text>pc端密码</text>
-    <input name="passwd" type="password" placeholder="请输入密码" value="{{info.password}}" bindinput="passwd" data-index="1"></input>
+    <input name="passwd" type="password" placeholder="请输入你的密码" value="{{info.password}}" bindinput="passwd" data-index="1"></input>
   </view>
   <view class="info-item">
     <text>确认密码</text>
-    <input name="passwdR" type="password" placeholder="再次输入密码" value="{{info.password}}" bindinput="passwd" data-index="2"></input>
+    <input name="passwdR" type="password" placeholder="请再次确认密码" value="{{info.password}}" bindinput="passwd" data-index="2"></input>
   </view>
 </view>
 
@@ -85,7 +85,7 @@
 <button class="submit-buttun" formType="submit">提交</button>
 </block>
 <block wx:else>
-<button class="submit-buttun" style="background:#cccccc">提交</button>
+<button class="submit-buttun no-use">提交</button>
 </block>
 </form>
 
