@@ -55,7 +55,8 @@ Page({
       '木兰县',
       '通河县',
       '延寿县'
-    ]
+    ],
+    show:0
   },
   /**
    * 提交新地址
@@ -177,6 +178,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    wx.showLoading({title: '加载中...', mask: true})
     wx.request({
       url: 'https://irecycle.gxxnr.cn/api/user/getuseraddress.do',
       data: {
@@ -184,8 +186,12 @@ Page({
       },
       method: 'GET',
       success: function (res) {
+        wx.hideLoading()
         console.log(res)
-        that.setData({addressList: res.data})
+        that.setData({addressList: res.data,show:1})
+      },
+      complete:function(){
+        
       }
     })
 

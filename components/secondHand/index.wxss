@@ -90,7 +90,7 @@
 .second-hand-info-textarea-placeholder0{
   color: #00B0F0;
 }
-.picker-area0{
+.picker-area0,.picker-area-0{
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -113,8 +113,18 @@
   left:20rpx;
   font-size: 40rpx;
 }
-.picker-area0 picker{
+.picker-area0 picker,.picker-area-0 picker{
   color: #00B0F0;
+}
+.picker-area-0::before{
+  content: "地址";
+  background: #fff;
+  top: -20rpx;
+  color: #00B0F0;
+  text-align: center;
+  position: absolute;
+  left:20rpx;
+  font-size: 40rpx;
 }
 
 
@@ -214,7 +224,7 @@
 .second-hand-info-textarea-placeholder1{
   color: #82ABBA;
 }
-.picker-area1{
+.picker-area1,.picker-area-1{
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -237,6 +247,16 @@
   left:20rpx;
   font-size: 40rpx;
 }
-.picker-area1 picker{
+.picker-area-1::before{
+  content: "地址";
+  background: #fff;
+  top: -20rpx;
+  color: #82ABBA;
+  text-align: center;
+  position: absolute;
+  left:20rpx;
+  font-size: 40rpx;
+}
+.picker-area1 picker,.picker-area-1 picker{
   color: #82ABBA;
 }

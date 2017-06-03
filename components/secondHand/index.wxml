@@ -1,14 +1,13 @@
 <template name="secondHand">
-  <view class="second-hand{{service}}"animation="{{animation_textarea}}" >
+  <view class="second-hand{{service}}" animation="{{animation_textarea}}">
     <view class="second-hand-photo{{service}}" bindtap="secondHand_addPhoto">
       <image mode="aspectFill" id="myphoto" class="{{secondHand_imgUrl?'has-photo{{service}}':''}}" src="{{secondHand_imgUrl?secondHand_imgUrl:(service==0?'../../static/image/image1.png':'../../static/image/image2.png')}}"></image>
       <view class="second-hand-photo-text{{service}} {{secondHand_imgUrl?'has-photo-text{{service}}':''}}">点击添加物品照片</view>
     </view>
-    <textarea name="secondHandInfo"  cols="30" rows="10" bindfocus="secondHand_textareaFocused"
-    bindblur="secondHand_textareaBlured" value="{{note}}"
-    ></textarea>
+    <textarea name="secondHandInfo" cols="30" rows="10" bindfocus="secondHand_textareaFocused" bindblur="secondHand_textareaBlured"
+      value="{{note}}"></textarea>
     <view class="picker-area{{service}}">
-      <picker mode="date" value="{{date}}" start="2017-05-01" end="2027-05-01" bindchange="bindDateChange">
+      <picker mode="date" value="{{date}}" start="2017-06-03" end="2027-05-01" bindchange="bindDateChange">
         <view class="picker">
           {{date}}
         </view>
@@ -19,6 +18,14 @@
         </view>
       </picker>
     </view>
-    <button type="primary"  plain  bindtap="orderSubmit">提交</button>
+    <view class="picker-area-{{service}}">
+      <picker mode="selector" bindchange="getAddress" name="address" value="{{addressListid[pick_value[service]].id}}" range="{{myAddressList}}">
+        <view class="picker">
+          <text wx:if="{{pick_value[service]}}">当前选择：{{myAddressList[pick_value[service]]}}</text>
+          <text wx:else>请选择地址</text>
+        </view>
+      </picker>
+    </view>
+    <button type="primary" plain bindtap="orderSubmit">提交</button>
   </view>
 </template>

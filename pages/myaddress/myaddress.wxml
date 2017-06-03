@@ -1,4 +1,5 @@
 <!--pages/myaddress/index.wxml-->
+<block wx:if="{{show>0}}">
 <view class="address-list" wx:if="{{ifadd==0}}">
   <view wx:if="{{addressList.length>0}}" class="address" wx:for="{{addressList}}" >
     <view class="address-name">{{item.consignee}}</view>
@@ -27,3 +28,4 @@
   <input type="text" bindblur="getPhone" placeholder="请输入联系人手机号"/>
   <view class="commit-btn" bindtap="commitAddress">确认添加</view>
 </view>
+</block> 

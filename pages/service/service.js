@@ -18,7 +18,10 @@ Page({
     time_secondHand:'08:00',
     date_waste:'2017-05-01',
     date_secondHand:'2017-05-01',
-    banjia_key:0
+    banjia_key:0,
+    address_waste:-1,
+    address_secondHand:-1,
+    pick_value:[-1,-1,-1]
   },
   URL:'http://easy-mock.com/mock/59070ef87a878d73716e3aa7/wx-irecycle/',
   
@@ -29,6 +32,24 @@ Page({
   secondHand_textareaBlured:secondHand.textareaBlured,
   secondHand_textareaFocused:secondHand.textareaFocused,
   secondHand_addPhoto:secondHand.addPhoto,
+  getAddress:function(e){
+    console.log(e)
+    var value = e.detail.value;
+    if(this.data.service==0){
+      this.setData({
+        address_waste:this.data.addressList[e.detail.value].id
+      })
+    }
+    if(this.data.service==1){
+      this.setData({
+        address_secondHand:this.data.addressList[e.detail.value].id
+      })
+    }
+    this.data.pick_value[this.data.service] = value
+    this.setData({
+      pick_value:this.data.pick_value
+    })
+  },
   switchtab: function (e) {
     var that = this;
     this.setData({
@@ -160,7 +181,7 @@ Page({
           name:"file",
           formData:{
             userid: app.globalData.userid,
-            addressid:1,
+            addressid:that.data.service == 0 ? that.data.address_waste : that.data.address_secondHand,
             date: that.data.service == 0 ? that.data.date_waste : that.data.date_secondHand,
             time: that.data.service == 0 ? that.data.time_waste : that.data.time_secondHand,
             msg: that.data.service == 0 ? that.data.note_waste : that.data.note_secondHand
@@ -227,9 +248,28 @@ Page({
   },
   onShow: function () {
     // 页面显示
+    var that = this;
+    wx.request({
+          url: 'https://irecycle.gxxnr.cn/api/user/getuseraddress.do',
+          data: {
+            userid: app.globalData.userid
+          },
+          method: 'GET',
+          success: function (res) {
+            console.log(res)
+            var myAddressList=[]
+            for(var i = 0;i<res.data.length;i++){
+              myAddressList.push(res.data[i].name)
+            }
+            that.setData({addressList: res.data,myAddressList:myAddressList})
+          }
+        })
   },
   onHide: function () {
     // 页面隐藏
+    this.setData({
+      banjia_key:0
+    })
   },
   onUnload: function () {
     // 页面关闭
