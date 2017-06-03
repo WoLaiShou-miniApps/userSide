@@ -1,8 +1,43 @@
 <template name="banjia">
+  <block wx:if="{{banjia_key==0}}">
+
+    <view class="banjia_order">
+      <form bindsubmit="banjia_formSubmit">
+        <view class="input-area">
+          <input type="number" confirm-type="done" placeholder-style="color:#b3b3b3" placeholder="请输入联系电话" name="phone" />
+        </view>
+        <view class="btn-area">
+          <button formType="submit">开始预约</button>
+        </view>
+      </form>
+      <view class="banjia_order_info">
+        <text>step1：输入联系电话，开始预约</text>
+        <text>step2：拨打客服热线，完成预约</text>
+        <text>新农人搬家小分队火速上门，竭诚为您服务!</text>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
     <view class="banjia" bindtap="banjia_makePhoneCall">
-        <image src="../../static/image/call.png"></image>
+      <image src="../../static/image/call.png"></image>
     </view>
     <view class="banjia-info">呼叫搬家公司</view>
     <view class="banjia-text">欢迎致电本公司热线0451-82638864</view>
     <view class="banjia-text2">哈尔滨供销新农人竭诚为您服务！</view>
+  </block>
+</template>
+<template name="mymove">
+  <view class="moveOrderList">
+    <view class="moveOrder" wx:for="{{moveOrderList}}">
+      <view class="order-info">订单编号：{{item.orderIndexr}}</view>
+      <view class="order-info">预约日期：{{item.data}}</view>
+      <view class="order-info">预约时间：{{item.time}}</view>
+      <view class="order-info">出发地点：{{item.starting}}</view>
+      <view class="order-info">目的地点：{{item.destination}}</view>
+      <view class="order-info">联系方式：{{item.driverPhoneNumber}}</view>
+    </view>
+  </view>
+  <view class="call-for-service" bindtap="move_callForService">
+  有疑问，新农人联系客服随时随地帮您！
+  </view>
 </template>
