@@ -192,7 +192,6 @@ Page({
     console.log("已发送")
 
 
-
     }
     else{
       wx.navigateTo({

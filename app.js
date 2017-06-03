@@ -7,7 +7,7 @@ App({
     iv:null,
     openid:'',
     userid:0,
-    origin:0
+    origin:0 //0初次登陆，1已有用户
   },
   info:{},
   goods_list:[],
@@ -42,6 +42,7 @@ App({
             }
             else
             {
+              that.globalData.origin = 0
               that.globalData.openid=res.data.data.openid
               /*wx.reLaunch({
                 url: 'pages/info/info',

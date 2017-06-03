@@ -54,11 +54,12 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        console.log(res);
+        console.log(res)
         app.globalData.userid =res.data.userid
-        console.log(app.globalData.openid);
-        wx.reLaunch({
-          url:'../service/service'
+        console.log(app.globalData.openid)
+        app.globalData.origin = 1
+        wx.navigateBack({
+          delta:1
         })
       }
       
