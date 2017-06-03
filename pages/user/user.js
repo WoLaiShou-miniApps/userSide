@@ -2,12 +2,14 @@
 var app =getApp() 
 Page({
   data:{
-    info:{}
+    info:{},
+    origin: 0 //0初次登陆，1已有用户
   },
   onLoad:function(options){
     var that = this
     that.setData({
-      info:app.info
+      info:app.info,
+      origin: app.globalData.origin
     })
   },
   onReady:function(){

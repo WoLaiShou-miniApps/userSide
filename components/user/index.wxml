@@ -1,5 +1,7 @@
 <template name="user">
     <view class="user">
+
+        <block wx:if="{{origin==1}}">
         <view class="user-info">
             <image src="{{info.avatarUrl}}"></image>
             <view class="user-info-detail">
@@ -9,6 +11,19 @@
                 </navigator>
             </view>
         </view>
+        </block>
+        <block wx:else>
+        <view class="user-info">
+            <image src="../../static/image/unknown_user.png"></image>
+            <view class="user-info-detail">
+                <view class="user-name">新用户</view>
+                <navigator url="../info/info" hover-class="none">
+                <view class="user-more">马上进行注册</view>
+                </navigator>
+            </view>
+        </view>
+        </block>
+
         <view class="user-item">
             <navigator url="../myorders/myorders" hover-class="none">
             <view class="item">
