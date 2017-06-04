@@ -13,7 +13,7 @@
         </view>
         
         <view bindtap="change_service" data-index="2" class="uplist-item {{service==2 ? 'active':''}}">
-            我来搬家
+            小件运输
         </view>
         <view class="uplist-progress" animation="{{animationData_progress}}"></view>
     </view>
