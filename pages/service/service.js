@@ -227,44 +227,88 @@ Page({
 
 
   onLoad:function(){
-    var that = this;
-    wx.request({
-      url: that.URL+'getgoods',
-      data: {},
-      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-      // header: {}, // 设置请求的 header
-      success: function(res){
-        // success
-        
-        that.setData({
-          goods_type:res.data.data.goodsType,
-          goods:res.data.data.goods
+    var that = this
+    wx.login({
+      success: function (res) {
+        console.log("已获取到登陆态")
+        console.log(res.code)
+        wx.getUserInfo({
+          success: function (res) {
+            console.log("已获取到微信账户个人信息")
+            app.info = res.userInfo
+          }
         })
+        wx.request({
+          url: 'https://irecycle.gxxnr.cn/api/user/login.do',
+          data: {
+            code: res.code
+          },
+          method: 'GET',
+          header: {
+            'content-type': 'application/json'
+          },
+          success: function (res) {
+            console.log(res)
+            if (res.data.errCode == 0) {
+              app.globalData.userid = res.data.data.id
+              app.globalData.origin = 1
+              console.log("获取userid:" + app.globalData.userid)
+              wx.request({
+                url: 'https://irecycle.gxxnr.cn/api/user/getuseraddress.do',
+                data: {
+                  userid: res.data.data.id
+                },
+                method: 'GET',
+                success: function (res) {
+                  console.log(res)
+                  var myAddressList = []
+                  for (var i = 0; i < res.data.length; i++) {
+                    myAddressList.push(res.data[i].name)
+                  }
+                  that.setData({ addressList: res.data, myAddressList: myAddressList })
+                  app.globalData.addressList = res.data
+                }
+              })
+            }
+            else {
+              app.globalData.origin = 0
+              app.globalData.openid = res.data.data.openid
+              /*wx.reLaunch({
+                url: 'pages/info/info',
+              })*/
+            }
+          }
+        })
+
       }
     })
   },
+
+
+
   onReady: function () {
     // 页面渲染完成
   },
   onShow: function () {
     // 页面显示
     var that = this;
-    wx.request({
-          url: 'https://irecycle.gxxnr.cn/api/user/getuseraddress.do',
-          data: {
-            userid: app.globalData.userid
-          },
-          method: 'GET',
-          success: function (res) {
-            console.log(res)
-            var myAddressList=[]
-            for(var i = 0;i<res.data.length;i++){
-              myAddressList.push(res.data[i].name)
+    if (app.globalData.userid!=-1)
+      wx.request({
+            url: 'https://irecycle.gxxnr.cn/api/user/getuseraddress.do',
+            data: {
+              userid: app.globalData.userid
+            },
+            method: 'GET',
+            success: function (res) {
+              console.log(res)
+              var myAddressList=[]
+              for(var i = 0;i<res.data.length;i++){
+                myAddressList.push(res.data[i].name)
+              }
+              that.setData({addressList: res.data,myAddressList:myAddressList})
+              app.globalData.addressList = res.data
             }
-            that.setData({addressList: res.data,myAddressList:myAddressList})
-            app.globalData.addressList = res.data
-          }
-        })
+          })
   },
   onHide: function () {
     // 页面隐藏

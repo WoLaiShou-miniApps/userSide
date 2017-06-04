@@ -2,6 +2,7 @@
 Page({
   data: {
     time:"14:00",
+    orderid:0,
     service_grade:0,
     software_grade: 0,
     praise:-1
@@ -41,8 +42,17 @@ Page({
       delta: 1
     })
   },
-  onLoad: function (options) {
-  
+  onLoad: function () {
+    wx.getStorage({
+      key: 'orderdetail',
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          time: res.data.time.split(" ")[1],
+          orderid: res.data.id
+        })
+      }
+    })
   },
 
   onReady: function () {

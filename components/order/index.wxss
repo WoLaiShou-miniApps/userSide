@@ -79,20 +79,27 @@
   line-height:100rpx;
   font-size:50rpx;
 }
+
 .orders-item .righttext{
   display: flex;
   flex-direction: column;
 
-  width:400rpx;
+  width:300rpx;
 
   font-size:30rpx;
   line-height:50rpx;
 }
 .orders-item .righttext .address{
-  
+  width:300rpx;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  overflow:hidden;
 }
 .orders-item .righttext .time{
-  
+  width:300rpx;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  overflow:hidden;
 }
 
 .del-node{

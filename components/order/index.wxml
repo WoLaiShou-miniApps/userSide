@@ -56,9 +56,7 @@
         <block wx:if="{{select_order==index}}">
           <view class="operate-panel">
               <view class="item" bindtap="gotoDetail">查看详情</view>
-            <navigator hover-class="none" url="../evaluate/evaluate?index={{order.id}}">
-              <view class="item">评价此单</view>
-            </navigator>
+              <view class="item" bindtap="gotoEvaluate">评价此单</view>
           </view>
         </block>
       </block>

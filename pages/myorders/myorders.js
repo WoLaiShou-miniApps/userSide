@@ -68,8 +68,21 @@ Page({
         })
       }
     })
-    
   },
+
+  gotoEvaluate: function () {
+    wx.setStorage({
+      key: 'orderdetail',
+      data: this.data.order_state == 0 ? this.data.myorder_list.untaken.content[this.data.select_order] : this.data.myorder_list.finished.content[this.data.select_order],
+      success: function () {
+        wx.navigateTo({
+          url: '../evaluate/evaluate',
+        })
+      }
+    })
+  },
+
+
   onLoad: function (options) {
     
   },
