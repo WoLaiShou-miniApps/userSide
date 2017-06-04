@@ -57,7 +57,7 @@
           <view class="operate-panel">
               <view class="item" bindtap="gotoDetail">查看详情</view>
             <navigator hover-class="none" url="../evaluate/evaluate?index={{order.id}}">
-              <view class="item" bindtap="delete">评价此单</view>
+              <view class="item">评价此单</view>
             </navigator>
           </view>
         </block>
