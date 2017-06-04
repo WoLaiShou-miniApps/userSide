@@ -41,7 +41,7 @@
              <navigator url="../mymove/mymove" hover-class="none">
             <view class="item">
                 <image src="../../static/image/move.png"></image>
-                <view class="item-title">搬家预约</view>
+                <view class="item-title">小件预约</view>
             </view>
             </navigator>
             <navigator url="../myaddress/myaddress" hover-class="none">

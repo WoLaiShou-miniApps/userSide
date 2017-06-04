@@ -1,4 +1,5 @@
 // pages/order_detail/order_detail.js
+var app = getApp()
 Page({
   data: {
     order:{},
@@ -28,11 +29,26 @@ Page({
 
   onLoad: function (options) {
     var that=this
+    
+    console.log(1,app.globalData.addressList)
+    var address = {}
+    for(var i =0;i<app.globalData.addressList.length;i++){
+      address[app.globalData.addressList[i].id] = app.globalData.addressList[i]
+    }
+    that.setData({
+      addressList:address
+    })
     wx.getStorage({
       key: 'orderdetail',
       success: function(res) {
         that.setData({
           order:res.data
+        })
+        console.log(that.data.addressList)
+        that.data.Mapmarkers[1].longitude = that.data.addressList[res.data.addressid.toString()].longitude
+        that.data.Mapmarkers[1].latitude = that.data.addressList[res.data.addressid.toString()].latitude
+        that.setData({
+          Mapmarkers:that.data.Mapmarkers
         })
       },
       fail: function(res) {},

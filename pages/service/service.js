@@ -262,6 +262,7 @@ Page({
               myAddressList.push(res.data[i].name)
             }
             that.setData({addressList: res.data,myAddressList:myAddressList})
+            app.globalData.addressList = res.data
           }
         })
   },
