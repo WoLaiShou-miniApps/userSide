@@ -51,19 +51,23 @@ Page({
           Mapmarkers:that.data.Mapmarkers
         })
         //获取回收车位置
-        wx.request({
-          url: "https://irecycle.gxxnr.cn/api/user/getdriverlocation.do",
-          data: {
-            orderid: that.data.order.id
-          },
-          method: 'GET',
-          success: function (res) {
-            console.log(res)
-            /*that.setData({
-              Mapmarkers:res.info
-            }) */
-          }
-        })
+        setInterval(function(){
+          wx.request({
+            url: "https://irecycle.gxxnr.cn/api/user/getdriverlocation.do",
+            data: {
+              orderid: that.data.order.id
+            },
+            method: 'GET',
+            success: function (res) {
+              console.log(res.data)
+              that.data.Mapmarkers[0].latitude = res.data.latitude
+              that.data.Mapmarkers[0].longitude = res.data.longitude
+              that.setData({
+                Mapmarkers: that.data.Mapmarkers
+              })
+            }
+          })
+        },15000)
       },
       fail: function(res) {},
       complete: function(res) {},

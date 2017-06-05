@@ -43,7 +43,7 @@
   </picker>
   <input type="text" bindblur="edit_getName" value="{{currentAddress.consignee}}"/>
   <input type="text" bindblur="edit_getPhone" value="{{currentAddress.tel}}"/>
-  <view class="commit-btn" bindtap="edit_commitAddress">确认添加</view>
+  <view class="commit-btn" bindtap="edit_commitAddress">确认修改</view>
 </view>
 
 </block> 

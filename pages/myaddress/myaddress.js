@@ -67,6 +67,7 @@ Page({
     console.log(that.data.currentAddress)
     var data = {
         userid: app.globalData.userid,
+        addressid: that.data.currentAddress.id,
         name: that.data.currentAddress.consignee,
         latitude: that.data.currentAddress.latitude,
         longitude: that.data.currentAddress.longitude,
@@ -77,15 +78,19 @@ Page({
       }
       console.log(data)
       //先提交，然后再拉一次addressList刷新
-   /**wx.request({
-      url: 'https://irecycle.gxxnr.cn/api/user/addaddress.do',
+   wx.request({
+      url: 'https://irecycle.gxxnr.cn/api/user/modifyaddress.do',
       data: data,
       header: {
         'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
       },
       method: 'POST',
       success: function (res) {
-        console.log(res)
+        
+        if (res.statusCode == 200)
+          that.setData({
+            ifEdit: 0
+          })
         wx.request({
           url: 'https://irecycle.gxxnr.cn/api/user/getuseraddress.do',
           data: {
@@ -102,7 +107,7 @@ Page({
         // complete
         that.setData({ifadd: 0})
       }
-    })*/
+    })
   },
   /**
    * 获取区域
