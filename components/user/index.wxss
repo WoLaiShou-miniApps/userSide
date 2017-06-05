@@ -104,3 +104,13 @@ page{
     color: #aaaaaa;
     background: #cccccc
 }
+.contact-area{
+  width:200rpx;
+  margin:20rpx auto;
+  margin-top:200rpx;
+
+}
+.contact-btn{
+  background: transparent;
+  font-size: 25rpx;
+}
