@@ -58,7 +58,7 @@
     </view>
 </template>
 
-<template name="info">
+<template name="register">
 <form bindsubmit="formSubmit">
 <view class="info-panel">
   <view class="info-item">
@@ -89,4 +89,17 @@
 </block>
 </form>
 
+</template>
+
+
+<template name="info">
+<form bindsubmit="passwdConfirm">
+<view class="info-panel">
+  <view class="info-item">
+    <text>输入密码</text>
+    <input name="passwd" placeholder="请输入原密码"></input>
+  </view>
+</view>
+<button class="submit-buttun" formType="submit">确认</button>
+</form>
 </template>

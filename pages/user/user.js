@@ -23,5 +23,12 @@ Page({
   },
   onUnload:function(){
     // 页面关闭
-  }
+  },
+  onPullDownRefresh: function () {
+    var that = this
+    that.setData({
+      info: app.info,
+      origin: app.globalData.origin
+    })
+  },
 })

@@ -3,10 +3,9 @@ var app = getApp()
 Page({
 
   data: {
-    info:{},
-    passwd:{confirm:1,passwd:"",passwdR:""},
-    tip:{content:"两次密码不一致"},
-    confirm:1
+    info: {},
+    passwd: { confirm: 1, passwd: "", passwdR: "" },
+    tip: { content: "两次密码不一致" }
   },
 
   onLoad: function (options) {
@@ -25,35 +24,30 @@ Page({
       }
     })*/
   },
-  passwd: function(res){
-    
+  passwd: function (res) {
+    var sub = this.data.passwd
+    if (res.target.dataset.index == 1)
+      sub.passwd = res.detail.value
+    else
+      sub.passwdR = res.detail.value
+    if (sub.passwdR == sub.passwd)
+      sub.confirm = 1
+    else
+      sub.confirm = -1
+
+    this.setData({
+      passwd: sub
+    })
   },
-  passwdConfirm: function (res) {
-    console.log(res.detail.value.passwd)
-    /*wx.request({
-      url: 'https://irecycle.gxxnr.cn/api/user/.do',
-      data: {
-        userid: app.globalData.userid,
-        password: res.detail.value.passwd
-      },
-      method: 'GET',
-      success: function (res) {
-        console.log(res)
-        this.setDAta({
-          confirm:1
-        })
-      }
-    })*/
-  },
- /* formSubmit:function(res){
+  formSubmit: function (res) {
     console.log(res.detail.value.phone)
     wx.request({
-      url: 'https://irecycle.gxxnr.cn/api/user/.do',
+      url: 'https://irecycle.gxxnr.cn/api/user/register.do',
       data: {
-        openid:app.globalData.openid,
-        username:res.detail.value.nickName,
-        phone:res.detail.value.phone,
-        password:res.detail.value.passwd
+        openid: app.globalData.openid,
+        username: res.detail.value.nickName,
+        phone: res.detail.value.phone,
+        password: res.detail.value.passwd
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
@@ -61,50 +55,50 @@ Page({
       method: 'POST',
       success: function (res) {
         console.log(res)
-        app.globalData.userid =res.data.userid
+        app.globalData.userid = res.data.userid
         console.log(app.globalData.openid)
         app.globalData.origin = 1
         wx.navigateBack({
-          delta:1
+          delta: 1
         })
       }
-      
+
     })
-    
-  },*/
+
+  },
   onReady: function () {
-  
+
   },
 
   onShow: function () {
-  
+
   },
 
   onHide: function () {
-  
+
   },
 
 
   onUnload: function () {
-  
+
   },
 
 
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })

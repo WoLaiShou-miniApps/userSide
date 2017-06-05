@@ -1,7 +1,9 @@
 <!--pages/info/info.wxml-->
 <import src="../../components/user/index.wxml"></import>
 <import src="../../components/mygoods/index.wxml"></import>
-<template is="info" data="{{info:info,passwd:passwd}}"></template>
-<block wx:if="{{passwd.confirm==-1}}">
-<template is="tip" data="{{tip:tip}}"></template>
-</block>
+
+<template wx:if="{{confirm!=1}}" is="info" data="{{info:info,passwd:passwd}}"></template>
+<template wx:if="{{confirm==1}}" is="register" data="{{info:info,passwd:passwd}}"></template>
+<template wx:if="{{confirm==-1}}" is="tip" data="{{tip:tip}}"></template>
+<template wx:if="{{passwd.confirm==-1}}" is="tip" data="{{tip:tip}}"></template>
+
