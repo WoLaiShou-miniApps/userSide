@@ -6,7 +6,7 @@ Page({
     select_order:-1,
     myorder_list: {}
   },
-  URL: 'http://easy-mock.com/mock/59070ef87a878d73716e3aa7/wx-irecycle/',
+
   changepape: function (e) {
     this.setData({
       order_state: e.target.dataset.index,

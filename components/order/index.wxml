@@ -47,7 +47,7 @@
         <view bindtap="selectorder" data-index="{{index}}" class="orders-item">
           <view class="name">{{item.name}}</view>
           <view class="righttext">
-            <view class="address">{{item.address}}</view>
+            <view class="address">{{item.address}} {{item.addressdetail}}</view>
             <view class="time">{{item.time}}</view>
           </view>
           <image src="../../static/image/more_{{select_order==index?'up':'down'}}.png" class="more-down"></image>
@@ -56,7 +56,8 @@
         <block wx:if="{{select_order==index}}">
           <view class="operate-panel">
               <view class="item" bindtap="gotoDetail">查看详情</view>
-              <view class="item" bindtap="gotoEvaluate">评价此单</view>
+              <view wx:if="{{!item.isEvaluated}}" class="item" bindtap="gotoEvaluate">评价此单</view>
+              <view wx:if="{{item.isEvaluated}}" class="item" style="background:#cccccc">已评价</view>
           </view>
         </block>
       </block>
