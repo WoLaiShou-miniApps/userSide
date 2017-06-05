@@ -4,7 +4,7 @@ Page({
 
   data: {
     info: {},
-    passwd: { confirm: 1, passwd: "", passwdR: "" },
+    passwd: { confirm: 0, passwd: "", passwdR: "" },
     tip: { content: "两次密码不一致" }
   },
 
@@ -52,7 +52,6 @@ Page({
       header: {
         'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
       },
-      method: 'POST',
       success: function (res) {
         console.log(res)
         app.globalData.userid = res.data.userid

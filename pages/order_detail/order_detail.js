@@ -50,6 +50,20 @@ Page({
         that.setData({
           Mapmarkers:that.data.Mapmarkers
         })
+        //获取回收车位置
+        wx.request({
+          url: "https://irecycle.gxxnr.cn/api/user/getdriverlocation.do",
+          data: {
+            orderid: that.data.order.id
+          },
+          method: 'GET',
+          success: function (res) {
+            console.log(res)
+            /*that.setData({
+              Mapmarkers:res.info
+            }) */
+          }
+        })
       },
       fail: function(res) {},
       complete: function(res) {},
@@ -61,6 +75,7 @@ Page({
   },
 
   onShow: function () {
+
   },
 
   /**

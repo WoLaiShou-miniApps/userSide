@@ -4,56 +4,58 @@ Page({
 
   data: {
     info:{},
-    passwd:{confirm:1,passwd:"",passwdR:""},
-    tip:{content:"两次密码不一致"},
-    confirm:1
+    passwd:{confirm:0,passwd:"",passwdR:""},
+    tip:{content:""},
+    oldpwd:"",
+    confirm:0
   },
 
   onLoad: function (options) {
     //获取个人信息
-    /*var that = this
+    var that = this
     wx.request({
-      url: '',
+      url: 'https://irecycle.gxxnr.cn/api/user/getuserinfo.do',
       data: {
-        openid:app.globalData.openid
-      },
-      method: 'GET',
-      success: function (res) {
-        that.setData({
-          info:res.info
-        })    
-      }
-    })*/
-  },
-  passwd: function(res){
-    
-  },
-  passwdConfirm: function (res) {
-    console.log(res.detail.value.passwd)
-    /*wx.request({
-      url: 'https://irecycle.gxxnr.cn/api/user/.do',
-      data: {
-        userid: app.globalData.userid,
-        password: res.detail.value.passwd
+        userid:app.globalData.userid
       },
       method: 'GET',
       success: function (res) {
         console.log(res)
-        this.setDAta({
-          confirm:1
-        })
+        that.setData({
+          info:res.data
+        }) 
       }
-    })*/
+    })
   },
- /* formSubmit:function(res){
-    console.log(res.detail.value.phone)
+  passwd: function(res){
+    var sub = this.data.passwd
+    if (res.target.dataset.index == 1)
+      sub.passwd = res.detail.value
+    else
+      sub.passwdR = res.detail.value
+    if (sub.passwdR == sub.passwd && sub.passwdR!='')
+      sub.confirm = 1
+    else if (sub.passwdR == '')
+      sub.confirm = 0
+    else
+      sub.confirm = -1
+    this.data.tip.content="两次密码不一致"
+    this.setData({
+      passwd: sub,
+      tip:this.data.tip
+    })
+  },
+  passwdConfirm: function (res) {
+    this.setData({
+      oldpwd: res.detail.value.passwd
+    })
+    console.log(res.detail.value.passwd)
+    var that =this
     wx.request({
-      url: 'https://irecycle.gxxnr.cn/api/user/.do',
+      url: 'https://irecycle.gxxnr.cn/api/user/confirmpassword.do',
       data: {
-        openid:app.globalData.openid,
-        username:res.detail.value.nickName,
-        phone:res.detail.value.phone,
-        password:res.detail.value.passwd
+        userid: app.globalData.userid,
+        password: res.detail.value.passwd
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
@@ -61,17 +63,51 @@ Page({
       method: 'POST',
       success: function (res) {
         console.log(res)
-        app.globalData.userid =res.data.userid
-        console.log(app.globalData.openid)
-        app.globalData.origin = 1
+        if (res.data=="success")
+          that.setData({
+            confirm:1
+          })
+        else{
+          that.data.tip.content="错误密码"
+          that.setData({
+            confirm:-1,
+            tip:this.data.tip
+          })
+        }
+      }
+    })
+  },
+
+
+  formSubmit:function(res){
+    console.log(res.detail.value.phone)
+    wx.request({
+      url: 'https://irecycle.gxxnr.cn/api/user/modifyuserinfo.do',
+      data: {
+        userid:app.globalData.userid,
+        username:res.detail.value.nickName,
+        phone:res.detail.value.phone,
+        oldpwd:this.data.oldpwd,
+        newpwd:res.detail.value.passwd
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+      },
+      method: 'POST',
+      success: function (res) {
+        wx.showToast({
+            title: '修改成功',
+            duration: 2000,
+            icon: "success"
+        })
+        console.log(res)
         wx.navigateBack({
           delta:1
         })
       }
-      
     })
     
-  },*/
+  },
   onReady: function () {
   
   },

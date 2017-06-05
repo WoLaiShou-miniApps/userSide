@@ -75,19 +75,22 @@ page{
     display:flex;
     flex-direction:row;
     justify-content: center;
-    line-height:100rpx;
+    align-items:center;
 }
 .info-panel .info-item text{
     width: 180rpx;
+    height:80rpx;
+    line-height:80rpx;
     font-size:35rpx;
     text-align:justify;
 }
 .info-panel .info-item input{
     left:200rpx;
-    margin-top:25rpx;
     font-size:30rpx; 
-    border-bottom:1rpx solid #cccccc;
+    border-radius: 10rpx;
+    box-shadow: 1rpx 1rpx 1rpx 1rpx rgba(35, 34, 33, 0.2) inset;
     width: 400rpx;
+    height:80rpx;
     text-align: center;
 }
 .submit-buttun{
@@ -103,4 +106,14 @@ page{
 .no-use{
     color: #aaaaaa;
     background: #cccccc
+}
+.contact-area{
+  width:200rpx;
+  margin:20rpx auto;
+  margin-top:200rpx;
+
+}
+.contact-btn{
+  background: transparent;
+  font-size: 25rpx;
 }
