@@ -18,7 +18,7 @@ Page({
       latitude:45.751602,
       title:"我家",
       iconPath:"../../static/image/home.png",
-      alpha:0.7,
+      alpha:0.9,
       width:20,
       height:20
     }],

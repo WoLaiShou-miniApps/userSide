@@ -1,7 +1,7 @@
 <!--pages/myaddress/index.wxml-->
 <block wx:if="{{show>0}}">
 <view class="address-list" wx:if="{{ifadd==0}}">
-  <view wx:if="{{addressList.length>0}}" class="address" wx:for="{{addressList}}" >
+  <view wx:if="{{addressList.length>0}}" class="address" wx:for="{{addressList}}" bindtap="editAddress" data-index="{{index}}">
     <view class="address-name">{{item.consignee}}</view>
     <view class="address-phone">{{item.tel}}</view>
     <view class="address-address">{{item.name}}</view>
@@ -11,8 +11,8 @@
     <icon type='warn'size="50" ></icon>
   </view>
 </view>
-<view wx:if="{{ifadd==0}}" class="add-btn" bindtap="addAddress">添加新地址</view>
-<view wx:else class="add-address">
+<view wx:if="{{ifadd==0 && ifEdit ==0}}" class="add-btn" bindtap="addAddress">添加新地址</view>
+<view wx:if="{{ifadd!=0}}" class="add-address">
   <view class="add-address-info">请拖动地图选择具体位置：</view>
   <map id="addMap" scale="14" longitude="{{longitude}}" latitude="{{latitude}}" bindregionchange="getlocation" controls="{{controls}}"
     show-location style="width:300px; height:200px;"></map>
@@ -28,4 +28,22 @@
   <input type="text" bindblur="getPhone" placeholder="请输入联系人手机号"/>
   <view class="commit-btn" bindtap="commitAddress">确认添加</view>
 </view>
+
+<view wx:if="{{ifEdit}}" class="add-address">
+  <view class="add-address-info">请拖动地图选择具体位置：</view>
+  <map id="addMap" scale="14" longitude="{{currentAddress.longitude}}" latitude="{{currentAddress.latitude}}" bindregionchange="edit_getlocation" controls="{{controls}}"
+    show-location style="width:300px; height:200px;"></map>
+  <input type="text" bindblur="edit_getAddressName" value="{{currentAddress.name}}"/>
+  <input type="text" bindblur="edit_getAddressDetail"  value="{{currentAddress.addressDetail}}"/>
+  <picker bindchange="edit_getDistrict" value="{{currentAddress.district.id-1}}" range="{{districtList}}">
+    <view class="picker">
+      <text wx:if="{{currentAddress.district.id}}">当前选择：{{districtList[currentAddress.district.id-1]}}</text>
+      <text wx:else style="color:#808080">请选择所在区域</text>
+    </view>
+  </picker>
+  <input type="text" bindblur="edit_getName" value="{{currentAddress.consignee}}"/>
+  <input type="text" bindblur="edit_getPhone" value="{{currentAddress.tel}}"/>
+  <view class="commit-btn" bindtap="edit_commitAddress">确认添加</view>
+</view>
+
 </block> 

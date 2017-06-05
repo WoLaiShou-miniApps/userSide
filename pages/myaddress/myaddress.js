@@ -8,6 +8,7 @@ Page({
   data: {
     addressList: [],
     ifadd: 0,
+    ifEdit:0,
     addMarker: [
       {
         iconPath: "../../static/image/location.png",
@@ -57,6 +58,141 @@ Page({
       '延寿县'
     ],
     show:0
+  },
+  /**
+   * 提交新地址
+   */
+  edit_commitAddress: function () {
+    var that = this;
+    console.log(that.data.currentAddress)
+    var data = {
+        userid: app.globalData.userid,
+        name: that.data.currentAddress.consignee,
+        latitude: that.data.currentAddress.latitude,
+        longitude: that.data.currentAddress.longitude,
+        district: that.data.currentAddress.district.id,
+        address: that.data.currentAddress.name,
+        detailAddress: that.data.currentAddress.addressDetail,
+        phone: that.data.currentAddress.tel
+      }
+      console.log(data)
+      //先提交，然后再拉一次addressList刷新
+   /**wx.request({
+      url: 'https://irecycle.gxxnr.cn/api/user/addaddress.do',
+      data: data,
+      header: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+      },
+      method: 'POST',
+      success: function (res) {
+        console.log(res)
+        wx.request({
+          url: 'https://irecycle.gxxnr.cn/api/user/getuseraddress.do',
+          data: {
+            userid: app.globalData.userid
+          },
+          method: 'GET',
+          success: function (res) {
+            console.log(res)
+            that.setData({addressList: res.data})
+          }
+        })
+      },
+      complete: function () {
+        // complete
+        that.setData({ifadd: 0})
+      }
+    })*/
+  },
+  /**
+   * 获取区域
+   */
+  edit_getDistrict: function (e) {
+    console.log(e.detail)
+    this.data.currentAddress.district.id = e.detail.value - 1 + 2;
+    this.setData({
+      currentAddress: this.data.currentAddress,
+    })
+  },
+  /**
+   * 获取联系人姓名  district
+   */
+  edit_getName: function (e) {
+    this.data.currentAddress.consignee = e.detail.value;
+    this.setData({currentAddress: this.data.currentAddress})
+  },
+  /**
+   * 获取；联系人电话
+   */
+  edit_getPhone: function (e) {
+    this.data.currentAddress.tel = e.detail.value;
+    this.setData({currentAddress: this.data.currentAddress})
+  },
+  /**
+   * 获取新地址详情
+   */
+  edit_getAddressDetail: function (e) {
+    this.data.currentAddress.addressDetail = e.detail.value;
+    this.setData({currentAddress: this.data.currentAddress})
+  },
+  /**
+   * 获取新地址名
+   */
+  edit_getAddressName: function (e) {
+    this.data.currentAddress.name = e.detail.value;
+    this.setData({currentAddress: this.data.currentAddress})
+  },
+  /**
+   * 获取地图中央坐标
+   */
+  edit_getlocation: function (e) {
+    console.log(e)
+    var that = this;
+    var map = wx.createMapContext('addMap');
+    map.getCenterLocation({
+      complete: function (res) {
+        console.log(res)
+        that.data.currentAddress.latitude = res.latitude;
+        that.data.currentAddress.longitude = res.longitude;
+        that.setData({currentAddress: that.data.currentAddress})
+      }
+    })
+  },
+
+
+
+  /**
+   * 修改地址
+   */
+  editAddress:function(e){
+    var that = this;
+    var index = e.currentTarget.dataset.index
+    if(that.data.ifEdit==0){
+      that.setData({
+        oldList:that.data.addressList
+      })
+      var newList = []
+      newList.push(that.data.addressList[index])
+      that.setData({
+        addressList:newList
+      })
+    }
+    else{
+      that.setData({
+        addressList:that.data.oldList
+      })
+    }
+    that.setData({
+      ifEdit:that.data.ifEdit==1?0:1
+    })
+    
+    
+    
+    
+    that.setData({
+      currentAddress:that.data.addressList[index],
+      
+    })
   },
   /**
    * 提交新地址
