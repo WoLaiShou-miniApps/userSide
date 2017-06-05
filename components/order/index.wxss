@@ -257,3 +257,21 @@
     transform:rotate(180deg);
   }
 }
+.shake{
+  animation:shaking .5s infinite;
+  transform:rotate(0deg) scaleX(-1);
+}
+@keyframes shaking{
+  0% {
+    transform:rotate(0deg) scaleX(-1);
+  }
+  33%{
+    transform:rotate(5deg) scaleX(-1);
+  }
+  66%{
+    transform:rotate(-5deg) scaleX(-1);
+  }
+  100%{
+    transform:rotate(0deg) scaleX(-1);
+  }
+}
