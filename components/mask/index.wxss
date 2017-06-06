@@ -1,0 +1,9 @@
+.top-mask{
+  width: 750rpx;
+  height: 100%;
+  background: rgba(255,255,255,0.1);
+  z-index: 999;
+  position: absolute;
+  top: 100rpx;
+  
+}

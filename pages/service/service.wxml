@@ -1,8 +1,9 @@
 
 <!--pages/service/service.wxml-->
-<import src="../../components/test/test1.wxml"></import>
+<import src="../../components/test/test1.wxml"></import><import src="../../components/mask/index.wxml"></import>
 <import src="../../components/secondHand/index.wxml"></import>
 <import src="../../components/banjia/index.wxml"></import>
+<template is="topMask" data="{{ifLoad:origin}}"></template>
 <template is="uplist" data="{{service:service,animationData_progress:animationData_progress}}"></template>
 <block wx:if="{{service==0}}">
   <!--<template is="goods-list" data="{{goods_type:goods_type,goods:goods,price_range:price_range,selected_type:selected_type,selected_goods:selected_goods,image:image,animationData_left_polish:animationData_left_polish}}"></template>

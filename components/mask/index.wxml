@@ -1,0 +1,3 @@
+<template name="topMask">
+<view wx:if="{{ifLoad==0}}" class="top-mask" bindtap="maskClick"></view>
+</template>
