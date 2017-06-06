@@ -33,8 +33,8 @@
       <view class="order-info">预约时间：{{item.ordertime}}</view>
       <view class="order-info">出发地点：{{item.src}}</view>
       <view class="order-info">目的地点：{{item.dest}}</view>
-      <view wx:if="{{item.state==3}}" class="order-info">收货人员：{{item.drivername}}</view>
-      <view wx:if="{{item.state==3}}" class="order-info">联系方式：{{item.phone}}</view>
+      <view wx:if="{{item.state==3 || item.state==2}}" class="order-info">收货人员：{{item.drivername}}</view>
+      <view wx:if="{{item.state==3 || item.state==2}}" class="order-info">联系方式：{{item.phone}}</view>
     </view>
   </view>
   <view wx:if="{{ifshow==1}}" class="call-for-service" bindtap="move_callForService">
