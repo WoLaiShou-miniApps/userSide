@@ -1,2 +1,3 @@
 /* pages/user/user.wxss */
 @import "../../components/user/index.wxss";
+@import "../../components/mask/index.wxss";

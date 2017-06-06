@@ -1,2 +1,4 @@
 <import src="../../components/user/index.wxml"></import>
+<import src="../../components/mask/index.wxml"></import>
+<template is="topMask" data="{{ifLoad:origin}}"></template>
 <template is="user" data="{{info:info,origin:origin}}"></template>

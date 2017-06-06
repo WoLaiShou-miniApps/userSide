@@ -3,6 +3,7 @@ var get_function = require('../../components/test/test1.js')
 var secondHand = require('../../components/secondHand/index.js')
 var banjia = require('../../components/banjia/index.js')
 const qiniuUploader = require("../../utils/qiniu_sdk/qiniuUploader.js");
+var mask = require('../../components/mask/index.js')
 var app = getApp()
 Page({
   data: {
@@ -21,10 +22,11 @@ Page({
     banjia_key:0,
     address_waste:-1,
     address_secondHand:-1,
-    pick_value:[-1,-1,-1]
+    pick_value:[-1,-1,-1],
+    origin:0
   },
   URL:'http://easy-mock.com/mock/59070ef87a878d73716e3aa7/wx-irecycle/',
-  
+  maskClick: mask.maskClick,
   bindDateChange:secondHand.bindDateChange,
   bindTimepicker:secondHand.bindTimepicker,
   banjia_formSubmit: banjia.formSubmit,
@@ -186,6 +188,9 @@ Page({
               app.globalData.userid = res.data.data.id
               app.globalData.origin = 1
               console.log("获取userid:" + app.globalData.userid)
+              that.setData({
+                origin: app.globalData.origin
+              })
               wx.request({
                 url: 'https://irecycle.gxxnr.cn/api/user/getuseraddress.do',
                 data: {
