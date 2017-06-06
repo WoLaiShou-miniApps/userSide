@@ -122,16 +122,29 @@ Page({
     {
     var that = this
     var url = that.data.service == 0 ?"https://irecycle.gxxnr.cn/api/user/postorder.do" :"https://irecycle.gxxnr.cn/api/user/postsecond.do"
-    wx.uploadFile({
+    var filePath = that.data.service == 0 ? that.data.secondHand_imgUrl:that.data.secondHand_myphoto
+    var addressid = that.data.service == 0 ? that.data.address_waste : that.data.address_secondHand
+    var date = that.data.service == 0 ? that.data.date_waste : that.data.date_secondHand
+    var time = that.data.service == 0 ? that.data.time_waste : that.data.time_secondHand
+    var msg = that.data.service == 0 ? that.data.note_waste : that.data.note_secondHand
+    if(!filePath || !addressid || !date || !time || !msg){
+      wx.showToast({
+        title:'请认真填写~',
+        image:'../../static/image/tip.png',
+        duration:2000
+      })
+    }
+    else{
+      wx.uploadFile({
           url: url,
-          filePath: that.data.service == 0 ? that.data.secondHand_imgUrl:that.data.secondHand_myphoto,
+          filePath: filePath,
           name:"file",
           formData:{
             userid: app.globalData.userid,
-            addressid:that.data.service == 0 ? that.data.address_waste : that.data.address_secondHand,
-            date: that.data.service == 0 ? that.data.date_waste : that.data.date_secondHand,
-            time: that.data.service == 0 ? that.data.time_waste : that.data.time_secondHand,
-            msg: that.data.service == 0 ? that.data.note_waste : that.data.note_secondHand
+            addressid:addressid,
+            date: date,
+            time: time,
+            msg: msg
           },
         success:function(res){
           if (res.data)
@@ -162,6 +175,8 @@ Page({
           })
         }     
         })
+    }
+    
     console.log("已发送")
     }
 
