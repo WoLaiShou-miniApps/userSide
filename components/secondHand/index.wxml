@@ -1,5 +1,5 @@
 <template name="secondHand">
-  <view class="second-hand{{service}}" animation="{{animation_textarea}}">
+  <view class="second-hand{{service}}" wx:if="{{read_key==0}}"animation="{{animation_textarea}}">
     <view class="second-hand-photo{{service}}" bindtap="secondHand_addPhoto">
       <image mode="aspectFill" id="myphoto" class="{{secondHand_imgUrl?'has-photo{{service}}':''}}" src="{{secondHand_imgUrl?secondHand_imgUrl:(service==0?'../../static/image/image1.png':'../../static/image/image2.png')}}"></image>
       <view class="second-hand-photo-text{{service}} {{secondHand_imgUrl?'has-photo-text{{service}}':''}}">点击添加物品照片</view>
@@ -27,14 +27,20 @@
       </picker>
     </view>
 
-    <view class="prolink">
-    <checkbox-group bindchange="agreepro">
-    <checkbox value="250"   checked="{{proconfirm}}"/>
-    </checkbox-group>
-    <text bindtap="">我已阅读《“我来收” 二手代买用户须知》</text>
+    <view class="prolink" wx:if="{{service==1}}">
+      <checkbox-group bindchange="agreepro">
+        <checkbox value="250" checked="{{proconfirm}}" />
+      </checkbox-group>
+      <text bindtap="readPro">我已阅读《“我来收” 二手代买用户须知》</text>
     </view>
 
 
     <button type="primary" plain bindtap="orderSubmit">提交</button>
   </view>
+  <scroll-view scroll-y wx:if="{{read_key==1}}" class="readPro" bindtap="readPro">
+    <view class="pro-title">《"我来收"二手代买用户须知》</view>
+    <view wx:for="{{proList}}" wx:if="{{index>0}}" class="pro-item">
+      {{item}}
+    </view>
+  </scroll-view>
 </template>

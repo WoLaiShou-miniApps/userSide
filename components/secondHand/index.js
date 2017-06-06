@@ -1,4 +1,11 @@
 module.exports = {
+  readPro:function(){
+    console.log("ahaha")
+    var that = this;
+    that.setData({
+      read_key:that.data.read_key==0?1:0
+    })
+  },
   bindDateChange:function(e){
     var that = this;
     if(that.data.service==0){

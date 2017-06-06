@@ -26,10 +26,12 @@ Page({
     pick_value:[-1,-1,-1],
     proList:{},
     proconfirm:false,
-    origin:0
+    origin:0,
+    read_key:0
   },
   URL:'http://easy-mock.com/mock/59070ef87a878d73716e3aa7/wx-irecycle/',
   maskClick: mask.maskClick,
+  readPro:secondHand.readPro,
   bindDateChange:secondHand.bindDateChange,
   bindTimepicker:secondHand.bindTimepicker,
   banjia_formSubmit: banjia.formSubmit,

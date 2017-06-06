@@ -276,3 +276,29 @@
   font-size:30rpx;
 
 }
+.readPro{
+  width: 710rpx;
+  height: 1000rpx;
+  position: fixed;
+  background: rgba(33,33,33,0.7);
+  top: 70rpx;
+  left: 20rpx;
+  z-index: 9999;
+  padding-top: 40rpx;
+}
+.pro-title{
+  color:#fff;
+  text-shadow: 1rpx 1rpx 1rpx rgba(0,0,0,0.3);
+  font-size: 50rpx;
+  line-height: 60rpx;
+  width: 100%;
+  text-align: center;
+}
+.pro-item{
+  color:#fff;
+  text-shadow: 1rpx 1rpx 1rpx rgba(0,0,0,0.3);
+  text-indent: 2em;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  margin: 10rpx 20rpx;
+}
