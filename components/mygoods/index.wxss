@@ -19,7 +19,7 @@
 .tip text{
   margin-left:20rpx;
   font-size:30rpx;
-  color:#FFF;
+  color:#EB3F2F;
 }
 
 .mygoods-panel{

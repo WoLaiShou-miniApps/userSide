@@ -37,7 +37,7 @@
       <view wx:if="{{item.state==3}}" class="order-info">联系方式：{{item.phone}}</view>
     </view>
   </view>
-  <view class="call-for-service" bindtap="move_callForService">
+  <view wx:if="{{ifshow==1}}" class="call-for-service" bindtap="move_callForService">
   有疑问，新农人联系客服随时随地帮您！
   </view>
 </template>

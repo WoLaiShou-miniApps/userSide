@@ -9,17 +9,11 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'https://irecycle.gxxnr.cn/api/user/register.do',
+      url: 'https://irecycle.gxxnr.cn/api/user/getsecondgoods.do',
       data: {
-        addressid: app.globalData.openid,
-        userid: res.detail.value.nickName,
-        phone: res.detail.value.phone,
-        password: res.detail.value.passwd
+        userid: app.globalData.userid,
       },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-      },
-      method: 'POST',
+      method: 'GET',
       success: function (res) {
         console.log(res)
       },

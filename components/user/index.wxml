@@ -2,26 +2,30 @@
   <view class="user">
 
     <block wx:if="{{origin==1}}">
+    <navigator url="../info/info" hover-class="none">
       <view class="user-info">
         <image src="{{info.avatarUrl}}"></image>
         <view class="user-info-detail">
           <view class="user-name">{{info.nickName}}</view>
-          <navigator url="../info/info" hover-class="none">
+          
             <view class="user-more">查看或修改个人信息</view>
-          </navigator>
+          
         </view>
       </view>
+      </navigator>
     </block>
     <block wx:else>
+    <navigator url="../register/register" hover-class="none">
       <view class="user-info">
         <image src="../../static/image/unknown_user.png"></image>
         <view class="user-info-detail">
           <view class="user-name">新用户</view>
-          <navigator url="../info/info" hover-class="none">
+          
             <view class="user-more">马上进行注册</view>
-          </navigator>
+         
         </view>
       </view>
+       </navigator>
     </block>
 
     <view class="user-item">
@@ -97,7 +101,7 @@
 <view class="info-panel">
   <view class="info-item">
     <text>输入密码</text>
-    <input name="passwd" placeholder="请输入原密码"></input>
+    <input name="passwd" type="password" placeholder="请输入原密码"></input>
   </view>
 </view>
 <button class="submit-buttun" formType="submit">确认</button>

@@ -71,7 +71,7 @@ Page({
           that.data.tip.content="错误密码"
           that.setData({
             confirm:-1,
-            tip:this.data.tip
+            tip:that.data.tip
           })
         }
       }

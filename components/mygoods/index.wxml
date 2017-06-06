@@ -1,7 +1,7 @@
 <template name="tip">
 <view bindtap="tiptap" class="tip">
 <image src="../../static/image/tip.png"></image>
-<text>{{tip.content}}</text>
+<text >{{tip.content}}</text>
 </view>
 </template>
 

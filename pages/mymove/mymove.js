@@ -6,24 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    moveOrderList:[
-      {
-        orderIndexr:1233212,
-        data:'2017-06-01',
-        time:'14:30',
-        starting:'南岗区花园街110号',
-        destination:'南岗区黄河路92号',
-        driverPhoneNumber:13115603322,
-      },
-      {
-        orderIndexr: 1233212,
-        data: '2017-06-01',
-        time: '14:30',
-        starting: '南岗区花园街110号',
-        destination: '南岗区黄河路92号',
-        driverPhoneNumber: 13115603322,
-      }
-    ]
+    moveOrderList:[],
+    ifshow:0
   },
 /**
  * 打客服电话
@@ -35,6 +19,10 @@ Page({
   },
 
   onLoad: function (options) {
+    wx.showLoading({
+      title: '载入中···',
+      mask: true,
+    })
     var that = this
     wx.request({
       url: 'https://irecycle.gxxnr.cn/api/user/getMoveAppointments.do',
@@ -45,8 +33,10 @@ Page({
       success: function (res) {
         console.log(res)
         that.setData({
-          moveOrderList: res.data
+          moveOrderList: res.data,
+          ifshow:1
         })
+        wx.hideLoading()
       }
     })
   },

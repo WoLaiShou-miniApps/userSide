@@ -1,2 +1,2 @@
 <import src="../../components/banjia/index.wxml"></import>
- <template is="mymove" data="{{moveOrderList:moveOrderList}}"></template>
+ <template is="mymove" data="{{moveOrderList:moveOrderList,ifshow:ifshow}}"></template>
