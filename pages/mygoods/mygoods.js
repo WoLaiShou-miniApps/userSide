@@ -2,7 +2,7 @@
 var app = getApp()
 Page({
   data: {
-    mygoods:{},
+    mygoods: { selling: { num: 0, content: [] }, sold: { num: 0 , content: []}},
     tip: { show:1,content:"已售二手物品将在两个工作日内打到您的账户上！"}
   },
 
@@ -16,6 +16,22 @@ Page({
       method: 'GET',
       success: function (res) {
         console.log(res)
+        var sub = that.data.mygoods
+        for (var i = 0; i < res.data.length;i++)
+        {
+          if (res.data[i].state == "已退回" || res.data[i].state=="已售卖" )       {
+            sub.sold.content.push(res.data[i])
+            sub.sold.num = sub.sold.num+1
+          }
+          else
+          {
+            sub.selling.content.push(res.data[i])
+            sub.selling.num = sub.selling.num + 1
+          }
+        }
+        that.setData({
+          mygoods:sub
+        })
       },
     })
   },

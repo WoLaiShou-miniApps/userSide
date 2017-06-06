@@ -12,21 +12,21 @@
     <view class="num">{{mygoods.selling.num}}</view>
   </view>
 
-  <block wx:if="{{mygoods.selling.num!=0}}">
+  <block wx:if="{{mygoods.selling.num>0}}">
   <scroll-view scroll-x="true"  style="width:100%;">
   <view class="shelve-panel">
     <block wx:for="{{mygoods.selling.content}}">
     <view class="item">
-      <image src="{{item.imgUrl}}"></image>
+      <image src="https://irecycle.gxxnr.cn{{item.imgUrl}}"></image>
       <view class="textList">
         <view style="">
-        挂售价格：￥{{item.lowPrice}}-{{item.topPrice}}
+        挂售价格：￥{{item.latestPrice}}-{{item.expectedPrice}}
         </view>
         <view>
-        上架时间：{{item.timeStamp}}
+        {{item.name}}
         </view>
         <view style="color:red">
-        {{item.state==1?"挂售中···":"未上架···"}}
+        {{item.state}}
         </view>
       </view>
     </view>
@@ -47,15 +47,15 @@
     <view class="num" style="background:#ADFF2F">{{mygoods.sold.num}}</view>
   </view>
 
-  <block wx:if="{{mygoods.sold.num!=0}}">
+  <block wx:if="{{mygoods.sold.num>0}}">
   <scroll-view scroll-x="true"  style="width:100%;">
   <view class="shelve-panel">
     <block wx:for="{{mygoods.sold.content}}">
     <view class="item">
-      <image src="{{item.imgUrl}}"></image>
+      <image src="https://irecycle.gxxnr.cn{{item.imgUrl}}"></image>
       <view class="textList">
         <view style="">
-        成交价格：￥{{item.price}}
+        成交价格：￥{{item.latestPrice}}
         </view>
       </view>
     </view>
