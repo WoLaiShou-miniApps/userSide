@@ -1,12 +1,12 @@
 .uplist-panel{
   position:fixed;
-  top:0rpx;
+  top:-3rpx;
   width:100%;
   height:100rpx;
   background:#FFF;
-
   display: flex;
   flex-direction: row;
+  z-index: 99;
 }
 .uplist-panel .item{
   width:50%;

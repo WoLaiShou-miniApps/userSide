@@ -24,7 +24,7 @@ Page({
     this.setData({
       service_grade:num
     })
-    console.log('打分：' + this.data.service_grade)
+    //console.log('打分：' + this.data.service_grade)
   },
   software_grade: function (e) {
     var num = e.currentTarget.dataset.index
@@ -57,7 +57,7 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        console.log(res)
+        //console.log(res)
         wx.navigateBack({
           delta: 1
         })
@@ -70,7 +70,7 @@ Page({
     wx.getStorage({
       key: 'orderdetail',
       success: function (res) {
-        console.log(res)
+        //console.log(res)
         that.setData({
           time: res.data.time.split(" ")[1],
           orderid: res.data.id

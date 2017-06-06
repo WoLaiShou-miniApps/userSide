@@ -15,7 +15,7 @@ Page({
       },
       method: 'GET',
       success: function (res) {
-        console.log(res)
+        //console.log(res)
         var sub = that.data.mygoods
         for (var i = 0; i < res.data.length;i++)
         {
@@ -55,7 +55,7 @@ Page({
   },
   loadimage: function (res) {
     var that = this;
-    console.log(res)
+    //console.log(res)
     var imageStates = that.data.imageStates;
     var imageSrcs = that.data.imageSrcs
     var index = res.currentTarget.dataset.index;

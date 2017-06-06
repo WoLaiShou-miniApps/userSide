@@ -20,7 +20,7 @@ Page({
       },
       method: 'GET',
       success: function (res) {
-        console.log(res)
+        //console.log(res)
         that.setData({
           info:res.data
         }) 
@@ -49,7 +49,7 @@ Page({
     this.setData({
       oldpwd: res.detail.value.passwd
     })
-    console.log(res.detail.value.passwd)
+    //console.log(res.detail.value.passwd)
     var that =this
     wx.request({
       url: 'https://irecycle.gxxnr.cn/api/user/confirmpassword.do',
@@ -62,7 +62,7 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        console.log(res)
+        //console.log(res)
         if (res.data=="success")
           that.setData({
             confirm:1
@@ -80,7 +80,7 @@ Page({
 
 
   formSubmit:function(res){
-    console.log(res.detail.value.phone)
+    //console.log(res.detail.value.phone)
     wx.request({
       url: 'https://irecycle.gxxnr.cn/api/user/modifyuserinfo.do',
       data: {
@@ -100,7 +100,7 @@ Page({
             duration: 2000,
             icon: "success"
         })
-        console.log(res)
+        //console.log(res)
         wx.navigateBack({
           delta:1
         })

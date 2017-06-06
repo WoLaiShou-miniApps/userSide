@@ -40,7 +40,7 @@ Page({
     })
   },
   formSubmit: function (res) {
-    console.log(res.detail.value.phone)
+    //console.log(res.detail.value.phone)
     wx.request({
       url: 'https://irecycle.gxxnr.cn/api/user/register.do',
       data: {
@@ -54,9 +54,9 @@ Page({
       },
       method:'POST',
       success: function (res) {
-        console.log(res)
+        //console.log(res)
         app.globalData.userid = res.data.userid
-        console.log(app.globalData.openid)
+        //console.log(app.globalData.openid)
         app.globalData.origin = 1
         wx.navigateBack({
           delta: 1

@@ -2,7 +2,7 @@ module.exports = {
   formSubmit: function (e) {
     var app = getApp()
     var that = this;
-    console.log(e.detail.value);
+    //console.log(e.detail.value);
     var phone = e.detail.value.phone
     if (!phone) {
       wx.showToast({title: '请输入手机号码', image: '../../static/image/tip.png', duration: 1000})

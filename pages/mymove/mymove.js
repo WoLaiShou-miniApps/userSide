@@ -9,6 +9,47 @@ Page({
     moveOrderList:[],
     ifshow:0
   },
+  /**
+   * 完成订单
+   */
+  confirm:function(e){
+    //console.log(e)
+    //console.log(e.currentTarget.dataset.order.id)
+    wx.request({
+      url: 'https://irecycle.gxxnr.cn/api/user/finishcarorder.do',
+      data: {
+        userid:app.globalData.userid,
+        orderid:e.currentTarget.dataset.order.id
+      },
+      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      // header: {}, // 设置请求的 header
+      success: function(res){
+        // success
+        //console.log(res)
+        wx.request({
+        url: 'https://irecycle.gxxnr.cn/api/user/getMoveAppointments.do',
+        data: {
+          userid: app.globalData.userid
+        },
+        method: 'GET',
+        success: function (res) {
+          //console.log(res)
+          that.setData({
+            moveOrderList: res.data,
+            ifshow:1
+          })
+          wx.hideLoading()
+        }
+      })
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+  },
 /**
  * 打客服电话
  */
@@ -32,6 +73,7 @@ Page({
       method: 'GET',
       success: function (res) {
         console.log(res)
+        if(res.data!='failed')
         that.setData({
           moveOrderList: res.data,
           ifshow:1

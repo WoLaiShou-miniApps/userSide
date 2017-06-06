@@ -64,7 +64,7 @@ Page({
    */
   edit_commitAddress: function () {
     var that = this;
-    console.log(that.data.currentAddress)
+    //console.log(that.data.currentAddress)
     var data = {
         userid: app.globalData.userid,
         addressid: that.data.currentAddress.id,
@@ -76,7 +76,7 @@ Page({
         detailAddress: that.data.currentAddress.addressDetail,
         phone: that.data.currentAddress.tel
       }
-      console.log(data)
+      //console.log(data)
       //先提交，然后再拉一次addressList刷新
    wx.request({
       url: 'https://irecycle.gxxnr.cn/api/user/modifyaddress.do',
@@ -98,7 +98,7 @@ Page({
           },
           method: 'GET',
           success: function (res) {
-            console.log(res)
+            //console.log(res)
             that.setData({addressList: res.data})
           }
         })
@@ -113,7 +113,7 @@ Page({
    * 获取区域
    */
   edit_getDistrict: function (e) {
-    console.log(e.detail)
+    //console.log(e.detail)
     this.data.currentAddress.district.id = e.detail.value - 1 + 2;
     this.setData({
       currentAddress: this.data.currentAddress,
@@ -151,12 +151,12 @@ Page({
    * 获取地图中央坐标
    */
   edit_getlocation: function (e) {
-    console.log(e)
+    //console.log(e)
     var that = this;
     var map = wx.createMapContext('addMap');
     map.getCenterLocation({
       complete: function (res) {
-        console.log(res)
+        //console.log(res)
         that.data.currentAddress.latitude = res.latitude;
         that.data.currentAddress.longitude = res.longitude;
         that.setData({currentAddress: that.data.currentAddress})
@@ -204,7 +204,7 @@ Page({
    */
   commitAddress: function () {
     var that = this;
-    console.log(that.data.newAddress)
+    //console.log(that.data.newAddress)
     wx.request({
       url: 'https://irecycle.gxxnr.cn/api/user/addaddress.do',
       data: {
@@ -222,7 +222,7 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        console.log(res)
+        //console.log(res)
         wx.request({
           url: 'https://irecycle.gxxnr.cn/api/user/getuseraddress.do',
           data: {
@@ -230,7 +230,7 @@ Page({
           },
           method: 'GET',
           success: function (res) {
-            console.log(res)
+            //console.log(res)
             that.setData({addressList: res.data})
           }
         })
@@ -245,7 +245,7 @@ Page({
    * 获取区域
    */
   getDistrict: function (e) {
-    console.log(e.detail)
+    //console.log(e.detail)
     this.data.newAddress.district = e.detail.value - 1 + 2;
     this.setData({
       newAddress: this.data.newAddress,
@@ -284,12 +284,12 @@ Page({
    * 获取地图中央坐标
    */
   getlocation: function (e) {
-    console.log(e)
+    //console.log(e)
     var that = this;
     var map = wx.createMapContext('addMap');
     map.getCenterLocation({
       complete: function (res) {
-        console.log(res)
+        //console.log(res)
         that.data.newAddress.latitude = res.latitude;
         that.data.newAddress.longitude = res.longitude;
         that.setData({newAddress: that.data.newAddress})
@@ -328,7 +328,7 @@ Page({
       method: 'GET',
       success: function (res) {
         wx.hideLoading()
-        console.log(res)
+        //console.log(res)
         that.setData({addressList: res.data,show:1})
       },
       complete:function(){

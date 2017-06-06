@@ -1,6 +1,6 @@
 module.exports = {
   readPro:function(){
-    console.log("ahaha")
+    //console.log("ahaha")
     var that = this;
     that.setData({
       read_key:that.data.read_key==0?1:0
@@ -34,7 +34,7 @@ module.exports = {
   },
   addPhoto: function () {
     var that = this;
-    console.log("adads")
+    //console.log("adads")
     wx.chooseImage({
       count: 1, // 最多可以选择的图片张数，默认9
       sizeType: [
@@ -45,10 +45,10 @@ module.exports = {
       ], // album 从相册选图，camera 使用相机，默认二者都有
       success: function (res) {
         // success
-        console.log(res)
+        //console.log(res)
         var tempFilePaths = res.tempFilePaths;
         var filePath = tempFilePaths[0]
-        console.log(tempFilePaths)
+        //console.log(tempFilePaths)
         if(that.data.service==1){
           that.setData({secondHand_myphoto: tempFilePaths[0]});
         }
@@ -79,13 +79,13 @@ module.exports = {
     })
   }, //animation_textarea
   textareaFocused: function () {
-    console.log("ddss")
+    //console.log("ddss")
     var that = this;
     var animation = wx.createAnimation({duration: 200, timingFunction: 'ease'})
     animation
       .top(-300 + 'rpx')
       .step({duration: 1000})
-    console.log(animation)
+    //console.log(animation)
     that.animation = animation
     setTimeout(function () {
       that.setData({
@@ -106,12 +106,12 @@ module.exports = {
         note_secondHand: res.detail.value
       })
     }
-    console.log("ddss")
+    //console.log("ddss")
     var animation = wx.createAnimation({duration: 200, timingFunction: 'ease'})
     animation
       .top(85 + 'rpx')
       .step({duration: 1000})
-    console.log(animation)
+    //console.log(animation)
     that.animation = animation
     setTimeout(function () {
       that.setData({

@@ -30,7 +30,7 @@ Page({
   onLoad: function (options) {
     var that=this
     
-    console.log(1,app.globalData.addressList)
+    //console.log(1,app.globalData.addressList)
     var address = {}
     for(var i =0;i<app.globalData.addressList.length;i++){
       address[app.globalData.addressList[i].id] = app.globalData.addressList[i]
@@ -44,7 +44,7 @@ Page({
         that.setData({
           order:res.data
         })
-        console.log(that.data.addressList)
+        //console.log(that.data.addressList)
         that.data.Mapmarkers[1].longitude = that.data.addressList[res.data.addressid.toString()].longitude
         that.data.Mapmarkers[1].latitude = that.data.addressList[res.data.addressid.toString()].latitude
         that.setData({
@@ -58,7 +58,7 @@ Page({
           },
           method: 'GET',
           success: function (res) {
-            console.log(res.data)
+            //console.log(res.data)
             that.data.Mapmarkers[0].latitude = res.data.latitude
             that.data.Mapmarkers[0].longitude = res.data.longitude
             that.setData({
@@ -67,7 +67,7 @@ Page({
           }
         })
         setInterval(function(){
-          console.log("车在哪？")
+          //console.log("车在哪？")
           wx.request({
             url: "https://irecycle.gxxnr.cn/api/user/getdriverlocation.do",
             data: {
@@ -75,7 +75,7 @@ Page({
             },
             method: 'GET',
             success: function (res) {
-              console.log(res.data)
+              //console.log(res.data)
               that.data.Mapmarkers[0].latitude = res.data.latitude
               that.data.Mapmarkers[0].longitude = res.data.longitude
               that.setData({

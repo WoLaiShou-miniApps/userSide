@@ -24,6 +24,6 @@ App({
       
   },
   onError: function(msg) {
-    console.log(msg)
+    //console.log(msg)
   }
 })

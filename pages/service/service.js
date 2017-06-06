@@ -40,7 +40,7 @@ Page({
   secondHand_textareaFocused:secondHand.textareaFocused,
   secondHand_addPhoto:secondHand.addPhoto,
   getAddress:function(e){
-    console.log(e)
+    //console.log(e)
     var value = e.detail.value;
     if(this.data.service==0){
       this.setData({
@@ -70,7 +70,7 @@ Page({
       timingFunction: 'ease',
     })
     animation.height(10+'rpx').top(35+ e.target.dataset.index*80+'rpx').step({ duration: 200 })
-    console.log(animation)
+    //console.log(animation)
     that.setData({
       animationData_left_polish: animation.export()
     })
@@ -177,7 +177,7 @@ Page({
         })
     }
     
-    console.log("已发送")
+    //console.log("已发送")
     }
 
   },
@@ -197,11 +197,11 @@ Page({
     var that = this
     wx.login({
       success: function (res) {
-        console.log("已获取到登陆态")
-        console.log(res.code)
+        //console.log("已获取到登陆态")
+        //console.log(res.code)
         wx.getUserInfo({
           success: function (res) {
-            console.log("已获取到微信账户个人信息")
+            //console.log("已获取到微信账户个人信息")
             app.info = res.userInfo
           }
         })
@@ -215,11 +215,11 @@ Page({
             'content-type': 'application/json'
           },
           success: function (res) {
-            console.log(res)
+            //console.log(res)
             if (res.data.errCode == 0) {
               app.globalData.userid = res.data.data.id
               app.globalData.origin = 1
-              console.log("获取userid:" + app.globalData.userid)
+              //console.log("获取userid:" + app.globalData.userid)
               that.setData({
                 origin: app.globalData.origin
               })
@@ -230,7 +230,7 @@ Page({
                 },
                 method: 'GET',
                 success: function (res) {
-                  console.log(res)
+                  //console.log(res)
                   var myAddressList = []
                   for (var i = 0; i < res.data.length; i++) {
                     myAddressList.push(res.data[i].name)
@@ -261,8 +261,8 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        console.log('协议')
-        console.log(res)
+        //console.log('协议')
+        //console.log(res)
         that.setData({
           proList: res.data.proList
         })
@@ -289,7 +289,7 @@ Page({
             },
             method: 'GET',
             success: function (res) {
-              console.log(res)
+              //console.log(res)
               var myAddressList=[]
               for(var i = 0;i<res.data.length;i++){
                 myAddressList.push(res.data[i].name)

@@ -31,7 +31,7 @@ function updateConfigWithOptions(options) {
     if (options.uploadURL) {
         config.qiniuUploadURL = options.uploadURL;
     } else {
-        console.error('qiniu uploader need uploadURL');
+        //console.error('qiniu uploader need uploadURL');
     }
     if (options.uptoken) {
         config.qiniuUploadToken = options.uptoken;
@@ -47,7 +47,7 @@ function updateConfigWithOptions(options) {
 
 function upload(filePath, success, fail, options) {
     if (null == filePath) {
-        console.error('qiniu uploader need filePath to upload');
+        //console.error('qiniu uploader need filePath to upload');
         return;
     }
     if (options) {
@@ -62,7 +62,7 @@ function upload(filePath, success, fail, options) {
     } else if (config.qiniuUploadTokenFunction) {
         config.qiniuUploadToken = config.qiniuUploadTokenFunction();
     } else {
-        console.error('qiniu uploader need one of [uptoken, uptokenURL, uptokenFunc]');
+        //console.error('qiniu uploader need one of [uptoken, uptokenURL, uptokenFunc]');
         return;
     }
 }
@@ -88,11 +88,11 @@ function doUpload(filePath, success, fail, options) {
             //do something
             var imageUrl = config.qiniuImageURLPrefix + dataObject.key;
             dataObject.imageURL = imageUrl;
-            console.log(dataObject);
+            //console.log(dataObject);
             success(dataObject);
         },
         fail: function (error) {
-            console.log(error);
+            //console.log(error);
             fail(error);
         }
     })
@@ -109,7 +109,7 @@ function getQiniuToken(callback) {
       }
     },
     fail: function (error) {
-      console.log(error);
+      //console.log(error);
     }
   })
 }

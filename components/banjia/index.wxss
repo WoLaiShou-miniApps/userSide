@@ -129,3 +129,38 @@
  background-repeat: no-repeat;
  background-position: center;
 }
+.btn{
+  width:500rpx;
+  height:100rpx;
+  text-align:center;
+  line-height:100rpx;
+  border:1rpx solid rgba(30,30,30,0.3);
+  border-radius:10rpx;
+  margin-left:85rpx;
+}
+.done{
+  background:#b3b3b3;
+  position: relative;
+}
+.done .order-info{
+  color: #d3d3d3;
+}
+.done .btn{
+  border:1rpx solid #d3d3d3;
+  color: #d3d3d3;
+}
+.done::after{
+  content:"订单终结";
+  position:absolute;
+  width:200rpx;
+  height:100rpx;
+  border:3rpx solid #000;
+  top:150rpx;
+  left:250rpx;
+  transform:rotate(-35deg);
+  color:#000;
+  text-align:center;
+  line-height:80rpx;
+  font-weight:900;
+
+}
