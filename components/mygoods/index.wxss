@@ -47,7 +47,7 @@
 .mygoods-panel .title-panel .num{
   width:40rpx;
   height:40rpx;
-  background:#cc00ff;
+  background:#DC7FA1;
   border-radius:50%;
   margin-top:22rpx;
   line-height:40rpx;
@@ -68,10 +68,26 @@
 .mygoods-panel .shelve-panel .item{
   margin:0rpx 20rpx 0rpx 20rpx;
   width:400rpx;
+
 }
-.mygoods-panel .shelve-panel .item image{
+.mygoods-panel .shelve-panel .item .image{
   width:300rpx;
   height:220rpx;
+  position:relative;
+}
+.mygoods-panel .shelve-panel .item .image image{
+  width:100%;
+  height:100%;
+}
+.mygoods-panel .shelve-panel .item .image .name{
+  position:absolute;
+  bottom:0rpx;
+  left:0;
+  width:100%;
+  text-align:center;
+  color:#fff;
+  font-size:30rpx;
+  text-shadow:1rpx 1rpx 1rpx rgba(33, 33, 33, 0.6);
 }
 .mygoods-panel .shelve-panel .item .textList{
   margin-top:20rpx;

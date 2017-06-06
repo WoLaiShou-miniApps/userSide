@@ -26,6 +26,15 @@
         </view>
       </picker>
     </view>
+
+    <view class="prolink">
+    <checkbox-group bindchange="agreepro">
+    <checkbox value="250"   checked="{{proconfirm}}"/>
+    </checkbox-group>
+    <text bindtap="">我已阅读《“我来收” 二手代买用户须知》</text>
+    </view>
+
+
     <button type="primary" plain bindtap="orderSubmit">提交</button>
   </view>
 </template>

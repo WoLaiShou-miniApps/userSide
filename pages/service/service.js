@@ -1,4 +1,5 @@
 // pages/service/service.js
+
 var get_function = require('../../components/test/test1.js')
 var secondHand = require('../../components/secondHand/index.js')
 var banjia = require('../../components/banjia/index.js')
@@ -23,6 +24,8 @@ Page({
     address_waste:-1,
     address_secondHand:-1,
     pick_value:[-1,-1,-1],
+    proList:{},
+    proconfirm:false,
     origin:0
   },
   URL:'http://easy-mock.com/mock/59070ef87a878d73716e3aa7/wx-irecycle/',
@@ -105,7 +108,15 @@ Page({
 
 
   orderSubmit:function(){
-    if (app.globalData.origin==1)
+    if (this.data.service == 1 && this.data.proconfirm==0)
+    {
+      wx.showToast({
+        title: '请勾选同意协议',
+        image:'../../static/image/tip.png',
+        duration:1000
+      })
+    }
+    else
     {
     var that = this
     var url = that.data.service == 0 ?"https://irecycle.gxxnr.cn/api/user/postorder.do" :"https://irecycle.gxxnr.cn/api/user/postsecond.do"
@@ -137,7 +148,8 @@ Page({
                 note_waste:"",
                 note_secondHand:"",
                 secondHand_myphoto:"",
-                secondHand_imgUrl:""
+                secondHand_imgUrl:"",
+                proconfirm: false
               })
             }, 500)
         },
@@ -149,18 +161,21 @@ Page({
         }     
         })
     console.log("已发送")
-
-
     }
-    else{
-      wx.navigateTo({
-        url: '../register/register',
-      })
-    }
+
   },
 
 
-
+  agreepro: function (res) {
+    if (res.detail.value.length>0)
+      this.setData({
+        proconfirm:true
+      })
+    else
+      this.setData({
+        proconfirm: false
+      })
+  },
   onLoad:function(){
     var that = this
     wx.login({
@@ -220,6 +235,22 @@ Page({
 
       }
     })
+    wx.request({
+      url: 'https://irecycle.gxxnr.cn/rules/getsecondpro.do',
+      data: {
+      },
+      method: 'GET',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log('协议')
+        console.log(res)
+        that.setData({
+          proList: res.data.proList
+        })
+      }
+    })
   },
 
 
@@ -229,6 +260,9 @@ Page({
   },
   onShow: function () {
     // 页面显示
+    this.setData({
+      proconfirm: false
+    })
     var that = this;
     if (app.globalData.userid!=-1)
       wx.request({

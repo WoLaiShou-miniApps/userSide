@@ -32,6 +32,16 @@ Page({
         that.setData({
           mygoods:sub
         })
+        var imageStates=[]
+        var imageSrcs = []
+        for (var i = 0; i < that.data.mygoods.selling.content.length;i++){
+          imageStates.push(0)
+          imageSrcs.push("")
+        }
+        that.setData({
+          imageStates: imageStates,
+          imageSrcs: imageSrcs
+        })
       },
     })
   },
@@ -43,6 +53,21 @@ Page({
       tip:sub
     })
   },
+  loadimage: function (res) {
+    var that = this;
+    console.log(res)
+    var imageStates = that.data.imageStates;
+    var imageSrcs = that.data.imageSrcs
+    var index = res.currentTarget.dataset.index;
+    var src = res.currentTarget.dataset.src;
+    imageStates[index] = 1;
+    imageSrcs[index] = src;
+    that.setData({
+      imageSrcs: imageSrcs,
+      imageStates: imageStates
+    })
+  },
+
   onReady: function () {
   
   },

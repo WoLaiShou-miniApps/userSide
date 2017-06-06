@@ -260,3 +260,19 @@
 .picker-area1 picker,.picker-area-1 picker{
   color: #82ABBA;
 }
+.prolink{
+
+  margin-left:30rpx;
+  display:flex;
+  flex-direction: row;
+}
+.prolink checkbox{
+}
+.prolink text{
+  margin-left:10rpx;
+  height:50rpx;
+  line-height:50rpx;
+  color:#82ABBA;
+  font-size:30rpx;
+
+}

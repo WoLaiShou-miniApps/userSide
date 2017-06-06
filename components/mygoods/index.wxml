@@ -17,13 +17,20 @@
   <view class="shelve-panel">
     <block wx:for="{{mygoods.selling.content}}">
     <view class="item">
-      <image src="https://irecycle.gxxnr.cn{{item.imgUrl}}"></image>
+     <view class="image">
+      <image mode="aspectFill" bindload="loadimage" src="{{imageStates[index]==1?'https://irecycle.gxxnr.cn'+item.imgUrl:'../../static/image/image1.png'}}" data-src="{{'https://irecycle.gxxnr.cn'+item.imgUrl}}" data-index="{{index}}"></image>
+      <view class="name">
+        {{item.name}}（id:{{item.id}}）
+      </view>
+     </view>
       <view class="textList">
+        
+        
         <view style="">
-        挂售价格：￥{{item.latestPrice}}-{{item.expectedPrice}}
+        挂售价格：￥{{item.expectedPrice}}
         </view>
-        <view>
-        {{item.name}}
+        <view style="">
+        最新报价：￥{{item.latestPrice}}
         </view>
         <view style="color:red">
         {{item.state}}
@@ -52,7 +59,9 @@
   <view class="shelve-panel">
     <block wx:for="{{mygoods.sold.content}}">
     <view class="item">
-      <image src="https://irecycle.gxxnr.cn{{item.imgUrl}}"></image>
+    <view class="image">
+      <image mode="aspectFill" src="https://irecycle.gxxnr.cn{{item.imgUrl}}"></image>
+    </view>
       <view class="textList">
         <view style="">
         成交价格：￥{{item.latestPrice}}
