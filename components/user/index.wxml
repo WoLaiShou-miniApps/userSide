@@ -9,7 +9,10 @@
           <view class="user-name">{{info.nickName}}</view>
           
             <view class="user-more">查看或修改个人信息</view>
-          
+        </view>
+        <view class="credit">
+          <image src="../../static/image/bean.png"/>
+          <text>26</text>
         </view>
       </view>
       </navigator>

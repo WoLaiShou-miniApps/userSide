@@ -218,6 +218,8 @@ Page({
             //console.log(res)
             if (res.data.errCode == 0) {
               app.globalData.userid = res.data.data.id
+              /*用户积分
+              app.globalData.credit = res.data.data.credit */
               app.globalData.origin = 1
               //console.log("获取userid:" + app.globalData.userid)
               that.setData({

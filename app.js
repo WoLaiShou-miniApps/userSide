@@ -7,6 +7,7 @@ App({
     iv:null,
     openid:'',
     userid:-1,
+    credit:0,
     origin:0 //0初次登陆，1已有用户
   },
   info:{},

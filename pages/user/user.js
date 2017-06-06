@@ -4,6 +4,7 @@ var app =getApp()
 Page({
   data:{
     info:{},
+    credit:0,
     origin: 0 //0初次登陆，1已有用户
   },
   maskClick: mask.maskClick,
