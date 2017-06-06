@@ -1,6 +1,4 @@
-<template name="map">
-    <map id="myMap" show-location />
-</template>
+
 
 <template name="uplist">
     <view class="uplist-panel">

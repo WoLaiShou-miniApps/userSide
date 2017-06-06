@@ -1,4 +1,5 @@
 // pages/mymove/mymove.js
+var app = getApp()
 Page({
 
   /**
@@ -32,16 +33,24 @@ Page({
       phoneNumber: '1340000' 
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
+
   onLoad: function (options) {
-  
+    var that = this
+    wx.request({
+      url: 'https://irecycle.gxxnr.cn/api/user/getMoveAppointments.do',
+      data: {
+        userid: app.globalData.userid
+      },
+      method: 'GET',
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          moveOrderList: res.data
+        })
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function () {
   
   },

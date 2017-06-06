@@ -52,6 +52,7 @@ Page({
       header: {
         'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
       },
+      method:'POST',
       success: function (res) {
         console.log(res)
         app.globalData.userid = res.data.userid

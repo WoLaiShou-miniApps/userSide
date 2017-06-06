@@ -1,22 +1,27 @@
 // pages/mygoods/mygoods.js
+var app = getApp()
 Page({
   data: {
     mygoods:{},
     tip: { show:1,content:"已售二手物品将在两个工作日内打到您的账户上！"}
   },
-  URL: 'http://easy-mock.com/mock/59070ef87a878d73716e3aa7/wx-irecycle/',
+
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: that.URL + 'mygoods',
-      data: {},
-      method: 'GET',
-      // header: {}, // 设置请求的 header
+      url: 'https://irecycle.gxxnr.cn/api/user/register.do',
+      data: {
+        addressid: app.globalData.openid,
+        userid: res.detail.value.nickName,
+        phone: res.detail.value.phone,
+        password: res.detail.value.passwd
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+      },
+      method: 'POST',
       success: function (res) {
-        that.setData({
-          mygoods: res.data
-        })
-        console.log(that.data.mygoods)
+        console.log(res)
       },
     })
   },

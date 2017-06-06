@@ -106,8 +106,9 @@ Page({
     if (app.globalData.origin==1)
     {
     var that = this
+    var url = that.data.service == 0 ?"https://irecycle.gxxnr.cn/api/user/postorder.do" :"https://irecycle.gxxnr.cn/api/user/postsecond.do"
     wx.uploadFile({
-          url: "https://irecycle.gxxnr.cn/api/user/postorder.do",
+          url: url,
           filePath: that.data.service == 0 ? that.data.secondHand_imgUrl:that.data.secondHand_myphoto,
           name:"file",
           formData:{
@@ -141,6 +142,7 @@ Page({
         complete:function(){
           wx.showLoading({
             title: '上传中',
+            mask:true
           })
         }     
         })

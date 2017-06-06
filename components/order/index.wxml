@@ -89,13 +89,10 @@
         <image src="../../static/image/phone.png" class="image"></image>
         <text>{{order.phone}}</text>
       </view>
-      <navigator url="../index/index">
         <view class="term-item" style="border-bottom:#FFF">
           <image src="../../static/image/address.png" class="image"></image>
           <text>{{order.address}}</text>
-          <image src="../../static/image/more.png" class="more-right"></image>
         </view>
-      </navigator>
     </view>
   </view>
   <map wx:if="{{order.state==3}}" class="order-map" longitude="{{Mapmarkers[1].longitude}}" latitude="{{Mapmarkers[1].latitude}}" scale="13" markers="{{Mapmarkers}}">
