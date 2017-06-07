@@ -55,7 +55,7 @@ Page({
  */
   move_callForService:function(){
     wx.makePhoneCall({
-      phoneNumber: '1340000' 
+      phoneNumber: app.globalData.tel 
     })
   },
 

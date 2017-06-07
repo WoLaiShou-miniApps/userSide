@@ -215,11 +215,12 @@ Page({
             'content-type': 'application/json'
           },
           success: function (res) {
-            //console.log(res)
+            console.log(res)
             if (res.data.errCode == 0) {
               app.globalData.userid = res.data.data.id
-              /*用户积分
-              app.globalData.credit = res.data.data.credit */
+              //用户积分
+              app.globalData.credit = res.data.data.credit 
+              console.log(res.data.data.credit)
               app.globalData.origin = 1
               //console.log("获取userid:" + app.globalData.userid)
               that.setData({
@@ -268,6 +269,20 @@ Page({
         that.setData({
           proList: res.data.proList
         })
+      }
+    })
+    wx.request({
+      url: 'https://irecycle.gxxnr.cn/rules/getTel.do',
+      method:'GET',
+      data:{},
+      success:function(res){
+        console.log(res)
+        if (res.data.proRules){
+          app.globalData.tel = res.data.proRules.data;
+          that.setData({
+            tel: app.globalData.tel
+          })
+        }
       }
     })
   },

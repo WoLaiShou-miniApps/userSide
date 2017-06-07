@@ -12,7 +12,7 @@
         </view>
         <view class="credit">
           <image src="../../static/image/bean.png"/>
-          <text>26</text>
+          <text>{{credit}}</text>
         </view>
       </view>
       </navigator>

@@ -13,5 +13,5 @@
   <template is="secondHand" data="{{animation_textarea:animation_textarea,secondHand_imgUrl:secondHand_myphoto,time:time_secondHand,note:note_secondHand,date:date_secondHand,service:service,addressList:addressList,myAddressList:myAddressList,pick_value:pick_value,proconfirm:proconfirm,read_key:read_key,proList:proList}}"></template>
 </block>
 <block wx:if="{{service==2}}">
-  <template is="banjia" data="{{banjia_key:banjia_key}}"></template>
+  <template is="banjia" data="{{banjia_key:banjia_key,tel:tel}}"></template>
 </block>

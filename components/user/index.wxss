@@ -35,7 +35,9 @@ page{
     margin: 0rpx;
     width:30rpx;
     height:30rpx;
-    transform:scaleX(-1) rotate(-10deg);
+    transform:scaleX(-1) rotate(-15deg);
+  margin-top:-1px;
+
 }
 .user-info .credit text{
     margin-left:10rpx;
