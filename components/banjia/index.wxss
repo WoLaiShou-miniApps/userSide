@@ -1,14 +1,15 @@
 .banjia {
-  color: #373e40;
+  color: #fff;
   top: 285rpx;
   position: relative;
-  width: 400rpx;
-  margin-left: 175rpx;
+  width: 300rpx;
+  margin-left: 225rpx;
   text-align: center;
-  height: 400rpx;
-  line-height: 400rpx;
-  border: 1rpx solid #373e40;
+  height: 300rpx;
+  line-height: 300rpx;
+  border: 1rpx solid #C51A29;
   border-radius: 50%;
+  background: #C51A29;
 }
 
 .banjia image {
@@ -18,9 +19,9 @@
 }
 
 .banjia-info {
-  color: #373e40;
+  color: #fff;
   position: relative;
-  margin-top: 175rpx;
+  margin-top: 215rpx;
   text-align: center;
   font-size: 14px;
 }

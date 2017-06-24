@@ -19,9 +19,9 @@
   </block>
   <block wx:else>
     <view class="banjia" bindtap="banjia_makePhoneCall">
-      <image src="../../static/image/call.png"></image>
+      <image src="../../static/image/call2.png"></image>
     </view>
-    <view class="banjia-info">呼叫搬家公司</view>
+    <view class="banjia-info">一键呼叫</view>
     <view class="banjia-text">欢迎致电本公司热线{{tel}}</view>
     <view class="banjia-text2">我公司竭诚为您服务！</view>
   </block>
