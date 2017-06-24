@@ -21,6 +21,8 @@
       {{item}}
       </view>
     </block>
+    <view bindtap="switchtab" data-index="{{index}}" class="goods_left_items" style="visibility:hidden;">
+    </view>
     <view class="left_items_polish" animation="{{animationData_left_polish}}"></view>
 </scroll-view>
 

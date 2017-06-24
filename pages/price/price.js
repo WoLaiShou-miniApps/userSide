@@ -36,7 +36,7 @@ Page({
       duration: 200,
       timingFunction: 'ease',
     })
-    animation.height(10+'rpx').top(35+ e.target.dataset.index*80+'rpx').step({ duration: 200 })
+    animation.height(60+'rpx').top(30+ e.target.dataset.index*82+'rpx').step({ duration: 200 })
     //console.log(animation)
     that.setData({
       animationData_left_polish: animation.export()

@@ -82,8 +82,7 @@ map {
 .goods_left .goods_left_items {
   height: 80rpx;
   line-height: 80rpx;
-  
-  border-bottom: 1px dashed #dedede;
+  border-bottom: 1rpx dashed #dedede;
   font-size: 14px;
   color: #666;
   white-space:nowrap; 
@@ -104,7 +103,7 @@ map {
   height: 60rpx;
   width: 10rpx;
   background: #C51A29;
-  top: 35rpx;
+  top: 30rpx;
 }
 
 .goods_right {
