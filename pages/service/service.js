@@ -204,6 +204,15 @@ Page({
   },
   onLoad:function(){
     var that = this
+    var date = new Date();
+    console.log(date)
+    var today = date.getFullYear() + '-' + ((date.getMonth() + 1) < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)) + '-' + (date.getDate() < 10 ? '0' + date.getDate() : date.getDate())
+    that.setData({
+      today:today,
+      date_waste: today,
+      date_secondHand: today
+    })
+    console.log(today)
     wx.login({
       success: function (res) {
         //console.log("已获取到登陆态")
