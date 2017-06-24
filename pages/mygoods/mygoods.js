@@ -3,7 +3,8 @@ var app = getApp()
 Page({
   data: {
     mygoods: { selling: { num: 0, content: [] }, sold: { num: 0 , content: []}},
-    tip: { show:1,content:"已售二手物品将在两个工作日内打到您的账户上！"}
+    tip: { show:1,content:"已售二手物品将在两个工作日内打到您的账户上！"},
+    page:0
   },
 
   onLoad: function (options) {

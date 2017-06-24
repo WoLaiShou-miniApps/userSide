@@ -9,8 +9,7 @@
         </view>
         
         
-        
-        <view class="uplist-progress" animation="{{animationData_progress}}"></view>
+         <view class="uplist-progress" animation="{{animationData_progress}}"></view>   
     </view>
 </template>
 

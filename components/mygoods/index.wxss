@@ -22,8 +22,31 @@
   color:#EB3F2F;
 }
 
+
+.uplist-panel{
+  position:fixed;
+  top:-3rpx;
+  width:100%;
+  height:100rpx;
+  background:#FFF;
+  display: flex;
+  flex-direction: row;
+  z-index: 99;
+}
+.uplist-panel .item{
+  width:50%;
+  height:100rpx;
+  font-size:30rpx;
+  line-height:80rpx;
+  text-align:center;
+}
+.uplist-panel .item.active{
+  color:#C51A29;
+  border-bottom:5rpx solid #C51A29;
+}
+
 .mygoods-panel{
-  padding:70rpx 20rpx 20rpx 20rpx;
+  padding:120rpx 20rpx 20rpx 20rpx;
   min-height:200rpx;
   background:#FFF;
  

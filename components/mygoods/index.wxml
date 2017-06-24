@@ -5,6 +5,17 @@
 </view>
 </template>
 
+<template name="uplist">
+<view class="uplist-panel">
+    <view bindtap="changepape" data-index="0" class="item {{page==0 ? 'active':''}}">
+      二手订单
+    </view>
+    <view bindtap="changepape" data-index="1" class="item {{page==1 ? 'active':''}}">
+      挂售物品
+    </view>
+</view>
+</template>
+
 <template name="mygoodSelling">
 <view class="mygoods-panel">
   <view class="title-panel">
