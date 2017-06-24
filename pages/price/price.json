@@ -1,7 +1,7 @@
 {
   "navigationBarBackgroundColor": "#00B38C",
   "navigationBarTextStyle": "white",
-  "navigationBarTitleText": "交易登记",
+  "navigationBarTitleText": "实时价格",
   
   "backgroundTextStyle": "light",
   "enablePullDownRefresh":"false"

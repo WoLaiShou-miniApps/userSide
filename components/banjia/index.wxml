@@ -11,9 +11,9 @@
         </view>
       </form>
       <view class="banjia_order_info">
-        <text>step1：输入联系电话，开始预约</text>
-        <text>step2：拨打客服热线，完成预约</text>
-        <text>新农人搬家小分队火速上门，竭诚为您服务!</text>
+        <text>1：输入联系电话，开始预约</text>
+        <text>2：拨打客服热线，完成预约</text>
+        <text>我们将火速上门，竭诚为您服务!</text>
       </view>
     </view>
   </block>
@@ -23,7 +23,7 @@
     </view>
     <view class="banjia-info">呼叫搬家公司</view>
     <view class="banjia-text">欢迎致电本公司热线{{tel}}</view>
-    <view class="banjia-text2">哈尔滨供销新农人竭诚为您服务！</view>
+    <view class="banjia-text2">我公司竭诚为您服务！</view>
   </block>
 </template>
 

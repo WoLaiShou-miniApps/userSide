@@ -60,6 +60,7 @@
   line-height: 100rpx;
   border-radius: 10rpx;
   box-shadow: 1rpx 1rpx 1rpx 1rpx rgba(35, 34, 33, 0.2) inset;
+  border:solid 1rpx #000;
 }
 
 .btn-area {
@@ -68,9 +69,9 @@
   margin-top: 30rpx;
 }
 .btn-area button{
-  color: #373e40;
-  background: transparent;
-  border: 1rpx solid #373e40;
+  color: #fff;
+  background: #C51A29;
+  border: 1rpx solid #C51A29;
   height: 100rpx;
   line-height: 100rpx;
 }
@@ -82,14 +83,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 1rpx 1rpx 1rpx rgba(30,33,39,0.4)
+  box-shadow: 1rpx 1rpx 1rpx rgba(30,33,39,0.4);
+  border: 1rpx solid rgba(30,33,39,0.4);
 }
 .banjia_order_info text{
   width: 100%;
   display: block;
   height: 100rpx;
   line-height: 100rpx;
-  font-size: 25rpx;
+  font-size: 35rpx;
   color: 373e40;
   opacity: 0.9;
   text-align: center;

@@ -2,11 +2,11 @@
   <view class="second-hand{{service}}" wx:if="{{read_key==0}}"animation="{{animation_textarea}}">
     <view class="second-hand-photo{{service}}" bindtap="secondHand_addPhoto">
       <image mode="aspectFill" id="myphoto" class="{{secondHand_imgUrl?'has-photo{{service}}':''}}" src="{{secondHand_imgUrl?secondHand_imgUrl:(service==0?'../../static/image/finger.png':'../../static/image/image2.png')}}"></image>
-      <view class="second-hand-photo-text{{service}} {{secondHand_imgUrl?'has-photo-text{{service}}':''}}">{{service==0?'点击添加废品照片':'点击添加物品照片'}}</view>
+      <view class="second-hand-photo-text{{service}} {{secondHand_imgUrl?'has-photo-text{{service}}':''}}">{{(service==0?(secondHand_imgUrl?'点击修改废品照片':'点击添加废品照片'):(secondHand_imgUrl?'点击修改物品照片':'点击添加物品照片'))}}</view>
     </view>
     
     <view class="picker-area{{service}}">
-      <picker mode="date" value="{{date}}" start="2017-06-03" end="2027-05-01" bindchange="bindDateChange">
+      <picker mode="date" value="{{today}}" start="{{today}}" end="2027-05-01" bindchange="bindDateChange">
         <view class="picker">
           {{date}}
         </view>
