@@ -34,26 +34,26 @@
     <view class="user-item">
       <navigator url="../myorders/myorders" hover-class="none">
         <view class="item">
-          <image src="../../static/image/my_order.png"></image>
+          <image src="../../static/image/dingdan2.png"></image>
           <view class="item-title">废品订单</view>
         </view>
       </navigator>
 
       <navigator url="../mygoods/mygoods" hover-class="none">
         <view class="item">
-          <image src="../../static/image/my_secondhand.png"></image>
+          <image src="../../static/image/ershou2.png"></image>
           <view class="item-title">二手详情</view>
         </view>
       </navigator>
       <navigator url="../mymove/mymove" hover-class="none">
         <view class="item">
-          <image src="../../static/image/move.png"></image>
+          <image src="../../static/image/banjia2.png"></image>
           <view class="item-title">小件预约</view>
         </view>
       </navigator>
       <navigator url="../myaddress/myaddress" hover-class="none">
         <view class="item">
-          <image src="../../static/image/address_2.png"></image>
+          <image src="../../static/image/dizhi2.png"></image>
           <view class="item-title">地址管理</view>
         </view>
       </navigator>

@@ -44,7 +44,7 @@ page{
     font-size:30rpx;
     height:30rpx;
     line-height:30rpx;
-    color:#C51A29;
+    color:#F57E59;
 }
 .user-info-detail{
     flex-grow: 4;
@@ -56,7 +56,7 @@ page{
 .user-more{
     margin-top: 20rpx;
     font-size:35rpx;
-    color: rgb(200,200,195)
+    color: #F57E59;
 }
 .user-item{
     margin-top: 50rpx;
@@ -78,10 +78,11 @@ page{
     height: 70rpx;
     position: relative;
     margin: 15rpx;
+    margin-left: 60rpx;
 }
 .item-title{
     flex-grow: 4;
-    margin-left: 40rpx;
+    margin-left: 60rpx;
 }
 
 
@@ -115,6 +116,7 @@ page{
     font-size:30rpx; 
     border-radius: 10rpx;
     box-shadow: 1rpx 1rpx 1rpx 1rpx rgba(35, 34, 33, 0.2) inset;
+    border: 1rpx solid #000;
     width: 400rpx;
     height:80rpx;
     text-align: center;
@@ -125,7 +127,7 @@ page{
     height:80rpx;
     align-items:center;
     border-radius: 10rpx;
-    background:#1bb28d;
+    background:rgb(199,22,34);
     color:#fff;
     line-height:80rpx;
 }
@@ -136,10 +138,10 @@ page{
 .contact-area{
   width:200rpx;
   margin:20rpx auto;
-  margin-top:200rpx;
+  margin-top:160rpx;
 
 }
 .contact-btn{
   background: transparent;
-  font-size: 25rpx;
+  font-size: 30rpx;
 }
