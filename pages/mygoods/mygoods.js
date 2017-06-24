@@ -4,9 +4,14 @@ Page({
   data: {
     mygoods: { selling: { num: 0, content: [] }, sold: { num: 0 , content: []}},
     tip: { show:1,content:"已售二手物品将在两个工作日内打到您的账户上！"},
-    page:0
+    page:0,
+    order_list:[]
   },
-
+  changepape:function(e){
+    this.setData({
+      page:e.currentTarget.dataset.index
+    })
+  },
   onLoad: function (options) {
     var that = this;
     wx.request({

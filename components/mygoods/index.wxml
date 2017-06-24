@@ -88,3 +88,29 @@
   </block>
 </view>
 </template>
+
+<template name="orderlist">
+    <view class="myorder_list">
+      <block wx:for="{{order_list}}">
+        <view bindtap="{{item.state==1?'':'selectorder'}}" data-index="{{index}}" class="orders-item {{item.state==1?'invalid':''}}">
+          <view class="name">{{item.name}}</view>
+          <view class="righttext">
+            <view class="address">{{item.address}} {{item.addressdetail}}</view>
+            <view class="time">{{item.time}}</view>
+          </view>
+          <image wx:if="{{item.state!=1}}" src="../../static/image/more_{{select_order==index?'up':'down'}}.png" class="more-down"></image>
+
+
+        </view>
+
+
+        <block wx:if="{{select_order==index && item.state!=1}}">
+          <view class="operate-panel">
+              <view class="item" bindtap="gotoDetail">查看详情</view>
+              <view class="item" bindtap="orderDelete">？？？？</view>
+          </view>
+        </block>
+
+      </block>
+    </view>
+</template>

@@ -3,5 +3,10 @@
 
 <template is="tip" data="{{tip:tip}}"></template>
 <template is="uplist" data="{{page:page}}"></template>
+<block wx:if="{{page==1}}">
 <template is="mygoodSelling" data="{{mygoods:mygoods}}"></template>
 <template is="mygoodSold" data="{{mygoods:mygoods}}"></template>
+</block>
+<block wx:if="{{page==0}}">
+<template is="orderlist"></template>
+</block>

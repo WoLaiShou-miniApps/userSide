@@ -69,7 +69,7 @@ map {
 /*service页左侧列表栏*/
 
 .goods_left {
-  position: absolute;
+  position: fixed;
   left: 0;
   display: inline-block;
   width: 25%;
@@ -86,12 +86,16 @@ map {
   border-bottom: 1px dashed #dedede;
   font-size: 14px;
   color: #666;
+  white-space:nowrap; 
+  overflow:hidden; 
+  text-overflow:ellipsis;
 }
 
 .goods_left .goods_left_items.active {
   background: #fff;
   height: 120rpx;
   line-height: 120rpx;
+  color:#C51A29;
 }
 
 .left_items_polish {
@@ -99,7 +103,7 @@ map {
   left: 0%;
   height: 60rpx;
   width: 10rpx;
-  background: #f8ca4f;
+  background: #C51A29;
   top: 35rpx;
 }
 
