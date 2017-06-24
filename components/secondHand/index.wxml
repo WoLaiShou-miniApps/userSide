@@ -38,10 +38,13 @@
 
     <button type="primary" plain bindtap="orderSubmit">一键预约</button>
   </view>
-  <scroll-view scroll-y wx:if="{{read_key==1}}" class="readPro" bindtap="readPro">
+  <scroll-view scroll-y wx:if="{{read_key==1 && service==1}}" class="readPro" bindtap="readPro">
     <view class="pro-title">《"我来收"二手代买用户须知》</view>
     <view wx:for="{{proList}}" wx:if="{{index>0}}" class="pro-item">
       {{item}}
+    </view>
+    <view  class="pro-item zhanwei" wx:for="{{[1,2,3,4,5,6]}}">
+      dsaad
     </view>
   </scroll-view>
 </template>

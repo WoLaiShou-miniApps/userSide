@@ -101,9 +101,15 @@ Page({
   },
 
   change_service: function (e) {
+    var that = this;
     this.setData({
       service: e.target.dataset.index
     }) //animationData_progress  translateX(107*e.target.dataset.index)
+    if(that.data.service != 1){
+      that.setData({
+        read_key:0
+      })
+    }
     var animation = wx.createAnimation({
       duration: 1000,
       timingFunction: 'ease-out',

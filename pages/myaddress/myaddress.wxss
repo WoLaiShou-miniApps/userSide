@@ -33,24 +33,26 @@
   height: 50rpx;
 }
 .address view{
-  margin-top: 10rpx;
+  margin-top: 20rpx;
   color: rgba(78,77,79,0.8);
   font-family: "微软雅黑"
 }
-.address-name{
+.address .address-name{
+  margin-top: 5rpx;
   margin-left: 10rpx;
   width: 160rpx;
-  font-size: 40rpx;
+  font-size: 35rpx;
   float: left;
   overflow: hidden;
 text-overflow:ellipsis;
 white-space: nowrap;
 }
-.address-phone{
+.address .address-phone{
+  margin-top: 5rpx;
   width: 500rpx;
   margin-left: 10rpx;
   float: left;
-  font-size: 40rpx;
+  font-size: 35rpx;
   overflow: hidden;
 text-overflow:ellipsis;
 white-space: nowrap;
@@ -59,7 +61,7 @@ white-space: nowrap;
   margin-left: 10rpx;
   width: 500rpx;
   float: left;
-  font-size: 40rpx;
+  font-size: 35rpx;
   overflow: hidden;
 text-overflow:ellipsis;
 white-space: nowrap;
@@ -68,7 +70,7 @@ white-space: nowrap;
   margin-left: 10rpx;
   width: 100%;
   float: left;
-  font-size: 40rpx;
+  font-size: 35rpx;
   overflow: hidden;
 text-overflow:ellipsis;
 white-space: nowrap;

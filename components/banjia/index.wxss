@@ -118,13 +118,15 @@
 .order-info{
   margin-left: 20rpx;
   color: #34352c;
+  font-size: 35rpx;
 }
 .call-for-service{
   width: 700rpx;
   margin:25rpx;
   text-align: center;
-  color: #f5f6eb;
+  color: #C51A29;
   text-shadow: 1rpx 1rpx 1rpx rgba(30,30,30,0.9);
+  border: 1rpx solid #C51A29;
   height: 100rpx;
   line-height: 100rpx;
   box-shadow: 1rpx 1rpx 1rpx 1rpx rgba(220,220,220,0.8);
@@ -134,12 +136,14 @@
 }
 .btn{
   width:500rpx;
-  height:100rpx;
+  height:80rpx;
   text-align:center;
-  line-height:100rpx;
-  border:1rpx solid rgba(30,30,30,0.3);
+  line-height:80rpx;
+  border:1rpx solid #C51A29;
+  background: #C51A29;
   border-radius:10rpx;
   margin-left:85rpx;
+  color:#fff;
 }
 .done{
   background:#b3b3b3;
@@ -151,19 +155,20 @@
 .done .btn{
   border:1rpx solid #d3d3d3;
   color: #d3d3d3;
+  display: none;
 }
 .done::after{
   content:"订单终结";
   position:absolute;
   width:200rpx;
   height:100rpx;
-  border:3rpx solid #000;
+  border:3rpx solid #4Db472;
   top:150rpx;
   left:250rpx;
   transform:rotate(-35deg);
-  color:#000;
+  color:#4Db472;
   text-align:center;
-  line-height:80rpx;
+  line-height:85rpx;
   font-weight:900;
 
 }
