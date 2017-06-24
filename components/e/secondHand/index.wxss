@@ -1,0 +1,86 @@
+page{
+  background:#f9f9f9;
+}
+
+.trade-panel{
+  margin-top:150rpx;
+  width:100%;
+}
+.trade-panel .title{
+  text-align:center;
+  color:#000;	
+}
+.content-panel{
+  margin-top:100rpx;
+  
+  width:100%;
+  background:#FFF;
+}
+.content{
+  margin-left:50rpx;
+  border-bottom:5rpx solid #f9f9f9;
+  height:100rpx;
+
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.content .point{
+  margin:45rpx 50rpx 0rpx 20rpx;
+
+  width:10rpx;
+  height:10rpx;
+  border-radius: 50%;
+}
+
+.content input{
+  height:50rpx;
+  margin-top:25rpx;
+  line-height:50rpx;
+}
+.content .text{
+  font-size:33rpx;
+  color:#ff9933	;
+}
+
+
+.submit-button{
+  margin:100rpx 0rpx 0rpx 15%;
+
+  width:70%;
+  height:80rpx;
+  border-radius: 15rpx;
+  background:#66CDAA;
+
+  line-height:80rpx;
+  text-align:center;
+  color: #FFF;
+}
+
+.scroll-panel{
+  margin-left:10%;
+  margin-top:50rpx;
+  width:80%;
+  height:500rpx;
+  background:#FFF;
+}
+
+.scroll-panel .item{
+  display:flex;
+  flex-direction:row;
+  width:100%;
+  justify-content:space-between;
+  align-items:center;
+  height: 80rpx;
+
+}
+.scroll-panel .item .name{
+  
+  line-height: 80rpx;
+}
+.scroll-panel .item .num{
+ 
+  line-height: 80rpx;
+  width: 100rpx;
+}

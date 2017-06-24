@@ -44,7 +44,7 @@ page{
     font-size:30rpx;
     height:30rpx;
     line-height:30rpx;
-    color:gold;
+    color:#C51A29;
 }
 .user-info-detail{
     flex-grow: 4;

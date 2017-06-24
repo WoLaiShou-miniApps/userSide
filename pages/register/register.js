@@ -54,14 +54,24 @@ Page({
       },
       method:'POST',
       success: function (res) {
-        //console.log(res)
-        app.globalData.userid = res.data.userid
-        //console.log(app.globalData.openid)
-        app.globalData.origin = 1
-        wx.navigateBack({
-          delta: 1
-        })
-      }
+        console.log(res)
+        if (res.data.status =='incorrect password'){
+          wx.showToast({
+            title: '您的手机号已经在PC端注册，请输入PC端注册时输入的密码',
+            image:'../../static/image/tip.png',
+            duration:2000
+          })
+        }
+        else{
+          app.globalData.userid = res.data.userid
+          //console.log(app.globalData.openid)
+          app.globalData.origin = 1
+          wx.navigateBack({
+            delta: 1
+          })
+        }
+        }
+        
 
     })
 

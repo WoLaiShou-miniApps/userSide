@@ -27,9 +27,18 @@ Page({
     proList:{},
     proconfirm:false,
     origin:0,
-    read_key:0
+    read_key:0,
+    animationData0:{},
+    userGuid:0
   },
   URL:'http://easy-mock.com/mock/59070ef87a878d73716e3aa7/wx-irecycle/',
+  closeGuid:function(){
+    var that = this;
+    that.setData({
+      animationData0:{},
+      userGuid:0
+    })
+  },
   maskClick: mask.maskClick,
   readPro:secondHand.readPro,
   bindDateChange:secondHand.bindDateChange,
@@ -324,6 +333,29 @@ Page({
   },
   onUnload: function () {
     // 页面关闭
+  },
+  onPullDownRefresh:function(){
+     var that = this;
+     var animation = wx.createAnimation({
+      duration: 300,
+        timingFunction: 'ease',
+    })
+
+    this.animation = animation
+
+    animation.opacity(0).step()
+
+    this.setData({
+      animationData0:animation.export()
+    })
+    setTimeout(function(){
+      that.setData({
+      userGuid:1
+    })
+    wx.stopPullDownRefresh()
+    },300)
+    
+
   }
 })
 

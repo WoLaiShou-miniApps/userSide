@@ -1,19 +1,21 @@
 {
   "pages":[
-    
+   
+    "pages/index/index",
     "pages/service/service",
     "pages/register/register",
     "pages/myorders/myorders",
     "pages/mygoods/mygoods",
     "pages/mymove/mymove",
     "pages/customService/customService",
-    "pages/index/index",
+    
     "pages/order_detail/order_detail",
     "pages/evaluate/evaluate",
     "pages/user/user",
     "pages/info/info",  
     "pages/myaddress/myaddress",
-    "pages/test"
+    "pages/test",
+    "pages/price/price"
   ],
   "window":{
     "backgroundTextStyle":"dark",
@@ -29,10 +31,15 @@
     "backgroundColor":"#fff",
     "list": [{
       "pagePath": "pages/service/service",
-      "text": "下单",
+      "text": "我要下单",
       "iconPath":"static/image/order.png",
       "selectedIconPath":"static/image/order_click.png"
     }, {
+      "pagePath": "pages/price/price",
+      "text": "实时报价",
+      "iconPath": "static/image/price1.png",
+      "selectedIconPath": "static/image/price2.png"
+    },{
       "pagePath": "pages/user/user",
       "text": "个人中心",
       "iconPath":"static/image/user.png",

@@ -1,0 +1,6 @@
+page{
+  background:#FFF;
+}
+@import "../../components/e/test/test1.wxss";
+@import "../../components/e/secondHand/index.wxss";
+@import "../../components/e/banjia/index.wxss";

@@ -13,6 +13,7 @@ Page({
    * 完成订单
    */
   confirm:function(e){
+    var that = this;
     //console.log(e)
     //console.log(e.currentTarget.dataset.order.id)
     wx.request({
@@ -24,6 +25,7 @@ Page({
       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       // header: {}, // 设置请求的 header
       success: function(res){
+        console.log(res)
         // success
         //console.log(res)
         wx.request({

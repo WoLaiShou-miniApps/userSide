@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    currentAddress:{},
     addressList: [],
     ifadd: 0,
     ifEdit:0,
@@ -151,12 +152,13 @@ Page({
    * 获取地图中央坐标
    */
   edit_getlocation: function (e) {
-    //console.log(e)
+    
     var that = this;
+    console.log(that.data.currentAddress)
     var map = wx.createMapContext('addMap');
     map.getCenterLocation({
       complete: function (res) {
-        //console.log(res)
+        console.log(res)
         that.data.currentAddress.latitude = res.latitude;
         that.data.currentAddress.longitude = res.longitude;
         that.setData({currentAddress: that.data.currentAddress})
@@ -178,6 +180,7 @@ Page({
       })
       var newList = []
       newList.push(that.data.addressList[index])
+      console.log(newList)
       that.setData({
         addressList:newList
       })
@@ -195,8 +198,7 @@ Page({
     
     
     that.setData({
-      currentAddress:that.data.addressList[index],
-      
+      currentAddress:that.data.addressList[0],
     })
   },
   /**
@@ -230,7 +232,7 @@ Page({
           },
           method: 'GET',
           success: function (res) {
-            //console.log(res)
+            //console.log('ass',res)
             that.setData({addressList: res.data})
           }
         })
@@ -328,7 +330,7 @@ Page({
       method: 'GET',
       success: function (res) {
         wx.hideLoading()
-        //console.log(res)
+        console.log(app.globalData.userid,res)
         that.setData({addressList: res.data,show:1})
       },
       complete:function(){

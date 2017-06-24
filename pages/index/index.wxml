@@ -1,2 +1,7 @@
-<import src="../../components/test/test1.wxml"></import>
-<template is="map"></template>
+<view class="welcome">
+  <image src="http://orsao888t.bkt.clouddn.com/%E6%9C%AA%E6%A0%87%E9%A2%98-2.png" bindload="imageLoaded"></image>
+  <text class="time">{{time}}</text>
+ 
+  </view>
+   <view class="box" wx:if="{{ifload==0}}">
+</view>
