@@ -3,4 +3,26 @@ page{
   background:#FFF;
 }
 @import "../../components/user/index.wxss";
-@import "../../components/mygoods/index.wxss";
+.tip{
+  position:absolute;
+  top:0rpx;
+
+  background:#FFF68F;
+  height:50rpx;
+  width:100%;
+
+  display:flex;
+  flex-direction: row;
+  line-height:50rpx;
+}
+.tip image{
+  margin-top:5rpx;
+  margin-left:30rpx;
+  width:40rpx;
+  height:40rpx;
+}
+.tip text{
+  margin-left:20rpx;
+  font-size:30rpx;
+  color:black;
+}

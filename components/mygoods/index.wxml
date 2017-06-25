@@ -59,7 +59,7 @@
 </template>
 
 <template name="mygoodSold">
-<view class="mygoods-panel">
+<view class="mygoods-panel" style="padding-top:50rpx;">
   <view class="title-panel">
     <text class="title">已售商品</text>
     <view class="num" style="background:#83FCD8">{{mygoods.sold.num}}</view>
