@@ -25,6 +25,20 @@ Page({
   onHide:function(){
     // 页面隐藏
   },
+  onShareAppMessage: function () {
+    return {
+      title: '我来收', // 分享标题
+      path: '/pages/service/service',
+      success: function () {
+        wx.showToast({
+          title: '转发成功',
+          mask: true,
+        })
+      },
+      fail: function () {
+      }
+    }
+  },
   onUnload:function(){
     // 页面关闭
   },

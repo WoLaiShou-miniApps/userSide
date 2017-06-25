@@ -1,5 +1,0 @@
-/* pages/custom_service/custom_service.wxss */
-.contact-btn{
-  width: 500rpx;
-  height: 500rpx;
-}

@@ -1,2 +1,0 @@
-<!--pages/custom_service/custom_service.wxml-->
-<button  open-type="contact" type="default-dark" session-from="weapp" class="contact-btn"/>

@@ -7,8 +7,6 @@
     "pages/myorders/myorders",
     "pages/mygoods/mygoods",
     "pages/mymove/mymove",
-    "pages/customService/customService",
-    
     "pages/order_detail/order_detail",
     "pages/evaluate/evaluate",
     "pages/user/user",

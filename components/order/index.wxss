@@ -38,7 +38,7 @@
   position:absolute;
   right:6%;
   width:50rpx;
-  height:25rpx
+  height:25rpx;
 }
 .operate-panel{
   height:100rpx;
@@ -78,9 +78,9 @@
   width:200rpx;
   line-height:100rpx;
   font-size:35rpx;
-  overflow: hidden;
-text-overflow:ellipsis;
-white-space: nowrap;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  overflow:hidden;
 }
 
 .orders-item .righttext{
