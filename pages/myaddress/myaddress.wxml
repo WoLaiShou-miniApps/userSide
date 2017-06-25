@@ -11,6 +11,7 @@
     <icon type='warn'size="50" ></icon>
   </view>
 </view>
+<view wx:if="{{ifadd==0 && ifEdit ==0}}" class="zhanwei" >添加新地址</view>
 <view wx:if="{{ifadd==0 && ifEdit ==0}}" class="add-btn" bindtap="addAddress">添加新地址</view>
 <view wx:if="{{ifadd!=0}}" class="add-address">
   <view class="add-address-info">请拖动地图选择具体位置：</view>
@@ -20,7 +21,7 @@
   <input type="text" bindblur="getAddressDetail" placeholder="请输入详细位置信息"/>
   <picker bindchange="getDistrict" value="{{pick_value}}" range="{{districtList}}">
     <view class="picker">
-      <text wx:if="{{pick_value}}">当前选择：{{districtList[pick_value]}}</text>
+      <text wx:if="{{pick_value>-1}}">当前选择：{{districtList[pick_value]}}</text>
       <text wx:else style="color:#808080">请选择所在区域</text>
     </view>
   </picker>

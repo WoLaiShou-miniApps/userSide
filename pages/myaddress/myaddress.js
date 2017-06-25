@@ -224,7 +224,7 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        //console.log(res)
+        console.log(res)
         wx.request({
           url: 'https://irecycle.gxxnr.cn/api/user/getuseraddress.do',
           data: {
@@ -232,7 +232,7 @@ Page({
           },
           method: 'GET',
           success: function (res) {
-            //console.log('ass',res)
+            console.log('ass',res)
             that.setData({addressList: res.data})
           }
         })

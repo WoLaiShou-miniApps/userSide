@@ -44,6 +44,6 @@
 
   </view>
   <view wx:if="{{ifshow==1}}" class="call-for-service" bindtap="move_callForService">
-    有疑问，新农人联系客服随时随地帮您！
+    有疑问，联系客服随时随地帮您！
   </view>
 </template>

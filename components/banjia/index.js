@@ -27,6 +27,7 @@ module.exports = {
             that.setData({banjia_key: 1})
           }
           
+          
         },
         fail: function () {
           // fail
