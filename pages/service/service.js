@@ -171,6 +171,8 @@ Page({
                   note_secondHand: "",
                   secondHand_myphoto: "",
                   secondHand_imgUrl: "",
+                  address_waste: -1,
+                  address_secondHand: -1,
                   proconfirm: false
                 })
               }, 500)

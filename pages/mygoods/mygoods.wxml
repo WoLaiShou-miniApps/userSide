@@ -8,5 +8,5 @@
 <template is="mygoodSold" data="{{mygoods:mygoods}}"></template>
 </block>
 <block wx:if="{{page==0}}">
-<template is="orderlist"></template>
+<template is="orderlist" data="{{order_list:order_list,select_order:select_order}}"></template>
 </block>

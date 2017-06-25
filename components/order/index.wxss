@@ -150,7 +150,7 @@ white-space: nowrap;
 }
 .detail-chief .term .term-item{
   width:90%;
-  height:100rpx;
+  min-height:100rpx;
   border-bottom:1rpx solid #efefef;
   margin:0% 5% 0% 5%;
   display: flex;

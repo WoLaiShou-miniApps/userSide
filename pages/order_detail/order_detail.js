@@ -58,7 +58,7 @@ Page({
           },
           method: 'GET',
           success: function (res) {
-            //console.log(res.data)
+            console.log(res)
             that.data.Mapmarkers[0].latitude = res.data.latitude
             that.data.Mapmarkers[0].longitude = res.data.longitude
             that.setData({

@@ -27,7 +27,7 @@ Page({
   gotoDetail: function () {
     wx.setStorage({
       key: 'orderdetail',
-      data: order_list[this.data.select_order],
+      data: this.data.order_list[this.data.select_order],
       success: function () {
         wx.navigateTo({
           url: '../order_detail/order_detail',
@@ -37,6 +37,19 @@ Page({
   },
   onLoad: function (options) {
     var that = this;
+    wx.request({
+      url: 'https://irecycle.gxxnr.cn/api/user/getsecondHand.do',
+      data: {
+        userid: app.globalData.userid,
+      },
+      method: 'GET',
+      success: function (res) {
+        //console.log('二手订单',res)
+        that.setData({
+          order_list: res.data
+        })
+      }
+    })
     wx.request({
       url: 'https://irecycle.gxxnr.cn/api/user/getsecondgoods.do',
       data: {

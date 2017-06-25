@@ -44,6 +44,10 @@ Page({
   },
   formSubmit:function(e){
     var that =this
+    console.log('userid', app.globalData.userid)
+    console.log('orderid', that.data.orderid)
+    console.log('star', that.data.service_grade)
+    console.log('text', e.detail.value.evaluate)
     wx.request({
       url: 'https://irecycle.gxxnr.cn/api/user/evaluate.do',
       data:{

@@ -95,7 +95,7 @@
         </view>
     </view>
   </view>
-  <map wx:if="{{order.state==3}}" class="order-map" longitude="{{Mapmarkers[1].longitude}}" latitude="{{Mapmarkers[1].latitude}}" scale="13" markers="{{Mapmarkers}}">
+  <map wx:if="{{order.state<=3}}" class="order-map" longitude="{{Mapmarkers[1].longitude}}" latitude="{{Mapmarkers[1].latitude}}" scale="13" markers="{{Mapmarkers}}">
     
   </map>
   <view class="detail-remark">

@@ -101,7 +101,7 @@ Page({
       method: 'GET',
       // header: {}, // 设置请求的 header
       success: function (res) {
-        ////console.log(res.resdata);
+        //console.log(res);
         var myorder = { untaken: { num: 0, content: [] }, finished: { num: 0, content: []}}
         for (var i = 0; i < res.data.length;i++)
         {
@@ -109,7 +109,7 @@ Page({
           {
               myorder.finished.content.push(res.data[i])
               myorder.finished.num++
-              }
+          }
             else{
               myorder.untaken.content.push(res.data[i])
               myorder.untaken.num++
