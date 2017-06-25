@@ -46,7 +46,7 @@
 }
 
 .mygoods-panel{
-  padding:120rpx 20rpx 20rpx 20rpx;
+  padding:170rpx 20rpx 20rpx 20rpx;
   min-height:200rpx;
   background:#FFF;
  
