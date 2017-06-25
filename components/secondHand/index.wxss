@@ -4,7 +4,6 @@
   width:100%;
   background: #fff;
 }
-
 .second-hand-photo0{
   position: relative;
   top: -10rpx;
@@ -90,6 +89,7 @@
 .second-hand0 button{
   width:710rpx;
   margin-top:20rpx;
+  margin-bottom: 300rpx;
 }
 .second-hand0 button[type="primary"][plain]{
   color:#fff;
@@ -149,40 +149,40 @@
   font-weight: 600;
   
 }
-
-
-
-
-
-
 .second-hand1{
   position: relative;
-  top: 85rpx;
+  top: 120rpx;
   width:100%;
+  background: #fff;
 }
 
 .second-hand-photo1{
   position: relative;
-  top: 20rpx;
+  top: -10rpx;
   width: 700rpx;
   height: 450rpx;
-  margin-left: 25rpx;
-  border: 1rpx solid #82ABBA; 
+  margin-left: 20rpx;
+  border: 6rpx solid #000;
   border-radius: 10rpx;
+  outline:3rpx solid #C51A29;
+  outline-offset:-30rpx;
 }
 .second-hand-photo1::before{
   content: "添加照片";
   background: #fff;
-  top: -20rpx;
-  color: #82ABBA;
+  top: -25rpx;
+  color: #C51A29;
   text-align: center;
   position: absolute;
   left:20rpx;
-  font-size: 40rpx;
+  font-size: 35rpx;
+  height: 30rpx;
+  
+  font-weight: 600;
 }
 .second-hand-photo1 image{
   width : 300rpx;
-  margin:40rpx 200rpx;
+  margin:50rpx 200rpx 0 200rpx;
   height: 300rpx;
 }
 .second-hand-photo1 .has-photo1{
@@ -196,8 +196,9 @@
   border-radius: 15rpx
 }
 .second-hand-photo-text1{
-  color: #82ABBA;
+  color: #000;
   font-size: 40rpx;
+  font-weight: 400;
   height: 50rpx;
   line-height: 50rpx;
   text-align: center;
@@ -215,9 +216,9 @@
   width: 640rpx;
   height: 150rpx;
   margin:50rpx 25rpx 10rpx 25rpx;
-  border: 1rpx solid #82ABBA;
-  border-radius: 6rpx;
-  color: #82ABBA;
+  border: 6rpx solid #000;
+  border-radius: 10rpx;
+  color: #000;
   font-size: 40rpx;
   text-align: center;
   padding-top: 30rpx;
@@ -227,21 +228,25 @@
 .second-hand1 textarea::before{
   content: "添加描述";
   background: #fff;
-  top: -20rpx;
-  color: #82ABBA;
+  top: -25rpx;
+  color: #C51A29;
   text-align: center;
   position: absolute;
   left:20rpx;
-  font-size: 40rpx;
+  font-size: 35rpx;
+  height: 30rpx;
+  
+  font-weight: 600;
 }
 .second-hand1 button{
-  width:700rpx;
-  margin-top:15rpx;
+  width:710rpx;
+  margin-top:20rpx;
+  margin-bottom: 300rpx;
 }
 .second-hand1 button[type="primary"][plain]{
-  color:#82ABBA;
-  border:1px solid #82ABBA;
-  background-color:transparent;
+  color:#fff;
+  border:1px solid #C51A29;
+  background-color:#C51A29;
 
 }
 .second-hand-info-textarea-placeholder1{
@@ -254,34 +259,38 @@
   position:relative;
   top:20rpx;
   width:700rpx;
-  height:100rpx;
+  height:120rpx;
   margin-left:25rpx;
   margin-bottom: 50rpx;
-  border:1rpx solid #82ABBA;
+  border:6rpx solid #000;
   border-radius:10rpx;
 }
 .picker-area1::before{
   content: "预约时间";
   background: #fff;
-  top: -20rpx;
-  color: #82ABBA;
+  top: -25rpx;
+  color: #C51A29;
+  font-weight: 600;
   text-align: center;
   position: absolute;
   left:20rpx;
-  font-size: 40rpx;
+  font-size: 35rpx;
 }
 .picker-area-1::before{
   content: "地址";
   background: #fff;
-  top: -20rpx;
-  color: #82ABBA;
+  top: -25rpx;
+  color: #C51A29;
   text-align: center;
   position: absolute;
   left:20rpx;
-  font-size: 40rpx;
+  font-size: 35rpx;
+  font-weight: 600;
 }
 .picker-area1 picker,.picker-area-1 picker{
-  color: #82ABBA;
+  color: #000;
+  width: 50%;
+  height: 100%;
 }
 .prolink{
 
@@ -295,7 +304,7 @@
   margin-left:10rpx;
   height:50rpx;
   line-height:50rpx;
-  color:#82ABBA;
+  color:#C51A29;
   font-size:30rpx;
 
 }

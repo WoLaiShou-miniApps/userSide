@@ -16,40 +16,26 @@
     </view>
   </view>
   <view class="bottom-panel">
-    <text style="color:#ABABAB;font-size:30rpx;margin:10rpx 20rpx 0rpx 0rpx">服务质量</text>
+    <text style="color:#ABABAB;font-size:35rpx;margin:10rpx 20rpx 0rpx 0rpx;height:100rpx;line-height:100rpx">服务评价</text>
     <block wx:for="{{[1,2,3,4,5]}}">
       <block wx:if="{{item<=service_grade}}">
-      <view bindtap="service_grade" data-index="{{item}}">
-      <image src="../../static/image/star_taken.png"></image>
-      </view>
+     
+      <image src="../../static/image/star_taken.png" bindtap="service_grade" data-index="{{item}}"></image>
+     
       </block>
       <block wx:elif="{{item==(service_grade+0.5)}}">
-      <view bindtap="service_grade" data-index="{{item}}">
-      <image src="../../static/image/star_halftaken.png"></image>
-      </view>
+     
+      <image src="../../static/image/star_halftaken.png" bindtap="service_grade" data-index="{{item}}"></image>
+     
       </block>
       <block wx:else>
-      <view bindtap="service_grade" data-index="{{item}}">
-      <image src="../../static/image/star.png"></image>
-      </view>
+      
+      <image src="../../static/image/star.png" bindtap="service_grade" data-index="{{item}}"></image>
+      
       </block>
     </block>
   </view>
-  <view class="bottom-panel" style="margin-top:20rpx;">
-    <text style="color:#ABABAB;font-size:30rpx;margin:10rpx 20rpx 0rpx 0rpx">软件体验</text>
-    <block wx:for="{{[1,2,3,4,5]}}">
-      <block wx:if="{{index<software_grade}}">
-      <view bindtap="software_grade" data-index="{{item}}">
-      <image src="../../static/image/star_taken.png"></image>
-      </view>
-      </block>
-      <block wx:else>
-      <view bindtap="software_grade" data-index="{{item}}">
-      <image src="../../static/image/star.png"></image>
-      </view>
-      </block>
-    </block>
-  </view>
+  
 </view>
 
 <form bindsubmit="formSubmit">

@@ -1,14 +1,14 @@
 {
   "pages":[
    
-    
+    "pages/index/index",
     "pages/service/service",
     "pages/register/register",
     "pages/myorders/myorders",
     "pages/mygoods/mygoods",
     "pages/mymove/mymove",
     "pages/customService/customService",
-    "pages/index/index",
+    
     "pages/order_detail/order_detail",
     "pages/evaluate/evaluate",
     "pages/user/user",
