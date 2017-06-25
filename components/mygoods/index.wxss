@@ -1,6 +1,6 @@
 .tip{
   position:absolute;
-  top:0rpx;
+  top:110rpx;
 
   background:#FFF68F;
   height:50rpx;
@@ -19,7 +19,7 @@
 .tip text{
   margin-left:20rpx;
   font-size:30rpx;
-  color:#EB3F2F;
+  color:black;
 }
 
 
@@ -132,7 +132,7 @@
 
 /*订单页面*/
 .myorder_list{
-  margin-top:120rpx;
+  margin-top:200rpx;
   background:#FFF;
   padding-top:30rpx;
   padding-bottom:30rpx;

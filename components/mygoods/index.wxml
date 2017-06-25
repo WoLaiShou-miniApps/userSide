@@ -100,14 +100,11 @@
           </view>
           <image wx:if="{{item.state!=1}}" src="../../static/image/more_{{select_order==index?'up':'down'}}.png" class="more-down"></image>
 
-
         </view>
-
 
         <block wx:if="{{select_order==index && item.state!=1}}">
           <view class="operate-panel">
               <view class="item" bindtap="gotoDetail">查看详情</view>
-              <view class="item" bindtap="orderDelete">？？？？</view>
           </view>
         </block>
 

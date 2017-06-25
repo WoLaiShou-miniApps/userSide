@@ -1,7 +1,7 @@
 <!--pages/mygoods/mygoods.wxml-->
 <import src="../../components/mygoods/index.wxml"></import>
 
-<template is="tip" data="{{tip:tip}}"></template>
+<template wx:if="{{tip.show==1}}" is="tip" data="{{tip:tip}}"></template>
 <template is="uplist" data="{{page:page}}"></template>
 <block wx:if="{{page==1}}">
 <template is="mygoodSelling" data="{{mygoods:mygoods}}"></template>

@@ -5,11 +5,34 @@ Page({
     mygoods: { selling: { num: 0, content: [] }, sold: { num: 0 , content: []}},
     tip: { show:1,content:"已售二手物品将在两个工作日内打到您的账户上！"},
     page:0,
+    select_order:-1,
     order_list:[]
+  },
+  tiptap:function(){
+    this.data.tip.show = 0
+    this.setData({
+      tip:this.data.tip
+    })
   },
   changepape:function(e){
     this.setData({
       page:e.currentTarget.dataset.index
+    })
+  },
+  selectorder: function (e) {
+    this.setData({
+      select_order: e.currentTarget.dataset.index == this.data.select_order ? -1 : e.currentTarget.dataset.index
+    })
+  },
+  gotoDetail: function () {
+    wx.setStorage({
+      key: 'orderdetail',
+      data: order_list[this.data.select_order],
+      success: function () {
+        wx.navigateTo({
+          url: '../order_detail/order_detail',
+        })
+      }
     })
   },
   onLoad: function (options) {
