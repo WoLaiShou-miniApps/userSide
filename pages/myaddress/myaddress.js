@@ -207,41 +207,51 @@ Page({
   commitAddress: function () {
     var that = this;
     //console.log(that.data.newAddress)
-    wx.request({
-      url: 'https://irecycle.gxxnr.cn/api/user/addaddress.do',
-      data: {
-        userid: app.globalData.userid,
-        name: that.data.newAddress.personname,
-        latitude: that.data.newAddress.latitude,
-        longitude: that.data.newAddress.longitude,
-        district: that.data.newAddress.district,
-        address: that.data.newAddress.name,
-        detailAddress: that.data.newAddress.detail,
-        phone: that.data.newAddress.phone
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-      },
-      method: 'POST',
-      success: function (res) {
-        console.log(res)
-        wx.request({
-          url: 'https://irecycle.gxxnr.cn/api/user/getuseraddress.do',
-          data: {
-            userid: app.globalData.userid
-          },
-          method: 'GET',
-          success: function (res) {
-            console.log('ass',res)
-            that.setData({addressList: res.data})
-          }
-        })
-      },
-      complete: function () {
-        // complete
-        that.setData({ifadd: 0})
-      }
-    })
+    if (that.data.newAddress.personname && that.data.newAddress.latitude && that.data.newAddress.longitude && that.data.newAddress.district && that.data.newAddress.name && that.data.newAddress.detail && that.data.newAddress.phone){
+      wx.request({
+        url: 'https://irecycle.gxxnr.cn/api/user/addaddress.do',
+        data: {
+          userid: app.globalData.userid,
+          name: that.data.newAddress.personname,
+          latitude: that.data.newAddress.latitude,
+          longitude: that.data.newAddress.longitude,
+          district: that.data.newAddress.district,
+          address: that.data.newAddress.name,
+          detailAddress: that.data.newAddress.detail,
+          phone: that.data.newAddress.phone
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+        },
+        method: 'POST',
+        success: function (res) {
+          console.log(res)
+          wx.request({
+            url: 'https://irecycle.gxxnr.cn/api/user/getuseraddress.do',
+            data: {
+              userid: app.globalData.userid
+            },
+            method: 'GET',
+            success: function (res) {
+              console.log('ass', res)
+              that.setData({ addressList: res.data })
+            }
+          })
+        },
+        complete: function () {
+          // complete
+          that.setData({ ifadd: 0 })
+        }
+      })
+    }
+    else{
+      wx.showToast({
+        title: '请填写完整地信息',
+      image:'../../static/image/tip.png',
+      duration:1000,
+      })
+    }
+    
   },
   /**
    * 获取区域
