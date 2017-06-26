@@ -15,8 +15,7 @@
 <view wx:if="{{ifadd==0 && ifEdit ==0}}" class="add-btn" bindtap="addAddress">添加新地址</view>
 <view wx:if="{{ifadd!=0}}" class="add-address">
   <view class="add-address-info">请拖动地图选择具体位置：</view>
-  <map id="addMap" scale="14" longitude="{{longitude}}" latitude="{{latitude}}" bindregionchange="getlocation" controls="{{controls}}"
-    show-location style="width:300px; height:200px;"></map>
+  <map id="addMap" show-location="true" scale="14" longitude="{{longitude}}" latitude="{{latitude}}" bindregionchange="getlocation" controls="{{controls}}" style="width:300px; height:200px;"></map>
   <input type="text" bindblur="getAddressName" placeholder="请输入位置名称"/>
   <input type="text" bindblur="getAddressDetail" placeholder="请输入详细位置信息"/>
   <picker bindchange="getDistrict" value="{{pick_value}}" range="{{districtList}}">
@@ -32,8 +31,8 @@
 
 <view wx:if="{{ifEdit}}" class="add-address">
   <view class="add-address-info">请拖动地图选择具体位置：</view>
-  <map id="addMap" scale="14" longitude="{{currentAddress.longitude}}" latitude="{{currentAddress.latitude}}" bindregionchange="edit_getlocation" controls="{{controls}}"
-    show-location style="width:300px; height:200px;"></map>
+  <map show-location="true" id="addMap" scale="14" longitude="{{currentAddress.longitude}}" latitude="{{currentAddress.latitude}}" bindregionchange="edit_getlocation" controls="{{controls}}"
+   style="width:300px; height:200px;"></map>
   <input type="text" bindblur="edit_getAddressName" value="{{currentAddress.name}}"/>
   <input type="text" bindblur="edit_getAddressDetail"  value="{{currentAddress.addressDetail}}"/>
   <picker bindchange="edit_getDistrict" value="{{currentAddress.district.id-1}}" range="{{districtList}}">

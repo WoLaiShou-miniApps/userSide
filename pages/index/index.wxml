@@ -1,5 +1,5 @@
 <view class="welcome">
-  <image src="http://orsao888t.bkt.clouddn.com/%E6%9C%AA%E6%A0%87%E9%A2%98-2.png" bindload="imageLoaded"></image>
+  <image src="https://irecycle.gxxnr.cn/img/ad.img" bindload="imageLoaded"></image>
   <text class="time">{{time}}</text>
  
   </view>

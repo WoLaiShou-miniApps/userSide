@@ -19,7 +19,7 @@
 <template name="mygoodSelling">
 <view class="mygoods-panel">
   <view class="title-panel">
-    <text class="title">待售商品</text>
+    <text class="title">未售商品</text>
     <view class="num">{{mygoods.selling.num}}</view>
   </view>
 

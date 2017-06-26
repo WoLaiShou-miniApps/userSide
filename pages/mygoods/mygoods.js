@@ -3,7 +3,7 @@ var app = getApp()
 Page({
   data: {
     mygoods: { selling: { num: 0, content: [] }, sold: { num: 0 , content: []}},
-    tip: { show:1,content:"已售二手物品将在两个工作日内打到您的账户上！"},
+    tip: { show:0,content:""},
     page:0,
     select_order:-1,
     order_list:[]
@@ -86,6 +86,7 @@ Page({
         })
       },
     })
+    console.log('chakan',that.data.mygoods)
   },
 
   tiptap:function(){
@@ -115,7 +116,20 @@ Page({
   },
 
   onShow: function () {
-  
+    var that = this
+    wx.request({
+      url: 'https://irecycle.gxxnr.cn/api/user/getinfo.do',
+      data: {
+      },
+      method: 'GET',
+      success:function(res){
+        that.data.tip.content = res.data
+        that.data.tip.show = 1
+        that.setData({
+          tip:that.data.tip
+        })
+      }
+    })
   },
 
   onHide: function () {

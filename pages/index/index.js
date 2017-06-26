@@ -34,13 +34,13 @@ Page({
     wx.showLoading({
       title: '正在拼命加载...',
     })
-    wx.request({
+    /*wx.request({
       url: 'https://irecycle.gxxnr.cn/picture/getXcxfy.do',
       method:'GET',
       success:function(res){
         console.log(res)
       },
-    })
+    })*/
   },
   showmap:function(){
       test.showmap()
