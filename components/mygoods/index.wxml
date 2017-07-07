@@ -29,7 +29,7 @@
     <block wx:for="{{mygoods.selling.content}}">
     <view class="item">
      <view class="image">
-      <image mode="aspectFill" bindload="loadimage" src="{{imageStates[index]==1?'https://irecycle.gxxnr.cn'+item.imgUrl:'../../static/image/image1.png'}}" data-src="{{'https://irecycle.gxxnr.cn'+item.imgUrl}}" data-index="{{index}}"></image>
+      <image mode="aspectFill" src="{{'https://irecycle.gxxnr.cn'+item.imgUrl}}" data-index="{{index}}"></image>
       <view class="name">
         {{item.name}}（id:{{item.id}}）
       </view>

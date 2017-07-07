@@ -24,7 +24,7 @@ Page({
       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       // header: {}, // 设置请求的 header
       success: function (res) {
-        console.log(res)
+        //console.log(res)
         // success console.log(res)
         if (res.data == "failed") {
           wx.showToast({title: '操作失败，该订单目前无法完成', image: '../../static/image/tip.png'})
@@ -69,7 +69,7 @@ Page({
       },
       method: 'GET',
       success: function (res) {
-        console.log(res)
+        //console.log(res)
         if (res.data != 'failed') 
           that.setData({moveOrderList: res.data, ifshow: 1})
         wx.hideLoading()

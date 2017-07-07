@@ -31,7 +31,7 @@
     <view class="goods_right_items {{selected_goods == index ? 'active' : ''}}">
         <view class="top_panel">
             <!--<image src="{{item.pictureURL?'https://irecycle.gxxnr.cn/front/'+item.pictureURL: '../../static/image/empty.png'}}" class="goods_image"></image>-->
-            <image src="../../static/image/empty.png" class="goods_image"></image>
+            <image class="goods_image" src="{{'https://irecycle.gxxnr.cn'+item.pictureURL}}"></image>
             <view class="righttext">
                 <text class="name">{{item.goodsName}}</text>
                 <text class="price">￥{{item.externalPrice}}元/斤</text>

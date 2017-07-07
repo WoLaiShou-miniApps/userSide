@@ -197,14 +197,14 @@ Page({
   onLoad: function () {
     var that = this
     var date = new Date();
-    console.log(date)
+    //console.log(date)
     var today = date.getFullYear() + '-' + ((date.getMonth() + 1) < 10
       ? '0' + (date.getMonth() + 1)
       : (date.getMonth() + 1)) + '-' + (date.getDate() < 10
       ? '0' + date.getDate()
       : date.getDate())
     that.setData({today: today, date_waste: today, date_secondHand: today})
-    console.log(today)
+    //console.log(today)
     wx.login({
       success: function (res) {
         //console.log("已获取到登陆态") console.log(res.code)
@@ -224,12 +224,12 @@ Page({
             'content-type': 'application/json'
           },
           success: function (res) {
-            console.log(res)
+            //console.log(res)
             if (res.data.errCode == 0) {
               app.globalData.userid = res.data.data.id
               //用户积分
               app.globalData.credit = res.data.data.credit
-              console.log(res.data.data.credit)
+              //console.log(res.data.data.credit)
               app.globalData.origin = 1
               //console.log("获取userid:" + app.globalData.userid)
               that.setData({origin: app.globalData.origin})
@@ -278,7 +278,7 @@ Page({
       method: 'GET',
       data: {},
       success: function (res) {
-        console.log(res)
+        //console.log(res)
         if (res.data.proRules) {
           app.globalData.tel = res.data.proRules.data;
           that.setData({tel: app.globalData.tel})
@@ -366,7 +366,7 @@ Page({
   onShareAppMessage: function (res) {
     if (res.from === 'button') {
       // 来自页面内转发按钮
-      console.log(res.target)
+      //console.log(res.target)
     }
     return {
       title: '自定义转发标题',

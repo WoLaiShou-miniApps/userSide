@@ -137,6 +137,7 @@ map {
 .goods_right .goods_right_items .top_panel {
   display: flex;
   flex-direction: row;
+  margin-left:30rpx;
 }
 
 .goods_image {
@@ -149,9 +150,10 @@ map {
   position: relative;
   display: flex;
   flex-direction: column;
-  margin-left: 50rpx;
+  margin-left: 80rpx;
   margin-top: 35rpx;
   height: 150rpx;
+  align-items:center;
 }
 
 .righttext .name {

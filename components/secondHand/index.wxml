@@ -1,7 +1,7 @@
 <template name="secondHand">
   <view class="second-hand{{service}}" wx:if="{{read_key==0}}"animation="{{animation_textarea}}">
     <view class="second-hand-photo{{service}}" bindtap="secondHand_addPhoto">
-      <image mode="aspectFill" id="myphoto" class="{{secondHand_imgUrl?'has-photo{{service}}':''}}" src="{{secondHand_imgUrl?secondHand_imgUrl:(service==0?'../../static/image/finger.png':'../../static/image/finger.png')}}"></image>
+      <image mode="aspectFit" id="myphoto" class="{{secondHand_imgUrl?'has-photo{{service}}':''}}" src="{{secondHand_imgUrl?secondHand_imgUrl:(service==0?'../../static/image/finger.png':'../../static/image/finger.png')}}"></image>
       <view class="second-hand-photo-text{{service}} {{secondHand_imgUrl?'has-photo-text{{service}}':''}}">{{(service==0?(secondHand_imgUrl?'点击修改废品照片':'点击添加废品照片'):(secondHand_imgUrl?'点击修改物品照片':'点击添加物品照片'))}}</view>
     </view>
     

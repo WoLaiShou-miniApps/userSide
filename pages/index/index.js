@@ -17,7 +17,7 @@ Page({
         wx.switchTab({
           url: "../service/service",
           success:function(){
-            console.log('ss')
+            //console.log('ss')
             clearInterval(inter)
           }
         })

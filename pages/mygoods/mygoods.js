@@ -86,7 +86,7 @@ Page({
         })
       },
     })
-    console.log('chakan',that.data.mygoods)
+    //console.log('chakan',that.data.mygoods)
   },
 
   tiptap:function(){

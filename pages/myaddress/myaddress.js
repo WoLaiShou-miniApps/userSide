@@ -154,11 +154,11 @@ Page({
   edit_getlocation: function (e) {
     
     var that = this;
-    console.log(that.data.currentAddress)
+    //console.log(that.data.currentAddress)
     var map = wx.createMapContext('addMap');
     map.getCenterLocation({
       complete: function (res) {
-        console.log(res)
+        //console.log(res)
         that.data.currentAddress.latitude = res.latitude;
         that.data.currentAddress.longitude = res.longitude;
         that.setData({currentAddress: that.data.currentAddress})
@@ -180,7 +180,7 @@ Page({
       })
       var newList = []
       newList.push(that.data.addressList[index])
-      console.log(newList)
+      //console.log(newList)
       that.setData({
         addressList:newList
       })
@@ -225,7 +225,7 @@ Page({
         },
         method: 'POST',
         success: function (res) {
-          console.log(res)
+          //console.log(res)
           wx.request({
             url: 'https://irecycle.gxxnr.cn/api/user/getuseraddress.do',
             data: {
@@ -233,7 +233,7 @@ Page({
             },
             method: 'GET',
             success: function (res) {
-              console.log('ass', res)
+              //console.log('ass', res)
               that.setData({ addressList: res.data })
             }
           })
@@ -340,7 +340,7 @@ Page({
       method: 'GET',
       success: function (res) {
         wx.hideLoading()
-        console.log(app.globalData.userid,res)
+        //console.log(app.globalData.userid,res)
         that.setData({addressList: res.data,show:1})
       },
       complete:function(){

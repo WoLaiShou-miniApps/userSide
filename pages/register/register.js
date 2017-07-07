@@ -54,7 +54,7 @@ Page({
       },
       method:'POST',
       success: function (res) {
-        console.log(res)
+        //console.log(res)
         if (res.data.status =='incorrect password'){
           wx.showToast({
             title: '您的手机号已经在PC端注册，请输入PC端注册时输入的密码',
