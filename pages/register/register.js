@@ -4,7 +4,7 @@ Page({
 
   data: {
     info: {},
-    passwd: { confirm: 0, passwd: "", passwdR: "" },
+    passwd: { confirm: 1, passwd: "", passwdR: "" },
     tip: { content: "两次密码不一致" }
   },
 
@@ -25,7 +25,7 @@ Page({
     })*/
   },
   passwd: function (res) {
-    var sub = this.data.passwd
+   /* var sub = this.data.passwd
     if (res.target.dataset.index == 1)
       sub.passwd = res.detail.value
     else
@@ -37,17 +37,19 @@ Page({
 
     this.setData({
       passwd: sub
-    })
+    })*/
   },
   formSubmit: function (res) {
-    //console.log(res.detail.value.phone)
+    console.log(res.detail.value.phone)
+    if (res.detail.value.nickName && res.detail.value.phone){
     wx.request({
       url: 'https://irecycle.gxxnr.cn/api/user/register.do',
       data: {
         openid: app.globalData.openid,
         username: res.detail.value.nickName,
         phone: res.detail.value.phone,
-        password: res.detail.value.passwd
+        //password: res.detail.value.passwd
+        password: '88888888'
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
@@ -64,17 +66,22 @@ Page({
         }
         else{
           app.globalData.userid = res.data.userid
-          //console.log(app.globalData.openid)
           app.globalData.origin = 1
           wx.navigateBack({
             delta: 1
           })
         }
-        }
-        
-
+      }
     })
-
+    }
+    else
+    {
+      wx.showToast({
+        title: '请完善信息',
+        image: '../../static/image/tip.png',
+        duration: 2000
+      })
+    }
   },
   onReady: function () {
 

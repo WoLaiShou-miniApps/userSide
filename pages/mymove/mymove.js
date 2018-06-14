@@ -10,6 +10,44 @@ Page({
     ifshow: 0
   },
   /**
+   * 清楚订单记录
+   */
+  clean: function (e) {
+    var that = this;
+    //console.log(e) console.log(e.currentTarget.dataset.order.id)
+    wx.request({
+      url: 'https://irecycle.gxxnr.cn/api/user/deletecarorder.do',
+      data: {
+        orderid: e.currentTarget.dataset.order.id
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+      },
+      success: function (res) {
+        //console.log('小件订单删除',res)
+        // success console.log(res)
+        if (res.data == "failed") {
+          wx.showToast({ title: '操作失败，该订单数据错误', image: '../../static/image/tip.png' })
+        } else {
+          wx.request({
+            url: 'https://irecycle.gxxnr.cn/api/user/getMoveAppointments.do',
+            data: {
+              userid: app.globalData.userid
+            },
+            method: 'GET',
+            success: function (res) {
+              //console.log(res)
+              that.setData({ moveOrderList: res.data, ifshow: 1 })
+              wx.hideLoading()
+            }
+          })
+        }
+
+      }
+    })
+  },
+  /**
    * 完成订单
    */
   confirm: function (e) {
@@ -69,7 +107,7 @@ Page({
       },
       method: 'GET',
       success: function (res) {
-        //console.log(res)
+        //console.log('小件运输订单',res)
         if (res.data != 'failed') 
           that.setData({moveOrderList: res.data, ifshow: 1})
         wx.hideLoading()

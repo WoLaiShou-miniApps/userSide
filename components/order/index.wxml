@@ -4,36 +4,40 @@
       未完成
     </view>
     <view bindtap="changepape" data-index="1" class="item {{order_state==1 ? 'active':''}}">
-      已完成
+      已完成 
     </view>
   </view>
 
   <block wx:if="{{order_state==0 && myorder_list.untaken.num!=0}}">
     <view class="myorder_list">
       <block wx:for="{{myorder_list.untaken.content}}">
-        <view bindtap="{{item.state==1?'':'selectorder'}}" data-index="{{index}}" class="orders-item {{item.state==1?'invalid':''}}">
+        <view bindtap="selectorder" data-index="{{index}}" class="orders-item {{item.state==1?'invalid':''}}" >
           <view class="name">{{item.name}}</view>
           <view class="righttext">
             <view class="address">{{item.address}} {{item.addressdetail}}</view>
-            <view class="time">{{item.time}}</view>
+            <view wx:if="{{!item.mp3Url}}"  class="time">{{item.time}}</view>
+            <view wx:if="{{item.mp3Url}}"  class="time">语音订单</view>
           </view>
-          <image wx:if="{{item.state!=1}}" src="../../static/image/more_{{select_order==index?'up':'down'}}.png" class="more-down"></image>
+          <image src="../../static/image/more_{{select_order==index?'up':'down'}}.png" class="more-down"></image>
 
-<image wx:if="{{item.state==2}}" class="del-node rotate" src="../../static/image/wait_hourglass.png" ></image>
-<image wx:if="{{item.state==3}}" class="del-node shake" src="../../static/image/truck_wait.png"></image>
-<image wx:if="{{item.state==4}}" class="del-node" src="../../static/image/wait.png"></image>
+          <image wx:if="{{item.state==2  || item.state==7}}" class="del-node rotate" src="../../static/image/wait_hourglass.png" ></image>
+          <image wx:if="{{item.state==3}}" class="del-node shake" src="../../static/image/truck_wait.png"></image>
+          <image wx:if="{{item.state==4}}" class="del-node" src="../../static/image/wait.png"></image>
 
         </view>
 
 
-        <block wx:if="{{select_order==index && item.state!=1}}">
+        <block wx:if="{{select_order==index}}">
           <view class="operate-panel">
               <view class="item" bindtap="gotoDetail">查看详情</view>
              <block wx:if="{{item.state==4}}">
               <view class="item" style="background:#cccccc">退单已申请</view>
              </block>
-             <block wx:else>
+             <block wx:elif="{{item.state==2 || item.state==7}}">
               <view class="item" bindtap="orderDelete">点击退单</view>
+             </block>
+             <block wx:elif="{{item.state==3}}">
+              <view class="item" bindtap="orderDelete">申请退单</view>
              </block>
           </view>
         </block>
@@ -44,20 +48,23 @@
   <block wx:elif="{{order_state==1 && myorder_list.finished.num!=0}}">
     <view class="myorder_list">
       <block wx:for="{{myorder_list.finished.content}}">
-        <view bindtap="selectorder" data-index="{{index}}" class="orders-item">
+        <view bindtap="selectorder" data-index="{{index}}" class="orders-item {{item.state==1?'invalid':''}}">
           <view class="name">{{item.name}}</view>
           <view class="righttext">
             <view class="address">{{item.address}} {{item.addressdetail}}</view>
-            <view class="time">{{item.time}}</view>
+            <view wx:if="{{!item.mp3Url}}"  class="time">{{item.time}}</view>
+            <view wx:if="{{item.mp3Url}}"  class="time">语音订单</view>
           </view>
           <image src="../../static/image/more_{{select_order==index?'up':'down'}}.png" class="more-down"></image>
         </view>
 
         <block wx:if="{{select_order==index}}">
-          <view class="operate-panel">
+          <view class="operate-panel" >
+              <view class="item" bindtap="cleanorder">删除记录</view>
               <view class="item" bindtap="gotoDetail">查看详情</view>
-              <view wx:if="{{!item.isEvaluated}}" class="item" bindtap="gotoEvaluate">评价此单</view>
-              <view wx:if="{{item.isEvaluated}}" class="item" style="background:#cccccc">已评价</view>
+              <view wx:if="{{!item.isEvaluated && item.state!=1}}" class="item" bindtap="gotoEvaluate">评价此单</view>
+              <view wx:if="{{item.isEvaluated && item.state!=1}}" class="item" style="background:#cccccc">已评价</view>
+              <view wx:if="{{item.state==1}}" class="item" style="background:#cccccc">无法评价</view>
           </view>
         </block>
       </block>
@@ -79,33 +86,38 @@
     <view class="term">
       <view class="term-item">
         <image src="../../static/image/name.png" class="image"></image>
-        <text>{{order.name}}</text>
+        <view class="text">{{order.name}}</view>
       </view>
-      <view class="term-item">
+      <view wx:if="{{!order.mp3Url}}" class="term-item">
         <image src="../../static/image/time.png" class="image"></image>
-        <text>{{order.time}}</text>
+        <view class="text">{{order.time}}</view>
       </view>
       <view class="term-item">
         <image src="../../static/image/phone.png" class="image"></image>
-        <text>{{order.phone}}</text>
+        <view class="text">{{order.phone}}</view>
       </view>
         <view class="term-item" style="border-bottom:#FFF">
           <image src="../../static/image/address.png" class="image"></image>
-          <text>{{order.address}}</text>
+          <view class="text">{{order.address}}</view>
         </view>
     </view>
   </view>
-  <map wx:if="{{order.state<=3}}" class="order-map" longitude="{{Mapmarkers[1].longitude}}" latitude="{{Mapmarkers[1].latitude}}" scale="13" markers="{{Mapmarkers}}">
+  <map wx:if="{{!order.mp3Url}}" wx:if="{{order.state<=3}}" class="order-map" longitude="{{Mapmarkers[1].longitude}}" latitude="{{Mapmarkers[1].latitude}}" scale="13" markers="{{Mapmarkers}}">
     
   </map>
-  <view class="detail-remark">
+  <view wx:if="{{!order.mp3Url}}" class="detail-remark">
     <view class="title">备注：</view>
     <text>{{order.text}}</text>
   </view>
 
-  <view class="detail-image">
+  <view wx:if="{{order.mp3Url}}" class="detail-voice">
+    <view class="title" style="font-size:30rpx;width:250rpx;">点击收听留言：</view>
+    <image catchtap="{{voicePlaying?'voiceOrderStop':'voiceOrderPlay'}}" data-src="{{order.mp3Url}}" src="../../static/image/{{voicePlaying?'voiceOrderStop':'voiceOrderPlay'}}.png"></image>
+  </view>
+
+  <view wx:if="{{!order.mp3Url}}" class="detail-image">
     <view class="title">照片：</view>
-    <image src="https://irecycle.gxxnr.cn{{order.imgUrl}}">
+    <image src="https://irecycle.gxxnr.cn{{order.imgUrl}}" mode="aspectFit">
     </image>
   </view>
 </template>

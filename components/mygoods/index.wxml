@@ -72,11 +72,17 @@
     <view class="item">
     <view class="image">
       <image mode="aspectFill" src="https://irecycle.gxxnr.cn{{item.imgUrl}}"></image>
+      <view class="name">
+        {{item.name}}
+      </view>
     </view>
       <view class="textList">
         <view style="">
-        成交价格：￥{{item.latestPrice}}
+        成交价格：￥{{item.transactionPrice?item.transactionPrice:'没有数据'}}
         </view>
+      </view>
+      <view class="deletebtn" bindtap="cleangoods" data-index="{{item.id}}">
+      清除记录
       </view>
     </view>
     </block>
@@ -90,24 +96,52 @@
 </template>
 
 <template name="orderlist">
+    <block wx:if="{{ordernum>0}}">
     <view class="myorder_list">
       <block wx:for="{{order_list}}">
-        <view bindtap="{{item.state==1?'':'selectorder'}}" data-index="{{index}}" class="orders-item {{item.state==1?'invalid':''}}">
+        <view bindtap="selectorder" data-index="{{index}}" class="orders-item {{item.state==1 ||item.state==4?'invalid':''}}">
           <view class="name">{{item.name}}</view>
           <view class="righttext">
             <view class="address">{{item.address}} {{item.addressdetail}}</view>
             <view class="time">{{item.time}}</view>
           </view>
-          <image wx:if="{{item.state!=1}}" src="../../static/image/more_{{select_order==index?'up':'down'}}.png" class="more-down"></image>
+          <image src="../../static/image/more_{{select_order==index?'up':'down'}}.png" class="more-down"></image>
 
         </view>
 
-        <block wx:if="{{select_order==index && item.state!=1}}">
+        <block wx:if="{{select_order==index}}">
           <view class="operate-panel">
-              <view class="item" bindtap="gotoDetail">查看详情</view>
+              <view wx:if="{{item.state==6 || item.state==1 || item.state==4}}" class="item" bindtap="cleanorder">删除记录</view>
+              <view class="item" bindtap="gotoDetail">查看详情</view> 
+              <view wx:if="{{item.state==3}}" class="item" bindtap="call_to_cancel" data-index="{{index}}">电话申请退单</view>
+              <view wx:if="{{item.state==2}}" class="item" bindtap="orderCancel" data-index="{{index}}">点击退单</view>
+              <view wx:if="{{item.state==6 && !item.isEvaluated}}" class="item" bindtap="gotoEvaluate">评价此单</view>
+              <view wx:if="{{item.state==6 && item.isEvaluated}}" class="item" style="background:#cccccc">已评价</view>
           </view>
         </block>
 
       </block>
     </view>
+    </block>
+    <block wx:else>
+    <view class="empty-list">暂时还没有订单~</view>
+    </block>
+
+
+  <view wx:if="{{call_to_cancel}}" class="dim-panel" bindtap="close_callcancel">
+    <view class="hotline-panel">
+      <view class="contact-tip">
+      请<text style="color:red;font-size:37rpx;">点击</text>拨打以下任意热线电话，联系客服人员协助取消该订单(单号：<text style="color:red;font-size:37rpx;">{{theorderid}}</text>)
+      </view>
+      <view class="contact-item" bindtap="hotline_call1">
+        <image class="icon" src="../../static/image/phone.png"></image>
+        <view class="text">0451－82930699</view>
+      </view>
+      <view class="contact-item" bindtap="hotline_call2">
+        <image class="icon" src="../../static/image/phone.png"></image>
+        <view class="text">0451－57815011</view>
+      </view>
+    </view>
+  </view>  
 </template>
+

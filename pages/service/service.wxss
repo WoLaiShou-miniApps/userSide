@@ -2,6 +2,7 @@
 @import "../../components/secondHand/index.wxss";
 @import "../../components/banjia/index.wxss";
 @import "../../components/mask/index.wxss";
+@import "../../components/voice/index.wxss";
 .usertip{
   position: absolute;
   width: 50rpx;
@@ -33,6 +34,7 @@
   text-align: center;
   line-height: 45rpx;
   font-size: 35rpx;
+  font-family: '楷体';
 }
 .h1{
   display: block;

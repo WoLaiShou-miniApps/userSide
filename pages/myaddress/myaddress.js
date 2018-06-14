@@ -20,6 +20,8 @@ Page({
         height: 50
       }
     ],
+    getlongitude: 45.8,
+    getlatitude: 126.53,
     longitude: 0,
     latitude: 0,
     controls: [
@@ -35,8 +37,8 @@ Page({
       }
     ],
     newAddress: {
-      latitude: 0,
-      longitude: 0,
+      latitude: 126.53,
+      longitude: 45.8,
       name: "",
       detail: ""
     },
@@ -58,57 +60,79 @@ Page({
       '通河县',
       '延寿县'
     ],
+    delete_addressid:-1,
     show:0
   },
   /**
-   * 提交新地址
+   * 提交修改后的地址
    */
   edit_commitAddress: function () {
     var that = this;
     //console.log(that.data.currentAddress)
-    var data = {
+    if (that.data.currentAddress.consignee && that.data.currentAddress.district.id && that.data.currentAddress.addressDetail && that.data.currentAddress.tel)
+    {
+      if (that.data.currentAddress.addressDetail.length > 10)
+      {
+        var addressname = that.data.currentAddress.district.districtName + "-" + that.data.currentAddress.addressDetail.substring(0, 10) + "···  " + that.data.currentAddress.consignee;
+      }
+      else
+      {
+        var addressname = that.data.currentAddress.district.districtName + "-" + that.data.currentAddress.addressDetail + " " + that.data.currentAddress.consignee;
+      }
+
+
+      var data = {
         userid: app.globalData.userid,
         addressid: that.data.currentAddress.id,
         name: that.data.currentAddress.consignee,
         latitude: that.data.currentAddress.latitude,
         longitude: that.data.currentAddress.longitude,
         district: that.data.currentAddress.district.id,
-        address: that.data.currentAddress.name,
+        address: addressname,
         detailAddress: that.data.currentAddress.addressDetail,
         phone: that.data.currentAddress.tel
       }
       //console.log(data)
       //先提交，然后再拉一次addressList刷新
-   wx.request({
-      url: 'https://irecycle.gxxnr.cn/api/user/modifyaddress.do',
-      data: data,
-      header: {
-        'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-      },
-      method: 'POST',
-      success: function (res) {
-        
-        if (res.statusCode == 200)
-          that.setData({
-            ifEdit: 0
+      wx.request({
+        url: 'https://irecycle.gxxnr.cn/api/user/modifyaddress.do',
+        data: data,
+        header: {
+          'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+        },
+        method: 'POST',
+        success: function (res) {
+
+          if (res.statusCode == 200)
+            that.setData({
+              ifEdit: 0
+            })
+          wx.request({
+            url: 'https://irecycle.gxxnr.cn/api/user/getuseraddress.do',
+            data: {
+              userid: app.globalData.userid
+            },
+            method: 'GET',
+            success: function (res) {
+              //console.log(res)
+              that.setData({ addressList: res.data })
+            }
           })
-        wx.request({
-          url: 'https://irecycle.gxxnr.cn/api/user/getuseraddress.do',
-          data: {
-            userid: app.globalData.userid
-          },
-          method: 'GET',
-          success: function (res) {
-            //console.log(res)
-            that.setData({addressList: res.data})
-          }
-        })
-      },
-      complete: function () {
-        // complete
-        that.setData({ifadd: 0})
-      }
-    })
+        },
+        complete: function () {
+          // complete
+          that.setData({ ifadd: 0 })
+        }
+      })
+    }
+    else {
+      wx.showToast({
+        title: '请完善地址信息',
+        image: '../../static/image/tip.png',
+        duration: 1000,
+      })
+    }
+
   },
   /**
    * 获取区域
@@ -116,6 +140,7 @@ Page({
   edit_getDistrict: function (e) {
     //console.log(e.detail)
     this.data.currentAddress.district.id = e.detail.value - 1 + 2;
+    this.data.currentAddress.district.districtName = this.data.districtList[e.detail.value]
     this.setData({
       currentAddress: this.data.currentAddress,
     })
@@ -141,13 +166,7 @@ Page({
     this.data.currentAddress.addressDetail = e.detail.value;
     this.setData({currentAddress: this.data.currentAddress})
   },
-  /**
-   * 获取新地址名
-   */
-  edit_getAddressName: function (e) {
-    this.data.currentAddress.name = e.detail.value;
-    this.setData({currentAddress: this.data.currentAddress})
-  },
+
   /**
    * 获取地图中央坐标
    */
@@ -165,8 +184,29 @@ Page({
       }
     })
   },
-
-
+  /**
+   * 地图重定位
+   */
+  relocation: function () {
+    var that = this;
+    wx.showLoading({ title: '定位中...', mask: true })
+    wx.getLocation({
+      type: 'gcj02',
+      success: function (res) {
+        var latitude = res.latitude
+        var longitude = res.longitude
+        wx.hideLoading()
+        var thecurrentAddress = that.data.currentAddress
+        thecurrentAddress.latitude = latitude;
+        thecurrentAddress.longitude = longitude;
+        that.setData({
+          currentAddress: thecurrentAddress,
+          getlatitude : latitude,
+          getlongitude : longitude
+        })
+      }
+    })
+  },
 
   /**
    * 修改地址
@@ -175,6 +215,14 @@ Page({
     var that = this;
     var index = e.currentTarget.dataset.index
     if(that.data.ifEdit==0){
+      that.data.addMarker[0].latitude = that.data.addressList[index].latitude;
+      that.data.addMarker[0].longitude = that.data.addressList[index].longitude;
+      that.setData({
+        addMarker: that.data.addMarker, 
+        ifEdit: 1, 
+        getlongitude : that.data.addressList[index].longitude,
+        getlatitude: that.data.addressList[index].latitude
+      })
       that.setData({
         oldList:that.data.addressList
       })
@@ -182,24 +230,79 @@ Page({
       newList.push(that.data.addressList[index])
       //console.log(newList)
       that.setData({
-        addressList:newList
+        addressList:newList,
+        currentAddress: newList[0]
       })
     }
     else{
       that.setData({
-        addressList:that.data.oldList
+        ifEdit: 0,
+        addressList:that.data.oldList,
+        currentAddress: that.data.oldList[0]
       })
     }
-    that.setData({
-      ifEdit:that.data.ifEdit==1?0:1
+  },
+  /**
+   * 删除地址
+   */
+
+  judgedelete:function(e){          //弹出确认删除窗口
+    this.setData({
+      delete_addressid: this.data.addressList[e.currentTarget.dataset.index].id
     })
-    
-    
-    
-    
-    that.setData({
-      currentAddress:that.data.addressList[0],
+    wx.vibrateShort()
+  },
+  notdelete: function (e) {         //取消删除操作
+    this.setData({
+      delete_addressid: -1
     })
+  },
+  deleteAddress:function(e){         //确认删除
+    var that =this
+    //console.log(that.data.addressList[e.currentTarget.dataset.index])
+    wx.request({
+      url: 'https://irecycle.gxxnr.cn/api/user/deleteaddress.do',
+      data: {
+        addressid: that.data.delete_addressid,
+        userid: app.globalData.userid
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+      },
+      success: function (res) {
+        //console.log('删除订单',res)
+        that.setData({ delete_addressid: -1, ifEdit:0 })
+        wx.request({
+          url: 'https://irecycle.gxxnr.cn/api/user/getuseraddress.do',
+          data: {
+            userid: app.globalData.userid
+          },
+          method: 'GET',
+          success: function (res) {
+            //console.log(res)
+            that.setData({ addressList: res.data })
+          }
+        })
+        setTimeout(function () {
+          wx.hideLoading()
+          setTimeout(function () {
+            wx.showToast({
+              title: '删除完毕',
+              mask:'true',
+            })
+          }, 500)
+        }, 500)
+
+      },
+      complete: function (res) {
+        wx.showLoading({
+          title: '正在删除该地址信息',
+          mark:true
+        })
+      }
+    })
+
   },
   /**
    * 提交新地址
@@ -207,7 +310,17 @@ Page({
   commitAddress: function () {
     var that = this;
     //console.log(that.data.newAddress)
-    if (that.data.newAddress.personname && that.data.newAddress.latitude && that.data.newAddress.longitude && that.data.newAddress.district && that.data.newAddress.name && that.data.newAddress.detail && that.data.newAddress.phone){
+    if (that.data.newAddress.personname && that.data.newAddress.latitude && that.data.newAddress.longitude && that.data.newAddress.district && that.data.newAddress.detail && that.data.newAddress.phone){
+      if (that.data.newAddress.detail.length>10)
+      {
+        var addressname = that.data.districtList[that.data.newAddress.district - 1] + "-" + that.data.newAddress.detail.substring(0, 10) + "···  " + that.data.newAddress.personname;
+      }
+      else
+      {
+        var addressname = that.data.districtList[that.data.newAddress.district - 1] + "-" + that.data.newAddress.detail + " " + that.data.newAddress.personname;
+      }
+
+      
       wx.request({
         url: 'https://irecycle.gxxnr.cn/api/user/addaddress.do',
         data: {
@@ -216,7 +329,7 @@ Page({
           latitude: that.data.newAddress.latitude,
           longitude: that.data.newAddress.longitude,
           district: that.data.newAddress.district,
-          address: that.data.newAddress.name,
+          address: addressname,
           detailAddress: that.data.newAddress.detail,
           phone: that.data.newAddress.phone
         },
@@ -226,6 +339,7 @@ Page({
         method: 'POST',
         success: function (res) {
           //console.log(res)
+          that.setData({ pick_value: -1 })
           wx.request({
             url: 'https://irecycle.gxxnr.cn/api/user/getuseraddress.do',
             data: {
@@ -246,7 +360,7 @@ Page({
     }
     else{
       wx.showToast({
-        title: '请填写完整地信息',
+        title: '请完善地址信息',
       image:'../../static/image/tip.png',
       duration:1000,
       })
@@ -285,13 +399,7 @@ Page({
     this.data.newAddress.detail = e.detail.value;
     this.setData({newAddress: this.data.newAddress})
   },
-  /**
-   * 获取新地址名
-   */
-  getAddressName: function (e) {
-    this.data.newAddress.name = e.detail.value;
-    this.setData({newAddress: this.data.newAddress})
-  },
+
   /**
    * 获取地图中央坐标
    */
@@ -323,6 +431,10 @@ Page({
         that.data.addMarker[0].longitude = longitude
         that.setData({addMarker: that.data.addMarker, ifadd: 1, longitude: longitude, latitude: latitude})
         wx.hideLoading()
+        var thenewaddress = { latitude: latitude, longitude: longitude,name: "",detail: ""}
+        that.setData({
+          newAddress: thenewaddress
+        })
       }
     })
   },

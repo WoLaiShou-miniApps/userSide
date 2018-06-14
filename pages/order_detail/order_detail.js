@@ -1,8 +1,10 @@
 // pages/order_detail/order_detail.js
+var innerAudioContext = wx.createInnerAudioContext()
 var app = getApp()
 Page({
   data: {
     order:{},
+    voicePlaying:false,
     Mapmarkers:[{
       id:0,
       latitude:45.755936,
@@ -27,6 +29,20 @@ Page({
   },
   URL: 'http://easy-mock.com/mock/59070ef87a878d73716e3aa7/wx-irecycle/',
 
+  voiceOrderStop:function(e){
+    this.setData({
+      voicePlaying:false
+    })
+    innerAudioContext.stop()
+  },
+  voiceOrderPlay: function (e) {
+    //console.log(e)
+    this.setData({
+      voicePlaying: true
+    })
+    innerAudioContext.src = 'https://irecycle.gxxnr.cn'+e.target.dataset.src
+    innerAudioContext.play()
+  },
   onLoad: function (options) {
     var that=this
     
@@ -41,10 +57,10 @@ Page({
     wx.getStorage({
       key: 'orderdetail',
       success: function(res) {
+        //console.log(res)
         that.setData({
           order:res.data
         })
-        //console.log(that.data.addressList)
         that.data.Mapmarkers[1].longitude = that.data.addressList[res.data.addressid.toString()].longitude
         that.data.Mapmarkers[1].latitude = that.data.addressList[res.data.addressid.toString()].latitude
         that.setData({
@@ -88,6 +104,14 @@ Page({
       fail: function(res) {},
       complete: function(res) {},
     })
+    innerAudioContext.onEnded(function () {
+      that.setData({
+        voicePlaying: false
+      })
+    })
+    innerAudioContext.onError((res) => {
+      wx.showToast({ title: '播放结束', mask: 'true', image: '../../static/image/tip.png', duration: 1000 })
+    })
   },
 
   onReady: function () {
@@ -102,14 +126,17 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+    innerAudioContext.stop()
+    this.setData({
+      voicePlaying: false
+    })
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+    innerAudioContext.destroy()
   },
 
   /**

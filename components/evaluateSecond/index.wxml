@@ -3,20 +3,14 @@
   <view class="up-panel">
     <image src="../../static/image/truck.png"></image>
     <view class="righttext">
-      <text style="font-size:35rpx;">回收车收货</text>
+      <text style="font-size:35rpx;">二手物品代售</text>
       <view class="delivertime">
-        <text style="font-size:30rpx;">到达时间 {{time}}</text>
-        <picker class="picker" mode="time" value="{{time}}" bindchange="timechange">
-        <view style="  display: flex;flex-direction: row;">
-          <view class="tip">? </view>
-          <text style="font-size:30rpx;color:#ABABAB;">时间不准</text>
-        </view>
-        </picker>
+        <text style="font-size:30rpx;">感谢您对本次服务的评价</text>
       </view>
     </view>
   </view>
   <view class="bottom-panel">
-    <text style="color:#ABABAB;font-size:35rpx;margin:10rpx 20rpx 0rpx 0rpx;height:100rpx;line-height:100rpx">服务评价</text>
+    <text style="color:#ABABAB;font-size:35rpx;margin:10rpx 20rpx 0 0;height:100rpx;line-height:100rpx">服务评价</text>
     <block wx:for="{{[1,2,3,4,5]}}">
       <block wx:if="{{item<=service_grade}}">
      

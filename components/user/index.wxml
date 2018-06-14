@@ -1,4 +1,4 @@
-<template name="user">
+<template name="user"> 
   <view class="user">
 
     <block wx:if="{{origin==1}}">
@@ -57,12 +57,61 @@
           <view class="item-title">地址管理</view>
         </view>
       </navigator>
+        <view class="item" bindtap="open_hotline">
+          <image src="../../static/image/hotline.png"></image>
+          <view class="item-title">回收热线</view>
+        </view>
     </view>
      <view class="contact-area">
           <button open-type="contact" type="default-dark" session-from="weapp" class="contact-btn">联系客服</button>
       </view>
   </view>
  
+
+  <view class="support" bindtap="gotosupport">
+    <text>技术支持</text>
+    <image src="../../static/image/gotosupport.png"></image>
+  </view>
+  
+  <view wx:if="{{thepanel}}" class="dim-panel" bindtap="backtouser">
+    <view class="dim-subpanel" catchtap="nomotion">
+    <image mode="widthFix" src="https://vxlabdb.gxxnr.cn/common/ourqr.jpg" class="QRcode" bindtap="scanimg"></image>
+    <view class="contact-panel">
+    <view class="contact-item">
+      <image class="icon" src="../../static/image/studio.png"></image>
+      <view class="text">哈工大社会网络研究室</view>
+    </view>
+    <view class="contact-item">
+      <image class="icon" src="../../static/image/phone.png"></image>
+      <view class="text" bindtap="makecall">13945103823</view>
+    </view>
+    <view class="contact-item">
+      <image class="icon" src="../../static/image/wechat.png"></image>
+      <view class="text" bindtap="setclip">xuzhimings</view>
+    </view>
+    </view>
+    <view class="thetip">(PS.点击识别二维码、致电或添加微信号到剪切板)</view>
+    </view>
+  </view>
+
+  <view wx:if="{{hotline}}" class="dim-panel" bindtap="close_hotline">
+    <view class="hotline-panel" catchtap="nomotion">
+      <view class="contact-tip">
+      请<text style="color:red;font-size:37rpx;">点击</text>拨打以下任意热线电话，咨询客服人员
+      </view>
+      <view class="contact-item" bindtap="hotline_call1">
+        <image class="icon" src="../../static/image/phone.png"></image>
+        <view class="text">0451－82930699</view>
+      </view>
+      <view class="contact-item" bindtap="hotline_call2">
+        <image class="icon" src="../../static/image/phone.png"></image>
+        <view class="text">0451－57815011</view>
+      </view>
+    </view>
+  </view>  
+
+
+
 </template>
 
 
@@ -78,14 +127,14 @@
     <input name="phone" placeholder="请输入联系电话" value="{{info.phone}}"></input>
   </view>
 
-      <view class="info-item" style="margin-top:50rpx;">
+     <!-- <view class="info-item" style="margin-top:50rpx;">
         <text>新密码</text>
         <input name="passwd" type="password" placeholder="请输入你的密码"  bindinput="passwd" data-index="1"></input>
       </view>
       <view class="info-item">
         <text>确认密码</text>
         <input name="passwdR" type="password" placeholder="请再次确认密码"  bindinput="passwd" data-index="2"></input>
-      </view>
+      </view>-->
     </view>
 
     <block wx:if="{{passwd.confirm==1}}">

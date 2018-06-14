@@ -1,0 +1,267 @@
+
+.orderStyle-page{
+  padding-top:150rpx;
+  padding-left:260rpx;
+  width:100%;
+}
+.orderStyle-page .osButton{
+  margin-top:80rpx;
+  width:240rpx;
+  height:240rpx;
+  border-radius: 50%;
+  background-color:#c51a29;
+  color:white;
+  font-size:35rpx;
+  box-shadow: 1rpx 1rpx 5rpx 2rpx rgba(120,118,117,0.7);
+}
+
+.orderStyle-page .osButton:active{
+  background:#ffcc99;
+  box-shadow: 1rpx 1rpx 2rpx 2rpx rgba(120,118,117,0.7) inset;
+}
+
+.orderStyle-page .osButton image{
+  margin:40rpx 80rpx 15rpx 80rpx;
+  width:80rpx;
+  height:80rpx;
+}
+
+.orderStyle-page .osButton .text{
+  margin-left:55rpx;
+  
+  font-size:35rpx;
+}
+
+
+/*****语音界面******/
+.voice-page{
+  width:100%;
+}
+.voice-page .voiceButton{
+  position:absolute;
+  top:310rpx;
+  left:270rpx;
+  width:200rpx;
+  height:200rpx;
+  border-radius: 50%;
+  border:1rpx solid #c51a29;
+  background-color:#c51a29;
+  color:white;
+  font-size:35rpx;
+  /*box-shadow: 2rpx 2rpx 5rpx 2rpx rgba(120,118,117,0.7);*/
+}
+.voice-page .voiceButton.active{
+  border:1rpx solid #1ab5ee;
+  background:#1ab5ee;
+}
+
+.voice-page .voiceButton image{
+  margin:60rpx 60rpx 60rpx 60rpx;
+  width:80rpx;
+  height:80rpx;
+}
+
+.voice-page .title{
+  position:absolute;
+  top:250rpx;
+  left:310rpx;
+
+  font-size:35rpx;
+  font-family: '楷体';
+}
+
+
+.voicePlay{
+  position:absolute;
+  top:55%;
+  margin-left:25%;
+  width:50%;
+  height:60rpx;
+  box-shadow: 1rpx 1rpx 2rpx 2rpx rgba(120,118,117,0.7);
+  border-radius:50rpx;
+
+  display:flex;
+  flex-direction: row;
+  
+  align-items: center;
+}
+.voicePlay:active{
+  box-shadow: 1rpx 1rpx 2rpx 2rpx rgba(120,118,117,0.7) inset;
+  /*background:#ebecee;*/
+}
+
+.voicePlay .voiceName
+{
+  width:260rpx;
+  font-size:30rpx;
+  text-align: center;
+}
+
+.voicePlay image{
+  margin-left:20rpx;
+  width:50rpx;
+  height:50rpx;
+  vertical-align: middle;
+}
+
+.selectVoiceAddress{
+  position:absolute;
+  width:74%;
+  height:80rpx;
+  left:13%;
+  top:68%;
+  /*background:#F5FFFA;
+  box-shadow: 1rpx 1rpx 5rpx 2rpx rgba(120,118,117,0.7);*/
+  border-top:1rpx dotted #c51a29;
+  border-bottom:1rpx dotted #c51a29;
+
+}
+.selectVoiceAddress .picker{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+.voiceOrderSubmit{
+  position:absolute;
+  top:83%;
+  left:10%;
+  width:80%;
+  height:100rpx;
+  background:#c51a29;
+  border-radius:30rpx;
+  color:White;
+  text-align:center;
+  line-height:100rpx;
+  box-shadow: 1rpx 1rpx 5rpx 2rpx rgba(120,118,117,0.7);
+}
+.voiceOrderSubmit:active{
+  background:#ffcc99;
+  box-shadow: 1rpx 1rpx 5rpx 2rpx rgba(120,118,117,0.7) inset;
+}
+
+.voiceTip-panel{
+  position:fixed;
+  top:25%;
+  left:12%;
+  width:70%;
+  min-height:300rpx;
+  background:white;
+  border:2rpx solid #999999;
+  box-shadow: 1rpx 1rpx 1rpx 2rpx rgba(120,118,117,0.7);
+  border-radius:30rpx;
+  padding:30rpx;
+  font-size:30rpx;
+
+}
+
+/******界面相关按钮**********/
+.interPage-panel{
+  top:15%;
+}
+
+.interPage-panel .backForStyleBT{
+  position:absolute;
+  top:10%;
+  left:5%;
+  width:60rpx;
+  height:60rpx;
+  background:white;
+  border-radius:50%;
+}
+.interPage-panel .backForStyleBT:active{
+  border:1rpx dashed #c51a29;
+  /*box-shadow: 1rpx 1rpx 1rpx 2rpx rgba(120,118,117,0.7) inset;*/
+}
+
+.interPage-panel .backForStyleBT image{
+  width:60rpx;
+  height:60rpx;
+}
+
+.interPage-panel .tipBT{
+  position:absolute;
+  top:10%;
+  right:5%;
+  width:60rpx;
+  height:60rpx;
+  background:white;
+  border-radius:50%;
+}
+.interPage-panel .tipBT:active{
+  border:1rpx dashed #c51a29;
+}
+
+.interPage-panel .tipBT image{
+  margin-top:5rpx;
+  margin-left:5rpx;
+  vertical-align: middle;
+  width:50rpx;
+  height:50rpx;
+}
+
+
+/******波纹特效******/
+.wave {  
+  position: relative;  
+
+  text-align: center;  
+  line-height: 100px;  
+  font-size: 28px;  
+}  
+  
+.wave .circle {  
+  position: absolute;
+  top:310rpx;
+  left:270rpx;
+  border-radius: 50%;
+  opacity: 0;  
+ }  
+  
+.wave.ripple .circle {
+  position:absolute;
+  width: 196rpx;
+  height: 196rpx;
+  border: 5rpx solid #1ab5ee; 
+}  
+
+.wave.ripple .circle:first-child {
+  animation: circle-opacity 2s infinite;  
+}
+
+.wave.ripple .circle:nth-child(2) {  
+  animation: circle-opacity 2s infinite;  
+  animation-delay: .3s;  
+}  
+  
+.wave.ripple .circle:nth-child(3) {  
+  animation: circle-opacity 2s infinite;  
+  animation-delay: .6s;  
+}  
+  
+.wave.ripple.danger {  
+  color: #00aaff;  
+}  
+  
+.wave.ripple.danger .circle {  
+  border-color: #00aaff;  
+}  
+  
+.wave.ripple.warning {  
+  color: orange;  
+}  
+  
+.wave.ripple.warning .circle {  
+  border-color: orange;  
+}
+  
+@keyframes circle-opacity{  
+  from {  
+  opacity: 1;  
+  transform: scale(1);  
+  }  
+  to {  
+  opacity: 0;  
+  transform: scale(1.3);  
+  }  
+}  

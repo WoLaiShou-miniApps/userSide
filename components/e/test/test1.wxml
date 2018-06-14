@@ -7,11 +7,10 @@
         <view bindtap="change_service" data-index="0" class="uplist-item {{service==0 ? 'active':''}}">
             废品表单
         </view>
-        
-        
          <view class="uplist-progress" animation="{{animationData_progress}}"></view>   
     </view>
 </template>
+
 
 
 <template name="goods-list">
@@ -34,7 +33,12 @@
             <image class="goods_image" src="{{'https://irecycle.gxxnr.cn'+item.pictureURL}}"></image>
             <view class="righttext">
                 <text class="name">{{item.goodsName}}</text>
-                <text class="price">￥{{item.externalPrice}}元/斤</text>
+                <block wx:if="{{item.unit.unitName=='面议'}}">
+                  <text class="price">￥价格面议</text>
+                </block>
+                <block wx:else>
+                  <text class="price">￥{{item.externalPrice}}元/{{item.unit.unitName}}</text>
+                </block>
             </view>
             
         </view>

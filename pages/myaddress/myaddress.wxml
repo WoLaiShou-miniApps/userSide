@@ -1,23 +1,28 @@
 <!--pages/myaddress/index.wxml-->
-<block wx:if="{{show>0}}">
+<block wx:if="{{show>0}}"> 
 <view class="address-list" wx:if="{{ifadd==0}}">
-  <view wx:if="{{addressList.length>0}}" class="address" wx:for="{{addressList}}" bindtap="editAddress" data-index="{{index}}">
+  <view wx:if="{{addressList.length>0}}" class="address" wx:for="{{addressList}}">
     <view class="address-name">{{item.consignee}}</view>
     <view class="address-phone">{{item.tel}}</view>
-    <view class="address-address">{{item.name}}</view>
+    <view class="address-address">{{item.district.districtName}}</view>
     <view class="address-detail">{{item.addressDetail}}</view>
+    <image wx:if="{{!ifEdit}}" bindtap="editAddress" data-index="{{index}}" src="../../static/image/modify.png" style="top:15%;"></image>
+    <image wx:if="{{ifEdit}}" bindtap="editAddress" data-index="{{index}}" src="../../static/image/modify_finish.png" style="top:15%;"></image>
+    <image bindtap="judgedelete" data-index="{{index}}"  src="../../static/image/delete.png" style="top:60%;"></image>
   </view>
   <view wx:if="{{addressList.length==0}}" class="icon-area">
     <icon type='warn'size="50" ></icon>
+    <view>暂无地址记录</view>
   </view>
 </view>
 <view wx:if="{{ifadd==0 && ifEdit ==0}}" class="zhanwei" >添加新地址</view>
 <view wx:if="{{ifadd==0 && ifEdit ==0}}" class="add-btn" bindtap="addAddress">添加新地址</view>
 <view wx:if="{{ifadd!=0}}" class="add-address">
   <view class="add-address-info">请拖动地图选择具体位置：</view>
+  <view style="margin-left:20rpx;margin-bottom: 20rpx;font-size:30rpx;color: rgba(120,118,122,0.7);">(推荐打开定位自动识别)</view>
   <map id="addMap" show-location="true" scale="14" longitude="{{longitude}}" latitude="{{latitude}}" bindregionchange="getlocation" controls="{{controls}}" style="width:300px; height:200px;"></map>
-  <input type="text" bindblur="getAddressName" placeholder="请输入位置名称"/>
-  <input type="text" bindblur="getAddressDetail" placeholder="请输入详细位置信息"/>
+  
+  <textarea type="text" bindblur="getAddressDetail" rows="3" auto-height placeholder="请输入详细地址信息"/>
   <picker bindchange="getDistrict" value="{{pick_value}}" range="{{districtList}}">
     <view class="picker">
       <text wx:if="{{pick_value>-1}}">当前选择：{{districtList[pick_value]}}</text>
@@ -29,12 +34,13 @@
   <view class="commit-btn" bindtap="commitAddress">确认添加</view>
 </view>
 
-<view wx:if="{{ifEdit}}" class="add-address">
-  <view class="add-address-info">请拖动地图选择具体位置：</view>
-  <map show-location="true" id="addMap" scale="14" longitude="{{currentAddress.longitude}}" latitude="{{currentAddress.latitude}}" bindregionchange="edit_getlocation" controls="{{controls}}"
+<view wx:if="{{ifEdit}}" class="add-address" >
+  <view class="add-address-info" >请拖动地图更改具体位置：</view>
+    <view bindtap="relocation" style="text-decoration:underline;margin-left:60%;margin-bottom: 20rpx;font-size:30rpx;color: rgba(120,118,122,0.7);">(点击获取当前定位)</view>
+  <map id="addMap" hidden='{{delete_addressid>=0?true:false}}' show-location="true" scale="14" longitude="{{getlongitude}}" latitude="{{getlatitude}}" bindregionchange="edit_getlocation" controls="{{controls}}"
    style="width:300px; height:200px;"></map>
-  <input type="text" bindblur="edit_getAddressName" value="{{currentAddress.name}}"/>
-  <input type="text" bindblur="edit_getAddressDetail"  value="{{currentAddress.addressDetail}}"/>
+  <view wx:if="{{delete_addressid>=0}}" style="width:300px; height:180px;" />
+  <textarea type="text"  bindblur="edit_getAddressDetail" rows="3" auto-height value="{{currentAddress.addressDetail}}"/>
   <picker bindchange="edit_getDistrict" value="{{currentAddress.district.id-1}}" range="{{districtList}}">
     <view class="picker">
       <text wx:if="{{currentAddress.district.id}}">当前选择：{{districtList[currentAddress.district.id-1]}}</text>
@@ -47,3 +53,22 @@
 </view>
 
 </block> 
+
+<view wx:if="{{delete_addressid>=0}}" class="reqnodemask">
+  <view class="reqnode-page">
+</view>
+  <view class="reqnode-panel">
+    <view class="title">
+      是否确定删除该项地址？
+    </view>
+    <view class="bottom-panel">
+      <view class="btn" bindtap="deleteAddress">
+        删除
+      </view>
+      <view class="btn-line" />
+      <view class="btn" bindtap="notdelete">
+        取消
+      </view>
+    </view>
+  </view>
+</view>

@@ -145,11 +145,13 @@ Page({
         //console.log(res)
         setTimeout(function () {
           wx.hideLoading()
-          wx.showToast({
-            title: '登记成功',
-            duration: 1000,
-            icon: "success"
-          })
+          setTimeout(function () {
+            wx.showToast({
+              title: '登记成功',
+              duration: 1000,
+              icon: "success"
+            })
+          }, 500)
         }, 500)
 
         wx.navigateBack({
@@ -188,7 +190,7 @@ Page({
       // header: {}, // 设置请求的 header
       success: function(res){
         // success
-        //console.log(res)
+        console.log('物品信息',res)
         var goods_type =[]
         for (var i =0;i < res.data.goodsTypeList.length;i++)
         {

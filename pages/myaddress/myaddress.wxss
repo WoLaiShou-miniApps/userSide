@@ -25,7 +25,7 @@
   position: absolute;
   top: 75rpx;
   right: 50rpx;
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAEeUlEQVRoQ81ZTW7bRhT+Hp0CNrOouyhgaRNl0YJa1Vm2FFD3BElOYOcEsU5Q6QSxT1D5BFFOEAWQmqWdlYh2YXkjGeii0iKygDR8wZAiNTP8TU1R0koQKc738b33zffeELbwc7lf25+bu68AOgHzCISOPXbacVBpC/GjX7HeEtGRgo15ROQ2fxn/1ZV/3zoCgwPrBAb9kfRimbm3w3jx860zEvdsFQEvdfZ2L0FU8wlwm5mmRNwC6FuZFDPOGpNhc6sIDKqWAPr7EvzMnC9qT6ajqU9srwXCSzWtcL41BN4fWLXPBl0SsB+8fXvstGTA4h6X0AHRr158gKlCoH9gHYNwEimg+1Q688hg/BbkbNKjBpX6axCeaW+4azA35f++P7COXIPeBlHyCPiytSd+PLwP1sT/uvzCvnU6SddVUHF3ccucL85FOg0q1nVQIwy+8AgMqvXLtYFn3BjMR2kRUNZnvGHiKYGOlaL10oW73t7gF7hXIxSVLW4bLjpZIS8qUur6PDNcHIq1B9//cIgHO2dBvuvrMaPZmAzPSH373NYLpyigcc8RqfvR3LtOK1yPIJFQoEfhMxg39mToSa0gwOGFT/89sf/5+2qdoOVnDyr1s1AaJVD6+nqNGC4LUehFCNjjYWmy6kmiQdcBWMLn57pNCK4p1oL5nT1xQpuhRKBMAmmg5Aj8Wf3xGWPndfCb4fJjuT43QiAimympK8smGOf2ZHgqE9wIAV3LG2NnKY1q9idZi40S6Ffqp0R4JWu52KBiCle1FgmbYakR0GUz0PI41etXrU6wmTH4Q2PsxLqEUgnIoPA/ZVMnWxoBb2f95oGwLN5H1nIdlKpQeGNPhqrJk/5QGoG8sqlbG102NxKBLC0PQMV1ZFnWppQIZGl5QECRTcaNeXd3GKdQpcpoHi0XgHRrgYweIrQgspkr2kpE2sQUUEpHpvmdNHO51hTKq+VpbjPLGa+NQLRN5I45XzTjclruSUSbmGQt4sisjUDSdI0ZrcatcxEWrjLIWnVkWW9+rTWQc7rW3l0srrI6sgCoX+Q4NlxcrNVOx7WJcDGKtIU+MtH9+R4nxVqIy6EUM4/sifN4bRFI0vLlxPl0NXlTkyStI/MISK2vrJaF1sByvvRvCC1GNv3pGole+Gl4Xw7ZLIWA4vVTQH1NR7bapVfDh7VFQNt1E0c0ea2FnGSlREBRH463wXmthS6j5RCQPb+mFgLQ13RkGyHgq4U1DQ4jzPndd2LnFYXLxE8ZdBoeXmTI5uYIVOrdUGEY4rsYAUb62bSOLG4XLiWFxMLq1CEOCs8I7knSFC7JQpRGIOLr/W12xkCXXPTMxaKb1aRsNAJeFMRIhFEDoWe46AWD2LwGbeME7gP0XimEksfreYmqFoVn9thZHgQC1K9aVwT6yX9YuQcceQloBlGZE8UdMbV0z513oaLvC3oAgFbHrZpB9A401CgUDaO458XNSMNj1o/mbm+VSsUtWtSTBPiH88WRLsHKkZJ/oAZxqOadhG/Fh/kdGJ2kc+Yv6Iljl6pdJpAAAAAASUVORK5CYII=");
+  /*background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAEeUlEQVRoQ81ZTW7bRhT+Hp0CNrOouyhgaRNl0YJa1Vm2FFD3BElOYOcEsU5Q6QSxT1D5BFFOEAWQmqWdlYh2YXkjGeii0iKygDR8wZAiNTP8TU1R0koQKc738b33zffeELbwc7lf25+bu68AOgHzCISOPXbacVBpC/GjX7HeEtGRgo15ROQ2fxn/1ZV/3zoCgwPrBAb9kfRimbm3w3jx860zEvdsFQEvdfZ2L0FU8wlwm5mmRNwC6FuZFDPOGpNhc6sIDKqWAPr7EvzMnC9qT6ajqU9srwXCSzWtcL41BN4fWLXPBl0SsB+8fXvstGTA4h6X0AHRr158gKlCoH9gHYNwEimg+1Q688hg/BbkbNKjBpX6axCeaW+4azA35f++P7COXIPeBlHyCPiytSd+PLwP1sT/uvzCvnU6SddVUHF3ccucL85FOg0q1nVQIwy+8AgMqvXLtYFn3BjMR2kRUNZnvGHiKYGOlaL10oW73t7gF7hXIxSVLW4bLjpZIS8qUur6PDNcHIq1B9//cIgHO2dBvuvrMaPZmAzPSH373NYLpyigcc8RqfvR3LtOK1yPIJFQoEfhMxg39mToSa0gwOGFT/89sf/5+2qdoOVnDyr1s1AaJVD6+nqNGC4LUehFCNjjYWmy6kmiQdcBWMLn57pNCK4p1oL5nT1xQpuhRKBMAmmg5Aj8Wf3xGWPndfCb4fJjuT43QiAimympK8smGOf2ZHgqE9wIAV3LG2NnKY1q9idZi40S6Ffqp0R4JWu52KBiCle1FgmbYakR0GUz0PI41etXrU6wmTH4Q2PsxLqEUgnIoPA/ZVMnWxoBb2f95oGwLN5H1nIdlKpQeGNPhqrJk/5QGoG8sqlbG102NxKBLC0PQMV1ZFnWppQIZGl5QECRTcaNeXd3GKdQpcpoHi0XgHRrgYweIrQgspkr2kpE2sQUUEpHpvmdNHO51hTKq+VpbjPLGa+NQLRN5I45XzTjclruSUSbmGQt4sisjUDSdI0ZrcatcxEWrjLIWnVkWW9+rTWQc7rW3l0srrI6sgCoX+Q4NlxcrNVOx7WJcDGKtIU+MtH9+R4nxVqIy6EUM4/sifN4bRFI0vLlxPl0NXlTkyStI/MISK2vrJaF1sByvvRvCC1GNv3pGole+Gl4Xw7ZLIWA4vVTQH1NR7bapVfDh7VFQNt1E0c0ea2FnGSlREBRH463wXmthS6j5RCQPb+mFgLQ13RkGyHgq4U1DQ4jzPndd2LnFYXLxE8ZdBoeXmTI5uYIVOrdUGEY4rsYAUb62bSOLG4XLiWFxMLq1CEOCs8I7knSFC7JQpRGIOLr/W12xkCXXPTMxaKb1aRsNAJeFMRIhFEDoWe46AWD2LwGbeME7gP0XimEksfreYmqFoVn9thZHgQC1K9aVwT6yX9YuQcceQloBlGZE8UdMbV0z513oaLvC3oAgFbHrZpB9A401CgUDaO458XNSMNj1o/mbm+VSsUtWtSTBPiH88WRLsHKkZJ/oAZxqOadhG/Fh/kdGJ2kc+Yv6Iljl6pdJpAAAAAASUVORK5CYII=");*/
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
@@ -33,7 +33,6 @@
   height: 50rpx;
 }
 .address view{
-  margin-top: 20rpx;
   color: rgba(78,77,79,0.8);
   font-family: "微软雅黑"
 }
@@ -58,6 +57,7 @@ text-overflow:ellipsis;
 white-space: nowrap;
 }
 .address-address{
+  margin-top: 20rpx;
   margin-left: 10rpx;
   width: 500rpx;
   float: left;
@@ -67,13 +67,21 @@ text-overflow:ellipsis;
 white-space: nowrap;
 }
 .address-detail{
+  margin-top: 20rpx;
   margin-left: 10rpx;
-  width: 100%;
+  width: 85%;
   float: left;
   font-size: 35rpx;
   overflow: hidden;
-text-overflow:ellipsis;
-white-space: nowrap;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.address image{
+  width:50rpx;
+  height:50rpx;
+  position:absolute;
+  right:60rpx;
+
 }
 .add-btn{
   position: fixed;
@@ -86,7 +94,12 @@ white-space: nowrap;
   height: 100rpx;
   line-height: 100rpx;
   border: 1rpx solid rgba(230,228,232,0.8);
-  border-radius: 10rpx
+  border-radius: 10rpx;
+  box-shadow: 1rpx 1rpx 5rpx 2rpx rgba(120,118,117,0.7);
+}
+.add-btn:active{
+  background:#ffcc99;
+  box-shadow: 1rpx 1rpx 5rpx 2rpx rgba(120,118,117,0.7) inset;
 }
 .commit-btn{
   background: rgb(199,22,34);
@@ -98,7 +111,12 @@ white-space: nowrap;
   height: 100rpx;
   line-height: 100rpx;
   border: 1rpx solid rgba(230,228,232,0.8);
-  border-radius: 10rpx
+  border-radius: 10rpx;
+  box-shadow: 1rpx 1rpx 5rpx 2rpx rgba(120,118,117,0.7);
+}
+.commit-btn:active{
+  background:#ffcc99;
+  box-shadow: 1rpx 1rpx 5rpx 2rpx rgba(120,118,117,0.7) inset;
 }
 .add-address{
   width: 100%;
@@ -114,14 +132,90 @@ white-space: nowrap;
   border-radius: 10rpx;
   margin-top: 20rpx;
 }
+
+.add-address textarea{
+  width: 650rpx;
+  min-height: 100rpx;
+  line-height: 50rpx;
+  margin-left: 20rpx;
+  border: 1rpx solid #000;
+  text-align: center;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+  padding:30rpx;
+}
+
 .add-address-info{
   margin-left: 20rpx;
-  margin-bottom: 20rpx;
-  color: rgba(120,118,122,0.7)
+  margin-bottom: 10rpx;
+  color: rgba(120,118,122,1)
 }
 .add-address map{
   margin: 0 auto;
 }
 .icon-area{
   margin: 100rpx auto;
+  text-align:center;
+}
+.icon-area view{
+  font-size:38rpx;
+  margin-top:30rpx;
+}
+
+
+/*确认删除窗口*/
+.reqnode-page{
+  background:#000;
+  width:750rpx;
+  height:100%;
+  position:fixed;
+  top:0;
+  opacity:0.7;
+  z-index: 998;
+}
+.reqnode-panel{
+  background:#FFF;
+  width:70%;
+  height:25%;
+  position:fixed;
+  top:30%;
+  left:15%;
+  box-shadow: 1rpx 1rpx 1rpx rgba(30,33,39,0.4);
+  border: 1rpx solid rgba(30,33,39,0.4);
+  border-radius:10rpx;
+  z-index: 999;
+  opacity:1;
+}
+.reqnode-panel .title{
+  margin-left:10%;
+  width:80%;
+  margin-top:13%;
+  
+  font-size:35rpx;
+  text-align:center;
+  line-height:60rpx;
+  color:red;
+}
+.reqnode-panel .bottom-panel{
+  height:32%;
+  width:100%;
+  border-top:1rpx solid blue;
+  display:flex;
+  flex-direction:row;
+  position:absolute;
+  bottom:0;
+}
+.reqnode-panel .bottom-panel .btn{
+  height:100%;
+  width:49%;
+  line-height:90rpx;
+  text-align:center;
+  font-size:30rpx;
+  color:#000;
+}
+.reqnode-panel .bottom-panel .btn-line{
+  width:3rpx;
+  height:80%;
+  margin-top:10rpx;
+  background:rgba(78,77,79,0.5);
 }

@@ -5,6 +5,7 @@ Page({
     order_state:0,
     select_order:-1,
     myorder_list: {}
+    
   },
 
   changepape: function (e) {
@@ -19,16 +20,22 @@ Page({
     })
   },
 
-  orderDelete:function(){
-    var that=this
+
+  cleanorder:function(){
+    var that = this
+    //console.log('清理订单', that.data.myorder_list.finished.content[that.data.select_order].id)
     wx.request({
-      url: "https://irecycle.gxxnr.cn/api/user/orderCancel.do",
+      url: "https://irecycle.gxxnr.cn/api/user/deleteorder.do",
       data: {
-        id:this.data.myorder_list.untaken.content[this.data.select_order].id
+        orderid: that.data.myorder_list.finished.content[that.data.select_order].id
       },
-      method: 'GET',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+      },
       success: function (res) {
-        //console.log(res)
+        //console.log('返回结果',res)
+
         wx.request({
           url: "https://irecycle.gxxnr.cn/api/user/getmyorderlist.do",
           data: {
@@ -40,10 +47,55 @@ Page({
             ////console.log(res.resdata);
             var myorder = { untaken: { num: 0, content: [] }, finished: { num: 0, content: [] } }
             for (var i = 0; i < res.data.length; i++) {
-              if (res.data[i].state>=6) {
+              if (res.data[i].state == 6 || res.data[i].state <= 1) {
+                myorder.finished.content.push(res.data[i])
+                myorder.finished.num++
+              }
+              else {
+                myorder.untaken.content.push(res.data[i])
+                myorder.untaken.num++
+              }
+
+            }
+            that.setData({
+              myorder_list: myorder,
+              select_order: -1
+            })
+          },
+        })
+
+
+
+      }
+    })
+  },
+
+
+  orderDelete:function(){
+    var that=this
+    wx.request({
+      url: "https://irecycle.gxxnr.cn/api/user/orderCancel.do",
+      data: {
+        id:this.data.myorder_list.untaken.content[this.data.select_order].id
+      },
+      method: 'GET',
+      success: function (res) {
+        //console.log("删除结果：",res)
+        wx.request({
+          url: "https://irecycle.gxxnr.cn/api/user/getmyorderlist.do",
+          data: {
+            userid: app.globalData.userid
+          },
+          method: 'GET',
+          // header: {}, // 设置请求的 header
+          success: function (res) {
+            ////console.log(res.resdata);
+            var myorder = { untaken: { num: 0, content: [] }, finished: { num: 0, content: [] } }
+            for (var i = 0; i < res.data.length; i++) {
+              if (res.data[i].state == 6 || res.data[i].state <= 1) {
                   myorder.finished.content.push(res.data[i])
                   myorder.finished.num++
-                  }
+                  } 
                 else{
                   myorder.untaken.content.push(res.data[i])
                   myorder.untaken.num++
@@ -51,7 +103,8 @@ Page({
 
             }
             that.setData({
-              myorder_list: myorder
+              myorder_list: myorder,
+              select_order: -1
             })
           },
         })
@@ -101,26 +154,33 @@ Page({
       method: 'GET',
       // header: {}, // 设置请求的 header
       success: function (res) {
-        //console.log(res);
+        //console.log('订单',res);
         var myorder = { untaken: { num: 0, content: [] }, finished: { num: 0, content: []}}
+        
         for (var i = 0; i < res.data.length;i++)
         {
-          if (res.data[i].state>=6)
+          if (res.data[i].state == 6 || res.data[i].state <=1)
           {
               myorder.finished.content.push(res.data[i])
               myorder.finished.num++
           }
-            else{
+          else{
               myorder.untaken.content.push(res.data[i])
               myorder.untaken.num++
           }
         }
-
         that.setData({
-          myorder_list: myorder
+          myorder_list: myorder,
+          select_order: -1
         })
         //console.log(that.data.myorder_list)
       },
+      fail: function (res) {
+        wx.showToast({
+          title: '数据错误，请联系管理员修复用户数据',
+          image: '../../static/image/tip.png'
+        })
+      }
     })
   },
 
@@ -172,7 +232,7 @@ Page({
         ////console.log(res.resdata);
         var myorder = { untaken: { num: 0, content: [] }, finished: { num: 0, content: [] } }
         for (var i = 0; i < res.data.length; i++) {
-          if (res.data[i].state>=6) {
+          if (res.data[i].state == 6 || res.data[i].state <= 1) {
             
               myorder.finished.content.push(res.data[i])
               myorder.finished.num++

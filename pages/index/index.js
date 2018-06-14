@@ -13,13 +13,24 @@ Page({
     })
     wx.hideLoading()
     var inter = setInterval(function(){
-      if(that.data.time==1){
+      if(that.data.time<=1){
         wx.switchTab({
           url: "../service/service",
           success:function(){
-            //console.log('ss')
+            //console.log('success')
             clearInterval(inter)
-          }
+          },
+          fail:function() {
+            wx.showToast({
+              title: '您的手机存在严重的卡顿现象,建议重启程序',
+              duration:1000,
+              image: '../../static/image/tip.png'
+            })
+            wx.reLaunch({
+              url: '../service/service',
+            })
+            clearInterval(inter)
+          },
         })
       }else{
         that.setData({

@@ -1,43 +1,52 @@
 
 <!--pages/service/service.wxml-->
-<import src="../../components/test/test1.wxml"></import><import src="../../components/mask/index.wxml"></import>
+<import src="../../components/test/test1.wxml"></import>
+<import src="../../components/mask/index.wxml"></import>
 <import src="../../components/secondHand/index.wxml"></import>
 <import src="../../components/banjia/index.wxml"></import>
+<import src="../../components/voice/index.wxml"></import>
 <template is="topMask" data="{{ifLoad:origin}}"></template>
 <template is="uplist" data="{{service:service,animationData_progress:animationData_progress}}"></template>
 <block wx:if="{{service==0}}">
-<image class="usertip" wx:if="{{!userGuid}}" src="../../static/image/pull.png" animation="{{animationData0}}"></image>
-<template is="secondHand" data="{{animation_textarea:animation_textarea,secondHand_imgUrl:secondHand_imgUrl,time:time_waste,date:date_waste,note:note_waste,service:service,addressList:addressList,myAddressList:myAddressList,pick_value:pick_value,read_key:read_key,animation_textarea:animationData0,today:today}}" wx:if="{{!userGuid}}"></template>
-<view class="tell-user" wx:if="{{userGuid}}" bindtap="closeGuid">
+<image class="usertip" wx:if="{{!userGuid_img  && orderStyle==0}}" src="../../static/image/pull.png" animation="{{animationData0}}"></image>
+<template is="secondHand" data="{{animation_textarea:animation_textarea,secondHand_imgUrl:secondHand_imgUrl,time:time_waste,date:date_waste,note:note_waste,service:service,addressList:addressList,addresslistnum:addresslistnum,myAddressList:myAddressList,pick_value:pick_value,read_key:read_key,animation_textarea:animationData0,today:today}}" wx:if="{{!userGuid_img && orderStyle==0}}"></template>
+
+<template is = "chooseOrderStyle" wx:if="{{orderStyle==-1}}"></template>
+
+<template is="voicePage" wx:if="{{orderStyle==1}}"  data = "{{voiceRecording:voiceRecording,addresslistnum:addresslistnum,service:service,addressListid:addressListid,pick_value:pick_value,myAddressList:myAddressList,myAddressList:myAddressList,voiceFilePath:voiceFilePath,voicePlaying:voicePlaying,userGuid_voice:userGuid_voice}}"></template>
+
+<view class="tell-user" wx:if="{{userGuid_img}}" bindtap="closeGuid">
   <text class="text-tips">点击返回</text>
   <text class="h1">新手上路</text>
   <text class="h2">一、用户注册</text>
-  <text class="p">1、进入我来收小程序后点击下方的个人中心，填写个人相关信息。</text>
-  <text class="p">2、点击地址管理，添加所在地址。</text>
+  <text class="p">1.进入我来收小程序后点击下方的个人中心，填写个人相关信息。</text>
+  <text class="p">2.点击地址管理，添加所在地址。</text>
   <text class="h2">二、废品出售</text>
-  <text class="p">1、点击上方添加物品照片，上传要出售的废品照片。</text>
-  <text class="p">2、在备注框内添加简单的描述。</text>
-  <text class="p">3、选定方便的时间进行预约。</text>
-  <text class="p">4、选择地址。</text>
-  <text class="p">5、点击一键回收。</text>
+  <text class="p">1.点击上方添加物品照片，上传要出售的废品照片。</text>
+  <text class="p">2.在备注框内添加简单的描述。</text>
+  <text class="p">3.选定方便的时间进行预约。</text>
+  <text class="p">4.选择地址。</text>
+  <text class="p">5.点击一键回收。</text>
   <text class="h2">三、二手代卖</text>
-  <text class="p">1、阅读下方《“我来收”二手代卖用户须知》，点击协议即可展开全文，任意点击界面即可退出，阅读完毕并同意后在协议前勾选。</text>
-  <text class="p">2、点击添加物品照片，将想要二手代卖的物品照片上传。</text>
-  <text class="p">3、在描述框内添加对物品的描述。</text>
-  <text class="p">4、选定方便的时间进行预约，工作人员会准时上门取货。</text>
-  <text class="p">5、选择地址。</text>
-  <text class="p">6、点击提交。</text>
+  <text class="p">1.阅读下方《“我来收”二手代卖用户须知》，点击协议即可展开全文，任意点击界面即可退出，阅读完毕并同意后在协议前勾选。</text>
+  <text class="p">2.点击添加物品照片，将想要二手代卖的物品照片上传。</text>
+  <text class="p">3.在描述框内添加对物品的描述。</text>
+  <text class="p">4.选定方便的时间进行预约，工作人员会准时上门取货。</text>
+  <text class="p">5.选择地址。</text>
+  <text class="p">6.点击提交。</text>
   <text class="h2">四、小件运输</text>
-  <text class="p">1、输入联系方式。</text>
-  <text class="p">2、点击呼叫我公司，与客服通话完成预约。</text>
+  <text class="p">1.输入联系方式。</text>
+  <text class="p">2.点击呼叫我公司，与客服通话完成预约。</text>
+  <text class="p">备注：实时报价的价格仅为参考价格。废品订单沙漏标志为尚未接单，小车标志为已接单，正在路上。</text>
   <text class="info">客服电话：82930699</text>	
   <text class="info">合作电话：13804554582</text>
   <text class="info">服务时间：早8:30到晚5:00</text>
-
 </view>
 </block>
+
 <block wx:if="{{service==1}}">
-  <template is="secondHand" data="{{animation_textarea:animation_textarea,secondHand_imgUrl:secondHand_myphoto,time:time_secondHand,note:note_secondHand,date:date_secondHand,service:service,addressList:addressList,myAddressList:myAddressList,pick_value:pick_value,proconfirm:proconfirm,read_key:read_key,proList:proList,today:today}}"></template>
+  <image class="usertip" wx:if="{{!userGuid_img}}"></image>
+  <template is="secondHand" data="{{animation_textarea:animation_textarea,secondHand_imgUrl:secondHand_myphoto,time:time_secondHand,note:note_secondHand,date:date_secondHand,service:service,addresslistnum:addresslistnum,addressList:addressList,myAddressList:myAddressList,pick_value:pick_value,proconfirm:proconfirm,read_key:read_key,proList:proList,today:today}}"></template>
 </block>
 <block wx:if="{{service==2}}">
   <template is="banjia" data="{{banjia_key:banjia_key,tel:tel}}"></template>

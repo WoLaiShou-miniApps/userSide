@@ -1,10 +1,17 @@
 <template name="secondHand">
-  <view class="second-hand{{service}}" wx:if="{{read_key==0}}"animation="{{animation_textarea}}">
+
+<view wx:if="{{service==0}}" class="interPage-panel" style="position:relative;margin-top:13%;">
+  <view class="backForStyleBT" bindtap="back_for_orderStyle" style="top:0;">
+    <image src="../../static/image/back.png"> </image>
+  </view>
+</view>
+
+  <view class="second-hand{{service}}" wx:if="{{read_key==0}}">
     <view class="second-hand-photo{{service}}" bindtap="secondHand_addPhoto">
       <image mode="aspectFit" id="myphoto" class="{{secondHand_imgUrl?'has-photo{{service}}':''}}" src="{{secondHand_imgUrl?secondHand_imgUrl:(service==0?'../../static/image/finger.png':'../../static/image/finger.png')}}"></image>
       <view class="second-hand-photo-text{{service}} {{secondHand_imgUrl?'has-photo-text{{service}}':''}}">{{(service==0?(secondHand_imgUrl?'点击修改废品照片':'点击添加废品照片'):(secondHand_imgUrl?'点击修改物品照片':'点击添加物品照片'))}}</view>
     </view>
-    
+     
     <view class="picker-area{{service}}">
       <picker mode="date" value="{{today}}" start="{{today}}" end="2027-05-01" bindchange="bindDateChange">
         <view class="picker">
@@ -18,7 +25,7 @@
       </picker>
     </view>
 
-    <view class="picker-area-{{service}}">
+    <view wx:if="{{addresslistnum>0}}" class="picker-area-{{service}}">
       <picker mode="selector" bindchange="getAddress" name="address" value="{{addressListid[pick_value[service]].id}}" range="{{myAddressList}}">
         <view class="picker">
           <text wx:if="{{pick_value[service]>=0}}">{{myAddressList[pick_value[service]]}}</text>
@@ -26,8 +33,15 @@
         </view>
       </picker>
     </view>
+
+    <view wx:if="{{addresslistnum==0}}" class="picker-area-{{service}}">
+      <view class="picker" bindtap="gotoaddress">
+          <text style="text-decoration:underline;">点击创建新地址</text>
+        </view>
+    </view>
+
     <textarea name="secondHandInfo" cols="30" rows="10" bindfocus="secondHand_textareaFocused" bindblur="secondHand_textareaBlured"
-      value="无"></textarea>
+      value="{{note}}" placeholder="请填写订单备注"></textarea>
     <view class="prolink" wx:if="{{service==1}}">
       <checkbox-group bindchange="agreepro">
         <checkbox value="250" checked="{{proconfirm}}" />
@@ -48,3 +62,4 @@
     </view>
   </scroll-view>
 </template>
+

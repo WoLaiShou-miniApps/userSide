@@ -37,8 +37,7 @@
       <view wx:if="{{item.state==3 || item.state==2}}" class="order-info">收货人员：{{item.drivername}}</view>
       <view wx:if="{{item.state==3 || item.state==2}}" class="order-info">联系方式：{{item.phone}}</view>
       <view class="btn" bindtap="confirm" data-order="{{item}}">完成</view>
-
-
+      <view wx:if="{{item.state==5}}" class="btn" style="margin-top:20rpx;display: block;" bindtap="clean" data-order="{{item}}">删除记录</view>
 
     </view>
 

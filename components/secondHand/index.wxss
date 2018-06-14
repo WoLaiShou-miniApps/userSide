@@ -1,6 +1,6 @@
   .second-hand0{
   position: relative;
-  top: 120rpx;
+  top: 95rpx;
   width:100%;
   background: #fff;
 }
@@ -90,13 +90,19 @@
   width:710rpx;
   margin-top:20rpx;
   margin-bottom: 300rpx;
+  box-shadow: 1rpx 1rpx 5rpx 2rpx rgba(120,118,117,0.7);
 }
 .second-hand0 button[type="primary"][plain]{
   color:#fff;
   border:1px solid #C51A29;
-  background-color:#C51A29;
-
+  background-color:#C51A29; 
 }
+.second-hand0 button[type="primary"][plain]:active{
+  border:1px solid #ffcc99;
+  background:#ffcc99;
+  box-shadow: 1rpx 1rpx 5rpx 2rpx rgba(120,118,117,0.7) inset;
+}
+
 .second-hand-info-textarea-placeholder0{
   color: #00B0F0;
 }

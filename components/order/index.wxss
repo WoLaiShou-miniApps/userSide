@@ -44,12 +44,13 @@
   height:100rpx;
   width:99%;
   border-bottom:1rpx dashed #d4d4d4;
-  padding:25rpx 0rpx 0rpx 300rpx;
+  padding:25rpx 0rpx 0rpx 0rpx;
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
 }
 .operate-panel .item{
-  margin-left:50rpx;
+  margin-right:50rpx;
   padding:5rpx 10rpx 5rpx 10rpx;
   height:70rpx;
   line-height:70rpx;
@@ -163,12 +164,18 @@
   margin-top:25rpx;
   margin-left:20rpx;
 }
-.detail-chief .term .term-item text{
+.detail-chief .term .term-item .text{
+  word-wrap : break-word;
+  margin-top:35rpx;
+  margin-bottom:35rpx;
+  width:500rpx;
+  min-height:30rpx;
   display:block;
   font-size:30rpx;
   color:#616161;
   font-weight:500;
   margin-left:50rpx;
+  line-height:30rpx;
 }
 .more-right{
   margin-top:25rpx;
@@ -203,6 +210,30 @@
   text-align:center;
 }
 
+.detail-voice{
+  margin-top:30rpx;
+  padding:20rpx 0rpx 20rpx 0rpx;
+  min-height:200rpx;
+  width:100%;
+  background:#FFF;
+  border-top:1rpx solid #ededed;
+  border-bottom:1rpx solid #ededed;
+}
+.detail-voice .title{
+  margin-left:20rpx;
+  margin-bottom:20rpx;
+  width:180rpx;
+  height:30rpx;
+  line-height:30rpx;
+  padding-bottom:20rpx;
+  border-bottom:1rpx solid #ededed;
+}
+.detail-voice image{
+  margin-left:300rpx;
+  vertical-align: middle;
+  width:100rpx;
+  height:100rpx;
+}
 
 .detail-remark text{
   margin-left:50rpx;
@@ -225,7 +256,7 @@
 }
 .detail-image .title{
   margin-left:20rpx;
-  margin-bottom:20rpx;
+  margin-bottom:50rpx;
   width:180rpx;
   height:30rpx;
   line-height:30rpx;
@@ -235,7 +266,8 @@
   text-align:center;
 }
 .detail-image image{
-  width:100%;
+  width:80%;
+  margin-left:10%;
   margin-bottom:20rpx;
 }
 .order-map{

@@ -56,18 +56,6 @@ module.exports = {
           that.setData({secondHand_imgUrl: tempFilePaths[0]});
         }
         
-        /*wx.uploadFile({
-          url: "https://www.jsonp.top/fileupload",
-          filePath: filePath,
-          name:"photo",
-          complete: function (res) {
-            var data = res.data
-            //do something
-            that.setData({
-              myphoto:"https://www.jsonp.top"+res.data
-            })
-          }
-        })*/
 
       },
       fail: function () {

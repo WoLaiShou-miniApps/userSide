@@ -4,6 +4,6 @@
   "navigationBarTitleText": "实时价格",
   
   "backgroundTextStyle": "light",
-  "enablePullDownRefresh":"false"
+  "enablePullDownRefresh":false
   
 }

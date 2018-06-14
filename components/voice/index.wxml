@@ -1,0 +1,80 @@
+<template name="chooseOrderStyle">
+
+ <view class="orderStyle-page">
+  <view class="osButton" bindtap="chooseImgOrder" >
+    <image src="../../static/image/keyboardStyle.png"> </image>
+    <view  class="text">普通下单</view>
+  </view>
+  <view class="osButton" bindtap="chooseVoiceOrder" >
+    <image src="../../static/image/voiceStyle.png"> </image>
+    <view class="text">语音下单</view>
+  </view>
+ </view>
+
+</template>
+
+<template name="voicePage">
+
+
+
+ <view class="voice-page">
+
+  <view class="interPage-panel">
+    <view class="backForStyleBT" bindtap="back_for_orderStyle">
+      <image src="../../static/image/back.png"> </image>
+    </view>
+    <view class="tipBT" bindtap="open_voiceTipPanel">
+      <image src="../../static/image/tipNote.png"> </image>
+    </view>
+  </view>
+
+    <view class="title">{{voiceFilePath?'重新录制':'按住说话'}}</view>
+    <view class="voiceButton {{voiceRecording?'active':''}}"  catchtouchstart="recVoice_start" catchtouchend="recVoice_end" >
+      <image src="../../static/image/{{voiceRecording?'recording.png':'voiceStyle.png'}}"> </image>
+    </view>
+    
+    <view catchtouchend="recVoice_end" wx:if="{{voiceRecording}}" class="wave ripple danger">  
+      <view catchtouchend="recVoice_end" class="circle"> </view>
+      <view catchtouchend="recVoice_end" class="circle"></view>
+      <view catchtouchend="recVoice_end" class="circle"></view>
+    </view>
+
+    <view wx:if="{{voiceFilePath}}" bindtap="{{voicePlaying?'voicePlayerEnd':'voicePlayerStart'}}"  class="voicePlay"> 
+      <image src="../../static/image/voicePlayer.png"></image>
+      <view class="voiceName"> {{voicePlaying?'播放停止':'录音试听'}} </view>
+    </view>
+    
+      <view wx:if="{{addresslistnum>0}}" class="selectVoiceAddress">
+      <picker mode="selector" bindchange="getVoiceAddress" name="address" value="{{addressListid[pick_value[service]].id}}" range="{{myAddressList}}">
+        <view class="picker">
+          <text wx:if="{{pick_value[service]>=0}}">{{myAddressList[pick_value[service]]}}</text>
+          <text wx:else>请选择地址</text>
+        </view>
+      </picker>
+    </view>
+    <view wx:if="{{addresslistnum==0}}" class="selectVoiceAddress">
+      <view class="picker" bindtap="gotoaddress">
+          <text style="text-decoration:underline;">点击创建新地址</text>
+        </view>
+    </view>
+
+  <view type="primary" plain bindtap="voiceOrderSubmit" class="voiceOrderSubmit">一键预约</view>
+
+  <view style="width:100%;height:100%;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);" wx:if="{{userGuid_voice}}"></view>
+
+  <view class="voiceTip-panel" wx:if="{{userGuid_voice}}" catchtap="closeGuid">
+  <view><text style="font-weight:bold;">语音方式下单：</text>请输入您的<text style="color:#3300ff;">语音留言</text>(限时一分钟)和<text style="color:#3300ff;">上门服务地址</text>(包含联系电话)，然后点击<text style="color:#3300ff;">一键预约</text>完成下单操作。</view>
+  <view style="height:20rpx;"></view>
+  <view>您可以<text style="color:#3300ff;">长按</text>录音按钮进行留言录制，留言结束后抬起手指完成录音</view>
+    <view>也可以<text style="color:#3300ff;">点击</text>录音按钮进行留言录制，留言结束后再次点击完成录音</view>
+  <view style="height:20rpx;"></view>
+  <view>请确保您的语音留言中包含以下内容：</view>
+  <view>1. 本次出售的废品种类和数量</view>
+  <view>2. 希望我们上门回收的时间</view>
+  <view>3. 备注信息(如有必要)</view>
+  <view style="height:20rpx;"></view>
+  <view style="color:red;font-size:25rpx;">PS.本窗口点击即可关闭</view>
+  </view>
+
+ </view>
+</template>
