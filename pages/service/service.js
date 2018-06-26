@@ -383,10 +383,6 @@ wx.uploadFile({
   },
   //*****************用户登录认证部分*******************************
   onLoad: function () {
-    wx.showLoading({
-      title: '正在初始化',
-      mask: 'true'
-    })
     var that = this
     var date = new Date();
     //console.log(date)

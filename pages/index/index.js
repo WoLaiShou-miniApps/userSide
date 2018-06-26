@@ -6,6 +6,34 @@ Page({
     ifload:0,
     time:3
   },
+  skipCount: function(){
+    if (this.data.ifload == 1)
+    {
+      this.setData({
+        time: 0
+      })
+     /* wx.switchTab({
+        url: "../service/service",
+        success: function () {
+          //console.log('success')
+          wx.showLoading({
+            title: '正在初始化',
+            mask: 'true'
+          })
+        },
+        fail: function () {
+          wx.showToast({
+            title: '好卡,建议重启',
+            duration: 1000,
+            image: '../../static/image/tip.png'
+          })
+          wx.reLaunch({
+            url: '../service/service',
+          })
+        },
+      })*/
+    }
+  },
   imageLoaded:function(){
     var that = this
     this.setData({
@@ -18,11 +46,15 @@ Page({
           url: "../service/service",
           success:function(){
             //console.log('success')
+            wx.showLoading({
+              title: '正在初始化',
+              mask: 'true'
+            })
             clearInterval(inter)
           },
           fail:function() {
             wx.showToast({
-              title: '您的手机存在严重的卡顿现象,建议重启程序',
+              title: '好卡,建议重启',
               duration:1000,
               image: '../../static/image/tip.png'
             })

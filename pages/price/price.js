@@ -183,6 +183,10 @@ Page({
       orderid:options.index
     })
     var that = this;
+    wx.showLoading({
+      title: '加载中...',
+      mask: true
+    })
     wx.request({
       url: 'https://irecycle.gxxnr.cn/goods/getgoods.do',
       data: {},
@@ -190,7 +194,7 @@ Page({
       // header: {}, // 设置请求的 header
       success: function(res){
         // success
-        console.log('物品信息',res)
+        wx.hideLoading()
         var goods_type =[]
         for (var i =0;i < res.data.goodsTypeList.length;i++)
         {

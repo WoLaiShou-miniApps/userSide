@@ -19,13 +19,13 @@
 <view wx:if="{{ifadd==0 && ifEdit ==0}}" class="add-btn" bindtap="addAddress">添加新地址</view>
 <view wx:if="{{ifadd!=0}}" class="add-address">
   <view class="add-address-info">请拖动地图选择具体位置：</view>
-  <view style="margin-left:20rpx;margin-bottom: 20rpx;font-size:30rpx;color: rgba(120,118,122,0.7);">(推荐打开定位自动识别)</view>
+  <view bindtap="{{suggestForGPS?'':'relocation'}}" style=" {{suggestForGPS?'':'text-decoration:underline;'}}margin-left:20rpx;margin-bottom: 20rpx;font-size:30rpx;color: rgba(120,118,122,0.7);">{{suggestForGPS?'(推荐打开定位自动识别)':'(点击重新获取当前定位)'}}</view>
   <map id="addMap" show-location="true" scale="14" longitude="{{longitude}}" latitude="{{latitude}}" bindregionchange="getlocation" controls="{{controls}}" style="width:300px; height:200px;"></map>
   
-  <textarea type="text" bindblur="getAddressDetail" rows="3" auto-height placeholder="请输入详细地址信息"/>
-  <picker bindchange="getDistrict" value="{{pick_value}}" range="{{districtList}}">
+  <textarea type="text" bindblur="getAddressDetail" value="{{newAddress.addressDetail}}" rows="3" auto-height placeholder="请输入详细地址信息"/>
+  <picker bindchange="getDistrict" value="{{newAddress.district.id-1}}" range="{{districtList}}">
     <view class="picker">
-      <text wx:if="{{pick_value>-1}}">当前选择：{{districtList[pick_value]}}</text>
+      <text wx:if="{{newAddress.district.id > 0}}">当前选择：{{newAddress.district.districtName}}</text>
       <text wx:else style="color:#808080">请选择所在区域</text>
     </view>
   </picker>
@@ -36,14 +36,14 @@
 
 <view wx:if="{{ifEdit}}" class="add-address" >
   <view class="add-address-info" >请拖动地图更改具体位置：</view>
-    <view bindtap="relocation" style="text-decoration:underline;margin-left:60%;margin-bottom: 20rpx;font-size:30rpx;color: rgba(120,118,122,0.7);">(点击获取当前定位)</view>
+    <view bindtap="edit_relocation" style="text-decoration:underline;margin-left:60%;margin-bottom: 20rpx;font-size:30rpx;color: rgba(120,118,122,0.7);">(点击获取当前定位)</view>
   <map id="addMap" hidden='{{delete_addressid>=0?true:false}}' show-location="true" scale="14" longitude="{{getlongitude}}" latitude="{{getlatitude}}" bindregionchange="edit_getlocation" controls="{{controls}}"
    style="width:300px; height:200px;"></map>
   <view wx:if="{{delete_addressid>=0}}" style="width:300px; height:180px;" />
   <textarea type="text"  bindblur="edit_getAddressDetail" rows="3" auto-height value="{{currentAddress.addressDetail}}"/>
   <picker bindchange="edit_getDistrict" value="{{currentAddress.district.id-1}}" range="{{districtList}}">
     <view class="picker">
-      <text wx:if="{{currentAddress.district.id}}">当前选择：{{districtList[currentAddress.district.id-1]}}</text>
+      <text wx:if="{{currentAddress.district.id > 0}}">当前选择：{{currentAddress.district.districtName}}</text>
       <text wx:else style="color:#808080">请选择所在区域</text>
     </view>
   </picker>
