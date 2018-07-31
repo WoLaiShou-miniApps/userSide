@@ -237,18 +237,18 @@ page{
   position:absolute;
 }
 
-.hotline-panel{
+.complain-panel{
   border-radius:15rpx;
   margin-left:15%;
-  margin-top:250rpx;
+  margin-top:260rpx;
   width:70%;
-  height:350rpx;
+  height:290rpx;
   background:white;
   align-items:center;
   text-align:center;
 }
 
-.hotline-panel .contact-tip{
+.complain-panel .contact-tip{
   margin-left:10%;
   padding-top:40rpx;
   height:100rpx;
@@ -259,14 +259,14 @@ page{
   margin-bottom:25rpx;
 }
 
-.hotline-panel .contact-item{
+.complain-panel .contact-item{
   line-height:80rpx;
   height:80rpx;
   display:flex;
   flex-direction:row;
 }
 
-.hotline-panel .contact-item .icon{
+.complain-panel .contact-item .icon{
   display: inline-block;
   vertical-align: middle;
   margin:15rpx 0rpx 15rpx 80rpx;
@@ -274,7 +274,7 @@ page{
   height:50rpx;
 }
 
-.hotline-panel .contact-item .text{
+.complain-panel .contact-item .text{
   width:320rpx;
   text-align:center;
   display: inline-block;

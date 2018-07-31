@@ -38,7 +38,7 @@ Page({
     address_secondHand: -1,
     pick_value: [              //用于保存个功能的地址索引
       -1, -1, -1
-    ],
+    ], 
     proList: {},
     proconfirm: false,
     origin: 0,
@@ -196,6 +196,16 @@ wx.uploadFile({
         -1, -1, -1
       ],
       voiceFilePath: null
+    })
+  },
+  hotline_call1: function () {
+    wx.makePhoneCall({
+      phoneNumber: '0451－82930599',
+    })
+  },
+  hotline_call2: function () {
+    wx.makePhoneCall({
+      phoneNumber: '0451－82930699',
     })
   },
 

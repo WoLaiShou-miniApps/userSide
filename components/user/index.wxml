@@ -57,9 +57,9 @@
           <view class="item-title">地址管理</view>
         </view>
       </navigator>
-        <view class="item" bindtap="open_hotline">
-          <image src="../../static/image/hotline.png"></image>
-          <view class="item-title">回收热线</view>
+        <view class="item" bindtap="open_complain">
+          <image src="../../static/image/complain.png"></image>
+          <view class="item-title">投诉电话</view>
         </view>
     </view>
      <view class="contact-area">
@@ -94,18 +94,14 @@
     </view>
   </view>
 
-  <view wx:if="{{hotline}}" class="dim-panel" bindtap="close_hotline">
-    <view class="hotline-panel" catchtap="nomotion">
+  <view wx:if="{{complain}}" class="dim-panel" bindtap="close_complain">
+    <view class="complain-panel" catchtap="nomotion">
       <view class="contact-tip">
-      请<text style="color:red;font-size:37rpx;">点击</text>拨打以下任意热线电话，咨询客服人员
+      请<text style="color:red;font-size:37rpx;">点击</text>拨打以下热线电话，咨询客服人员
       </view>
-      <view class="contact-item" bindtap="hotline_call1">
+      <view class="contact-item" bindtap="complain_call1">
         <image class="icon" src="../../static/image/phone.png"></image>
-        <view class="text">0451－82930699</view>
-      </view>
-      <view class="contact-item" bindtap="hotline_call2">
-        <image class="icon" src="../../static/image/phone.png"></image>
-        <view class="text">0451－57815011</view>
+        <view class="text">133－5450－2967</view>
       </view>
     </view>
   </view>  

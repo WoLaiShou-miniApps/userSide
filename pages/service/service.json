@@ -3,7 +3,7 @@
   "navigationBarTextStyle": "white",
   "navigationBarTitleText": "我来收",
   "backgroundColor": "#FFF",
-  "backgroundTextStyle": "light",
+  "backgroundTextStyle": "dark",
   "enablePullDownRefresh":true
   
 }

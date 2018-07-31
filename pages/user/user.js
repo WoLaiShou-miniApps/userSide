@@ -7,7 +7,7 @@ Page({
     thepanel:false,
     credit:-1,
     origin: 0, //0初次登陆，1已有用户
-    hotline:false
+    complain:false
   },
   maskClick: mask.maskClick,
   onLoad:function(options){
@@ -18,22 +18,22 @@ Page({
       credit: app.globalData.credit
     })
   },
-  open_hotline:function(){
+  open_complain:function(){
     this.setData({
-      hotline:true
+      complain:true
     })
   },
-  close_hotline: function () {
+  close_complain: function () {
     this.setData({
-      hotline: false
+      complain: false
     })
   },
-  hotline_call1:function(){
+  complain_call1:function(){
     wx.makePhoneCall({
-      phoneNumber: '0451－82930699',
+      phoneNumber: '13354502967',
     })
   },
-  hotline_call2: function () {
+  complain_call2: function () {
     wx.makePhoneCall({
       phoneNumber: '0451－57815011',
     })

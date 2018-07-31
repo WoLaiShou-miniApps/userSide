@@ -1,13 +1,14 @@
 
 .orderStyle-page{
-  padding-top:150rpx;
-  padding-left:260rpx;
+  padding-top:100rpx;
   width:100%;
 }
 .orderStyle-page .osButton{
+  margin-left:auto;
+  margin-right:auto;
   margin-top:80rpx;
-  width:240rpx;
-  height:240rpx;
+  width:220rpx;
+  height:220rpx;
   border-radius: 50%;
   background-color:#c51a29;
   color:white;
@@ -21,16 +22,70 @@
 }
 
 .orderStyle-page .osButton image{
-  margin:40rpx 80rpx 15rpx 80rpx;
+  margin:30rpx 70rpx 17rpx 70rpx;
   width:80rpx;
   height:80rpx;
 }
 
 .orderStyle-page .osButton .text{
-  margin-left:55rpx;
-  
-  font-size:35rpx;
+  text-align:center;
+  font-size:30rpx;
 }
+
+.hotline-panel{
+  padding-top:80rpx;
+  padding-left:50rpx;
+  padding-right:50rpx;
+  padding-bottom:30rpx;
+
+}
+
+.hotline-panel .hotline-inpanel{
+  border:1rpx solid #F2F2F2;
+  padding-top:10rpx;
+  padding-bottom:20rpx;
+}
+
+.hotline-panel .hotline-inpanel .hotline-title{
+  margin-left:50rpx;
+  margin-bottom:10rpx;
+  font-size:33rpx;
+  font-weight: bold;
+  font-family: "楷体";
+}
+
+.hotline-panel .hotline-inpanel .contact-item{
+  margin-left:150rpx;
+  line-height:80rpx;
+  width:400rpx;
+  height:80rpx;
+  display:flex;
+  flex-direction:row;
+}
+
+.hotline-panel .hotline-inpanel .contact-item .icon{
+  display: inline-block;
+  vertical-align: middle;
+  margin:15rpx 0rpx 15rpx 30rpx;
+  width:50rpx;
+  height:50rpx;
+}
+
+.hotline-panel .hotline-inpanel .contact-item .text{
+  width:300rpx;
+  text-align:center;
+  display: inline-block;
+  height:80rpx;
+  font-size:30rpx;
+  color:#999999;
+}
+
+.hotline-panel .hotline-inpanel .contact-item:active{
+  border:1rpx dashed #999999;
+  border-radius:50rpx;
+  box-shadow: 1rpx 1rpx 1rpx 1rpx #F2F2F2 inset;
+}
+
 
 
 /*****语音界面******/

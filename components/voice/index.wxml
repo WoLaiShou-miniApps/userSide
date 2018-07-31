@@ -4,12 +4,26 @@
   <view class="osButton" bindtap="chooseImgOrder" >
     <image src="../../static/image/keyboardStyle.png"> </image>
     <view  class="text">普通下单</view>
-  </view>
+  </view> 
   <view class="osButton" bindtap="chooseVoiceOrder" >
     <image src="../../static/image/voiceStyle.png"> </image>
     <view class="text">语音下单</view>
   </view>
  </view>
+
+  <view class="hotline-panel">
+    <view class="hotline-inpanel">
+      <text class="hotline-title"> 回收热线 </text>
+        <view class="contact-item" bindtap="hotline_call1">
+          <image class="icon" src="../../static/image/phone.png"></image>
+          <view class="text">0451-82930599</view>
+        </view>
+        <view class="contact-item" bindtap="hotline_call2">
+          <image class="icon" src="../../static/image/phone.png"></image>
+          <view class="text">0451-82930699</view>
+        </view>
+    </view>
+  </view>
 
 </template>
 
