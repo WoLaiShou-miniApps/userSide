@@ -1,4 +1,5 @@
 {
   "navigationBarTitleText": "二手售卖",
-  "navigationBarBackgroundColor": "#1AC7B8"
+  "navigationBarBackgroundColor": "#1AC7B8",
+    "enablePullDownRefresh": false
 }
