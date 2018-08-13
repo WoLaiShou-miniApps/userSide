@@ -2,11 +2,49 @@
 var app = getApp()
 Page({
   data: {
+    confirm_PopUp: false,
+    call_number: -1,
     order_state:0,
     select_order:-1,
     myorder_list: {}
     
   },
+
+  confirm_call: function () {
+    wx.makePhoneCall({
+      phoneNumber: this.data.call_number,
+
+      complete: function () {
+      },
+      fail: function () {
+        wx.showToast({
+          image: '../../static/image/tip.png',
+          title: '拨号取消',
+          duration: 1000
+        })
+      }
+
+    })
+
+    this.setData({
+      confirm_PopUp: false,
+      call_number: -1
+    })
+  },
+  not_call: function () {
+    this.setData({
+      confirm_PopUp: false,
+      call_number: -1
+    })
+  },
+  call_driver: function (e) {
+    wx.vibrateShort()
+    this.setData({
+      confirm_PopUp: true,
+      call_number: (e.currentTarget.dataset.index).toString()
+    })
+  },
+
 
   changepape: function (e) {
     this.setData({
@@ -47,7 +85,7 @@ Page({
             ////console.log(res.resdata);
             var myorder = { untaken: { num: 0, content: [] }, finished: { num: 0, content: [] } }
             for (var i = 0; i < res.data.length; i++) {
-              if (res.data[i].state == 6 || res.data[i].state <= 1) {
+              if (res.data[i].state == 6 || res.data[i].state ==5 || res.data[i].state <= 1) {
                 myorder.finished.content.push(res.data[i])
                 myorder.finished.num++
               }
@@ -92,7 +130,7 @@ Page({
             ////console.log(res.resdata);
             var myorder = { untaken: { num: 0, content: [] }, finished: { num: 0, content: [] } }
             for (var i = 0; i < res.data.length; i++) {
-              if (res.data[i].state == 6 || res.data[i].state <= 1) {
+              if (res.data[i].state == 6 || res.data[i].state == 5 || res.data[i].state <= 1) {
                   myorder.finished.content.push(res.data[i])
                   myorder.finished.num++
                   } 
@@ -159,7 +197,7 @@ Page({
         
         for (var i = 0; i < res.data.length;i++)
         {
-          if (res.data[i].state == 6 || res.data[i].state <=1)
+          if (res.data[i].state == 6 || res.data[i].state == 5 || res.data[i].state <=1)
           {
               myorder.finished.content.push(res.data[i])
               myorder.finished.num++
@@ -232,7 +270,7 @@ Page({
         ////console.log(res.resdata);
         var myorder = { untaken: { num: 0, content: [] }, finished: { num: 0, content: [] } }
         for (var i = 0; i < res.data.length; i++) {
-          if (res.data[i].state == 6 || res.data[i].state <= 1) {
+          if (res.data[i].state == 6 || res.data[i].state == 5 || res.data[i].state <= 1) {
             
               myorder.finished.content.push(res.data[i])
               myorder.finished.num++

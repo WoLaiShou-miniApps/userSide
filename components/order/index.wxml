@@ -9,8 +9,10 @@
   </view>
 
   <block wx:if="{{order_state==0 && myorder_list.untaken.num!=0}}">
+
     <view class="myorder_list">
       <block wx:for="{{myorder_list.untaken.content}}">
+      <view class="orders-item_outside {{select_order==index?'selected':''}}">
         <view bindtap="selectorder" data-index="{{index}}" class="orders-item {{item.state==1?'invalid':''}}" >
           <view class="name">{{item.name}}</view>
           <view class="righttext">
@@ -25,7 +27,6 @@
           <image wx:if="{{item.state==4}}" class="del-node" src="../../static/image/wait.png"></image>
 
         </view>
-
 
         <block wx:if="{{select_order==index}}">
           <view class="operate-panel">
@@ -42,12 +43,26 @@
           </view>
         </block>
 
+        <view wx:if="{{select_order==index && item.state>2 && item.state<7 && item.driver}}" class="contact-module" catchtap="call_driver" data-index="{{item.driver.user.phone}}">
+          <image src="../../static/image/phone2.png" />
+          <view class="text">联系接单司机</view> 
+        </view> 
+
+        <view class="timeStamp_module">
+          {{item.time_stamp}}下单
+        </view>
+
+      </view>
+
       </block>
     </view>
+
   </block>
   <block wx:elif="{{order_state==1 && myorder_list.finished.num!=0}}">
+
     <view class="myorder_list">
       <block wx:for="{{myorder_list.finished.content}}">
+      <view class="orders-item_outside">
         <view bindtap="selectorder" data-index="{{index}}" class="orders-item {{item.state==1?'invalid':''}}">
           <view class="name">{{item.name}}</view>
           <view class="righttext">
@@ -67,8 +82,19 @@
               <view wx:if="{{item.state==1}}" class="item" style="background:#cccccc">无法评价</view>
           </view>
         </block>
+
+        <view wx:if="{{select_order==index && item.state>2 && item.state<7 && item.driver}}" class="contact-module" catchtap="call_driver" data-index="{{item.driver.user.phone}}">
+          <image src="../../static/image/phone2.png" />
+          <view class="text">联系接单司机</view> 
+        </view> 
+        <view class="timeStamp_module">
+          {{item.time_stamp}}下单
+        </view>
+
+      </view>
       </block>
     </view>
+
   </block>
   <block wx:else>
     <view class="empty-list">暂时还没有订单~</view>
@@ -79,10 +105,26 @@
 
 
 <template name="orderdetail">
+
+  <image wx:if="{{order.state==1 || order.state==5 }}" src="../../static/image/invalid_order.png" class="imprint"></image>
+  <image wx:if="{{order.state==2 || order.state==7}}" src="../../static/image/booked_order.png" class="imprint"></image> 
+  <image wx:if="{{order.state==3}}" src="../../static/image/taken_order.png" class="imprint"></image>   
+  <image wx:if="{{order.state==4}}" src="../../static/image/todelete_order.png" class="imprint"></image>  
+  <image wx:if="{{order.state==6}}" src="../../static/image/completed_order.png" class="imprint"></image>   
+
   <view class="detail-chief">
     <view class="title">
       单号：{{order.id}}
     </view>
+
+    <view class="time_stamp">
+    {{order.time_stamp}} 下单
+    </view>
+
+    <view class="user_title">
+      订单预约内容
+    </view>
+
     <view class="term">
       <view class="term-item">
         <image src="../../static/image/name.png" class="image"></image>
@@ -101,7 +143,34 @@
           <view class="text">{{order.address}}</view>
         </view>
     </view>
+
+      <view class="driver_title" wx:if="{{order.driver}}">
+        接单司机信息
+      </view>
+
+      <view class="term"  wx:if="{{order.driver}}">
+      <view class="term-item" wx:if="{{order.driver.user.username}}">
+        <image src="../../static/image/driver_name.png" class="image"></image>
+        <view class="text">{{order.driver.user.username}}</view>
+      </view>
+      <view class="term-item" wx:if="{{order.driver.user.phone}}" bindtap="call_driver" data-index="{{order.driver.user.phone}}">
+        <image src="../../static/image/driver_phone.png" class="image" ></image>
+        <view class="text">{{order.driver.user.phone}}</view>
+        <image src="../../static/image/tap.png" class="tap_image"></image>
+      </view>
+      <view class="term-item" wx:if="{{order.driver.car.model}}">
+        <image src="../../static/image/car_model.png" class="image"></image>
+        <view class="text">{{order.driver.car.model}}</view>
+      </view>
+      <view class="term-item" wx:if="{{order.driver.car.plateNum}}" style="border-bottom:#FFF">
+        <image src="../../static/image/car_plate.png" class="image"></image>
+        <view class="text">{{order.driver.car.plateNum}}</view>
+      </view>
+    </view>
+
+
   </view>
+
   <map wx:if="{{!order.mp3Url}}" wx:if="{{order.state<=3}}" class="order-map" longitude="{{Mapmarkers[1].longitude}}" latitude="{{Mapmarkers[1].latitude}}" scale="13" markers="{{Mapmarkers}}">
     
   </map>
@@ -120,4 +189,25 @@
     <image src="https://irecycle.gxxnr.cn{{order.imgUrl}}" mode="aspectFit">
     </image>
   </view>
+</template>
+
+<template name="callConfirm_panel">
+<view wx:if="{{confirm_PopUp}}" class="reqnodemask">
+  <view class="reqnode-page" bindtap="not_call">
+</view>
+  <view class="confirm-panel">
+    <view class="title">
+      是否拨打电话，联系这位回收车司机？
+    </view>
+    <view class="bottom-panel">
+      <view class="btn" bindtap="confirm_call">
+        确定
+      </view>
+      <view class="btn-line" />
+      <view class="btn" bindtap="not_call">
+        点错了
+      </view>
+    </view>
+  </view>
+</view>
 </template>

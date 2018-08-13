@@ -1,3 +1,5 @@
 {
-  "navigationBarTitleText": "个人评价"
+  "navigationBarTitleText": "个人评价",
+    "navigationBarBackgroundColor": "#1AC7B8",
+    "enablePullDownRefresh": false
 }

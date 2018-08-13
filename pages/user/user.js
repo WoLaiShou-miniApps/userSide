@@ -30,13 +30,11 @@ Page({
   },
   complain_call1:function(){
     wx.makePhoneCall({
-      phoneNumber: '13354502967',
+      phoneNumber: '15546391746',
     })
   },
   complain_call2: function () {
-    wx.makePhoneCall({
-      phoneNumber: '0451－57815011',
-    })
+
   },
   onReady:function(){
     // 页面渲染完成

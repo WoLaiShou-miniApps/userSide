@@ -1,3 +1,5 @@
 {
+  "navigationBarTitleText": "地址管理",
+  "navigationBarBackgroundColor": "#1A7FC7",
   "enablePullDownRefresh": false
 }

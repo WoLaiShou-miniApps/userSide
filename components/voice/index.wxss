@@ -51,11 +51,11 @@
   margin-bottom:10rpx;
   font-size:33rpx;
   font-weight: bold;
-  font-family: "楷体";
+  font-family: "kaiti";
 }
 
 .hotline-panel .hotline-inpanel .contact-item{
-  margin-left:150rpx;
+  margin-left:130rpx;
   line-height:80rpx;
   width:400rpx;
   height:80rpx;
@@ -72,7 +72,7 @@
 }
 
 .hotline-panel .hotline-inpanel .contact-item .text{
-  width:300rpx;
+  width:280rpx;
   text-align:center;
   display: inline-block;
   height:80rpx;

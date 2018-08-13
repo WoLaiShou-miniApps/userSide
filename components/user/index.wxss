@@ -66,7 +66,7 @@ page{
     display: flex;
     flex-direction:column;
 }
-.item{
+.user-item .item{
     background: #fff;
     height: 100rpx;
     margin-top: 20rpx;
@@ -74,15 +74,22 @@ page{
     color: rgb(95,95,95);
     display: flex;
     justify-content: space-between;
+    box-shadow: 1rpx 1rpx 1rpx 1rpx #e6e5e5;
 }
-.item image{
+.user-item .item:active{
+  color:#000000;
+  background:#F5FFFA;
+  border-top:#FFFFF0;
+  border-bottom:#FFFFF0;
+}
+.user-item .item image{
     width: 70rpx;
     height: 70rpx;
     position: relative;
     margin: 15rpx;
     margin-left: 60rpx;
 }
-.item-title{
+.user-item .item-title{
     flex-grow: 4;
     margin-left: 60rpx;
 }
@@ -192,19 +199,19 @@ page{
 }
 
 .dim-subpanel .QRcode{
-  margin-top:20rpx;
+  margin-top:30rpx;
   width:70%;
 }
 
 .dim-subpanel .contact-panel{
   position:absolute;
-  top:380rpx;
+  top:410rpx;
   width:100%;
 }
 
 .dim-subpanel .contact-item{
   line-height:80rpx;
-  height:80rpx;
+  height:70rpx;
   display:flex;
   flex-direction:row;
 }
@@ -218,7 +225,7 @@ page{
 }
 
 .dim-subpanel .contact-item .text{
-  width:350rpx;
+  width:330rpx;
   text-align:center;
   display: inline-block;
   height:80rpx;

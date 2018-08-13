@@ -74,7 +74,7 @@
 
   <view type="primary" plain bindtap="voiceOrderSubmit" class="voiceOrderSubmit">一键预约</view>
 
-  <view style="width:100%;height:100%;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);" wx:if="{{userGuid_voice}}"></view>
+  <view style="width:100%;height:100%;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);" catchtap="closeGuid" wx:if="{{userGuid_voice}}"></view>
 
   <view class="voiceTip-panel" wx:if="{{userGuid_voice}}" catchtap="closeGuid">
   <view><text style="font-weight:bold;">语音方式下单：</text>请输入您的<text style="color:#3300ff;">语音留言</text>(限时一分钟)和<text style="color:#3300ff;">上门服务地址</text>(包含联系电话)，然后点击<text style="color:#3300ff;">一键预约</text>完成下单操作。</view>
@@ -85,7 +85,6 @@
   <view>请确保您的语音留言中包含以下内容：</view>
   <view>1. 本次出售的废品种类和数量</view>
   <view>2. 希望我们上门回收的时间</view>
-  <view>3. 备注信息(如有必要)</view>
   <view style="height:20rpx;"></view>
   <view style="color:red;font-size:25rpx;">PS.本窗口点击即可关闭</view>
   </view>

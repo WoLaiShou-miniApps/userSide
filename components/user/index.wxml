@@ -62,9 +62,11 @@
           <view class="item-title">投诉电话</view>
         </view>
     </view>
+    <!--
      <view class="contact-area">
           <button open-type="contact" type="default-dark" session-from="weapp" class="contact-btn">联系客服</button>
       </view>
+      -->
   </view>
  
 
@@ -101,7 +103,7 @@
       </view>
       <view class="contact-item" bindtap="complain_call1">
         <image class="icon" src="../../static/image/phone.png"></image>
-        <view class="text">133－5450－2967</view>
+        <view class="text">155－4639－1746</view>
       </view>
     </view>
   </view>  

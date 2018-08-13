@@ -4,6 +4,8 @@ var app = getApp()
 Page({
   data: {
     order:{},
+    confirm_PopUp:false,
+    call_number:-1,
     voicePlaying:false,
     Mapmarkers:[{
       id:0,
@@ -29,6 +31,41 @@ Page({
   },
   URL: 'http://easy-mock.com/mock/59070ef87a878d73716e3aa7/wx-irecycle/',
 
+  confirm_call:function()
+  {
+    wx.makePhoneCall({
+      phoneNumber: this.data.call_number,
+
+      complete:function(){
+      },
+      fail:function(){
+        wx.showToast({
+          image: '../../static/image/tip.png',
+          title: '拨号取消',
+          duration: 1000 
+        })
+      }
+
+    })
+
+    this.setData({
+      confirm_PopUp: false,
+      call_number: -1
+    })
+  },
+  not_call:function(){
+    this.setData({
+      confirm_PopUp: false,
+      call_number: -1
+    })
+  },
+  call_driver:function(e){
+    wx.vibrateShort()
+    this.setData({
+      confirm_PopUp:true,
+      call_number: (e.currentTarget.dataset.index).toString()
+    })
+  },
   voiceOrderStop:function(e){
     this.setData({
       voicePlaying:false
